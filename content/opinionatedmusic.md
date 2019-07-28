@@ -51,7 +51,7 @@ To do that though we're gonna need just a few thins
 Go download VCV Rack from https://vcvrack.com/ and depending on your OS you'll need some sound drivers, MAC guys, sorry, no idea. On Windows you'll want to use ASIO, if you dont know that is just go grab http://www.asio4all.org/ and use that,on linux you'll want to use Jack https://wiki.archlinux.org/index.php/JACK_Audio_Connection_Kit. On linux you may need to use a tool like Catia to actually connect the jack devices together (VCV to System Out)
 
 Go ahead and fire up VCV and a template patch should have opened up that looks some thing like this:
-![vcv1default](./imgs/opmusic/vcv1default.png)
+![vcv1default]({static}/opmusic/vcv1default.png)
 
 
 
@@ -84,7 +84,7 @@ Filters are a huge part of making good sounding music as often you'll have a goo
 
 The need for this may seem a bit weird at first, as if we're playing a note at exactly one frequency, say A at 220Hz, then why would we need to filter out anything? Well, most oscillators and real instruments alike will actually have multiple 'harmonics', that is it will play an A at 220, 440, 880, and so on with decreasing amplitude or even on other frequencies entirely that still have a musical influence on the signal. On the 'VCO-1' Oscillator loaded into the default patch here you can lessen these harmonics by switching the ANLG (Analog) and DIGI (Digital) switch on the right. This is because this oscillator can emulate either an 'ideal' digital oscillator which outputs a clean, sharp signal with less harmonics or an analog signal oscillator which includes a subtle amount of pitch drift and some smoothing of the output wave- of note, usually the analog characteristics, while technically flaws, are desirable.
 
-![harmonics](./imgs/opmusic/harmonics.png)
+![harmonics]({static}/opmusic/harmonics.png)
 
 > The top VCO is outputting an 'analog' emulating signal while the bottom is in digital mode. Look at how the Triangle output shape on the analog mode is smoothed out compared to the digital mode's sharp edges
 
@@ -94,11 +94,11 @@ So say we put the big 'FREQ' knob dead center, and give the 'FREQ' input jack wi
 
 Here, I'm showing modulating the filter frequency manually as well as showing what resonance is- it boots the signal right at the cut off frequency
 
-![filter](./imgs/gifs/filter.gif)
+![filter]({static}/gifs/filter.gif)
 
 Here, the input to the cut off frequency is modulated with an 'LFO' or Low Frequency Oscillator, which much like the VCO outputs a simple signal, but in this case the signal is low frequency, usually below human hearing range:
 
-![lfofilt](./imgs/gifs/lfofilt.gif)
+![lfofilt]({static}/gifs/lfofilt.gif)
 
 Alright, that's fine and all, but the cable going input to the 'FREQ' control on the VCF is coming from something called an 'ADSR'
 
@@ -108,7 +108,7 @@ So the adventure continues. 'ADSR' stands for 'Attack, Decay, Sustain, Release' 
 
 So, back to the 'ADSR' an ADSR generates a signal that looks like this:
 
-![adsr](./imgs/gifs/adsr.gif)
+![adsr]({static}/gifs/adsr.gif)
 
 That is, voltage will follow this shape over time. The 'Attack' knob sets how long it takes to reach the peak point, the Decay knob set's how long it will take to reach the sustain level, the sustain knob set's at what level the sustain should be held at, and the release knob set's how long the note should take to fade out from the sustain level after the key is released. Take note, the sustain knob controls a level, while the other three control time:
 
@@ -118,7 +118,7 @@ So, this output signal is fed to two places, the first is the frequency knob we 
 
 The mixer in this demo patch is super simple. It has 4 inputs, with one output. The sliders let you set the level of each input, and the 'CV' input of each slider let's you externally control the slider. Because the ADSR is fed into this input and the ADSR output is at 0V unless you hit a key the mixer actually mutes the signal until a key is pressed and then lets it play, fading out over the release period. The mixer also has one big volume knob ontop to set the master output volume of all 4 channels combined. Essentially the volume follows this shape of the ADSR signal over time. In times like this, the ADSR signal is called the 'envelope' for the sound. Really, the mixer is just a combination of multiple of a simpler component though, the VCA or Voltage Controlled Amplifier. This name is a bit misleading though, as really VCAs are usually used to bring a sounds volume down, like an attenuator. To show the simplest case I'll hook up a LFO to control a VCA's level, in turn changing the level of the signal passing though:
 
-![vcavult](./imgs/gifs/vcavult.gif)
+![vcavult]({static}/gifs/vcavult.gif)
 
 Also, above you'll see I used a 3rd party oscillator instead of the VCO-1 you've seen so far. Pictured is 'Basal' from the 'Vult-Free' collection of modules available on the VCV library page.
 
