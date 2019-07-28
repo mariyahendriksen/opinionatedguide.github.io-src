@@ -9,6 +9,8 @@ SITEURL = ''
 PATH = 'content'
 STATIC_PATHS = ['gifs','opdesign','openg','opmusic']
 
+THEME =  'medius'
+
 TIMEZONE = 'America/Chicago'
 
 DEFAULT_LANG = 'en'
