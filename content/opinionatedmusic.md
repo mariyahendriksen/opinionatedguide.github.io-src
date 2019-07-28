@@ -6,36 +6,8 @@ Tags: Music
 Slug: Opinionated Music
 Authors: Vega Deftwing
 
+[TOC]
 
-   * [Preface](#preface)
-   * [Jumping in head first](#jumping-in-head-first)
-   * [Theory](#theory)
-   * [Back To VCV Rack](#back-to-vcv-rack)
-   * [Methods of making noise](#methods-of-making-noise)
-      * [Granular Synthesis](#granular-synthesis)
-      * [Wavetables](#wavetables)
-      * [Samples](#samples)
-      * [Live Input](#live-input)
-      * [Audio Effects](#audio-effects)
-      * [Sequencing](#sequencing)
-      * [MIDI effects](#midi-effects)
-      * [Drums](#drums)
-      * [Strings](#strings)
-      * [Mixing and Mastering](#mixing-and-mastering)
-      * [Live Code](#live-code)
-   * [Software](#software)
-      * [DAWs](#daws)
-      * [VSTs](#vsts)
-      * [Other](#other)
-   * [Hardware](#hardware)
-      * [MIDI](#midi)
-      * [Synths](#synths)
-      * [Audio Interfaces](#audio-interfaces)
-      * [Headphones/speakers](#headphonesspeakers)
-   * [List of All link mentioned](#list-of-all-link-mentioned)
-      * [Software and tools](#software-and-tools)
-      * [Cool People](#cool-people)
-      * [Other Resources](#other-resources)
 DELIMITEDFORTOC
 # Preface
 
