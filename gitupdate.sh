@@ -1,3 +1,5 @@
+make html
+make publish
 cd output
 git add .
 git commit -m autoupdated

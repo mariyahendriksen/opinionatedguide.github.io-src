@@ -7,6 +7,7 @@ SITENAME = 'Opinionated Guides'
 SITEURL = ''
 
 PATH = 'content'
+STATIC_PATHS = ['gifs','opdesign','openg','opmusic']
 
 TIMEZONE = 'America/Chicago'
 
