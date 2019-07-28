@@ -5,7 +5,7 @@ Category: Music
 Tags: Music
 Slug: Opinionated Music
 Authors: Vega Deftwing
-Summary: How to music
+
 
    * [Preface](#preface)
    * [Jumping in head first](#jumping-in-head-first)
