@@ -8,7 +8,6 @@ Authors: Vega Deftwing
 
 [TOC]
 
-DELIMITEDFORTOC
 # Preface
 
 Hey there.

@@ -7,7 +7,7 @@ SITENAME = 'Opinionated Guides'
 SITEURL = ''
 
 PATH = 'content'
-STATIC_PATHS = ['gifs','opdesign','openg','opmusic']
+STATIC_PATHS = ['gifs','opdesign','openg','opmusic','chapters']
 
 THEME =  'medius'
 
