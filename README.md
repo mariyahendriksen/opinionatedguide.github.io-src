@@ -36,8 +36,16 @@ That, and it's a pretty slick way of taking notes for my own use and finding gap
 ---
 # Contributing
 Written using marktext and vscode, but really use whatever as long as it doesn't cause issues
-OpinionatedEng.md Developed in chapters folder as seprate files, rendered into single file by pre-commit hook
-OpMusic and OpDesign developed directly in respective .md files
+OpinionatedEng.md Developed in chapters folder as seprate files, rendered into single file by either **chupdate.sh** when you don't wish to push your changes or **gitupdate.sh** when you do. The only dependancy is the Pelican static site generator which can be found at https://blog.getpelican.com/ and is likely available in your distributions repositories if you use Linux.
 
-pre-commit hook depends on 'moreutils' package and executes the gh-md-toc script in the top level.
-gh-md-toc by ekalinin github.com/ekalinin/github-markdown-toc
+The site uses the 'medius' pelican theme from https://blog.getpelican.com/.
+
+Pelican - the static site generator used for this project - can be a bit picky about the markdown file formatting, so if you notice any errors, try to figure out what's causing them, but it's okay to push anyway- just be sure to open an issue
+
+Please do your best to keep image and gif sizes down. The documents are served over a single, static page, so each byte counts.
+
+On the note of media, do your best to ensure that if copyright content is used that the owner of the copyright is okay with it. This is a free, educational use project but copyright still applies to us nevertheless.
+
+If you only wish to contribute content and don't want to deal with any of the static site end that's fine, just add content to the necessary .md file and do a git push directly **without** using gitupdate.sh. The next person to use the gitupdate.sh script will be able to merge your changes into the site.
+
+If you would like to repeatedly contribute, please open an issue and I'll hapily add you as a contributor to avoid the need for many pull requests.
