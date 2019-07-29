@@ -142,9 +142,9 @@ but note, you should keep in mind the standard warning that comes when first usi
 > We trust you have received the usual lecture from the local System
 > Administrator. It usually boils down to these three things:
 >
->     #1) Respect the privacy of others.
->     #2) Think before you type.
->     #3) With great power comes great responsibility.
+> #1) Respect the privacy of others.
+> #2) Think before you type.
+> #3) With great power comes great responsibility.
 
 # Chapter 1 - The first goal
 
@@ -203,7 +203,7 @@ So let's look at this command. The first part, certutil, is a program on your co
 
 **MAC**: open up a terminal by going to the Utilities fore in Applications and open 'Terminal'. The mac terminal is very, very similar to what you'll use in Linux actually, and the commands here are actually identical. You should see something like
 
-```
+```bash
 MacBook:~ username$
 ```
 
@@ -211,11 +211,15 @@ waiting for input.
 
 That `~` represents that you're in your user or 'home' folder, and assuming you downloaded Arch's install image to your downloads folder you should be able to type
 
-``` MacBook:~ username$ shasum -a 1 Downloads/arch```
+```bash
+ MacBook:~ username$ shasum -a 1 Downloads/arch
+```
 
 followed by pressing tab to make that auto complete to something like
 
-``` MacBook:~ username$ shasum -a 1 Downloads/archlinux-20xx.xx.xx-x86_64.iso```
+```bash
+MacBook:~ username$ shasum -a 1 Downloads/archlinux-20xx.xx.xx-x86_64.iso
+```
 
 upon pressing enter the terminal should print out a long string of text.
 
@@ -253,7 +257,7 @@ First, you'll need to open up 'Disk Utility' in Applications/Utilities, then pic
 
 Now, you'll need to open a terminal like you did back when checking the checksum. Plug in either an empty flash drive or one which you don't mind erasing, and run
 
-```diskutil list``` and you should see something like `/dev/diskX (external, physical)` which is your flash drive. Now run `diskutil unmountDisk /dev/diskX` where X is your flash drive disk number from above, then finally run ```dd if=path/to/arch.iso of=/dev/rdiskX bs=1m```. Note that the `of` part has /**r**diskX . The path to your arch iso is probably something like `~/Downloads/archlinux-20xx.xx.xx-x86_64.iso`
+`diskutil list` and you should see something like `/dev/diskX (external, physical)` which is your flash drive. Now run `diskutil unmountDisk /dev/diskX` where X is your flash drive disk number from above, then finally run `dd if=path/to/arch.iso of=/dev/rdiskX bs=1m`. Note that the `of` part has /**r**diskX . The path to your arch iso is probably something like `~/Downloads/archlinux-20xx.xx.xx-x86_64.iso`
 
 This command won't print anything while it's running, but when it's done you'll see a new line asking for input. Two more notes ripped straight from https://wiki.archlinux.org/index.php/USB_flash_installation_media#In_macOS:
 
@@ -289,7 +293,7 @@ Obviously if you need this you'll need IRC open on a differnt device than the on
 
 Now you'll need to power off your computer. Turn it back on and as you do mash the everliving hell out of both f2 and delete (unless you know what key gets you into the UEFI / BIOS settings). This should bring up a menu that either looks super fancy or looks stright out of the 80's. Either is fine. The setting we're looking for is 'Secure Boot' it's probably under a menu called 'Boot' or 'Security'. You'll need to shut this off. In theory secure boot should protect against a nasty kind of virus called a rootkit, in practice it doesn't and only serves to make installing linux more annoying, don't worry, I'm a security nut and am comfortable leaving it off. Exit and save settings, and as your computer boots again mash F11 or whatever key gets you to a boot menu, and select your USB key. If it shows up twice try the first one first, if that doesn't work try the other one. (If you end up back in Windows just restart and go back into the bios settings, go to 'Boot' and reorder the boot menu entries so your flash drive is the first option) The system should boot first to a screen with a few options, pick Arch Linux if you have to or just wait for it to move on. You should, with any luck, see a list of text flash down the screen that looks roughly like
 
-```
+```bash
 [OK] doing thing
 [OK] starting thing
 [OK] did thing
@@ -299,7 +303,7 @@ Now you'll need to power off your computer. Turn it back on and as you do mash t
 
 Then, you should be greeted by a mininal prompt that looks like
 
-```
+```bash
 root@archiso ~ #
 ```
 
@@ -311,7 +315,7 @@ You'll need an internet connection to do anything, if you can connect you comput
 
 If you didn't connect your computer to ethernet before you started arch, the first thing you should type in this prompt is
 
-```
+```bash
 systemctl dhcpcd restart
 ```
 
@@ -319,7 +323,7 @@ this manually restarts the service that asks the network for an IP address, whic
 
 Now, try
 
-```
+```bash
 ping archlinux.org
 ```
 
@@ -351,7 +355,7 @@ This means we'll be able to see what type of file system is on each block device
 
 So, we can use this command to see information like we saw graphically back when we opened disk management in windows, only now with their linux names. In linux each block device is actually stored as a file, as bizarre as that may seem. This file is actually located in the dev folder which sits on top the root folder. The root folder is simply designated by a single '/' so a normal file structure may look like '/home/USERNAME/Documents/office/' and so on. It's worth noting that '/' is actually a folder in itself, it's just the absolute bottom folder, hence it's called the root folder. So the dev folder is located at /dev. In /dev there's a lot of things, but at the moment what we're really concerned about is the storage devices. so, looking at this example output from `lsblk` you'll see three storage devices /dev/sda /dev/sdb and /dev/nvme0n1
 
-```
+```bash
 vega@linux ~ # lsblk -f
 NAME    FSTYPE LABEL    UUID                                 FSAVAIL FSUSE% MOUNTPOINT
 sda
@@ -375,7 +379,7 @@ looking at that output again you'll see each device has multiple things under it
 
 For Simplicity now we're actually going to look at a simpler 'lsblk -f' output with only /dev/sda and sdb. sda is still the boot usb stick you're on, but sdb is now the singular drive in a laptop that has windows installed and available free space in accordance with this guide.
 
-```
+```bash
 root@archiso ~ # lsblk -f
 
 sdb
@@ -389,7 +393,7 @@ alright, so now on sdb we see there's 4 partitions (sdb1,2,3,4) where in this ca
 
 We're going to need to make some changes this list tough, as we actually need one more small division in the partition table. run the command
 
-```
+```bash
 root@archiso ~ # cfdisk /dev/sdb
 ```
 
@@ -397,7 +401,7 @@ this should bring up a strange command line based almost graphical interface whi
 
 now, run lsblk again. You should see something like
 
-```
+```bash
 root@archiso ~ # lsblk
 sdb
 ├─sdb1      ntfs   Recovery 36C8A86BC8A82B57
@@ -409,7 +413,7 @@ sdb
 
 so now we need to format these partitions with a file system. For the root file system, where we're gonna put all the programs, files, and the OS itself we'll use the ext4 file system. It's by far the most common file system for linux. To do this look at the lsblk output and look for the large empty space we left (not the 8Gb space we just made!) and run
 
-```
+```bash
 root@archiso ~ # mkfs.ext4 /dev/sdxy
 ```
 
@@ -417,7 +421,7 @@ where xy is the correct letter and number for your partition, in the above examp
 
 alright, that's actually most of the really hard stuff done. Now we need to mount both the file system we just made and the boot filesystem. run:
 
-```
+```bash
 mount /dev/sdbx /mnt
 mount /dev/sdby /mnt/boot
 ```
@@ -426,13 +430,13 @@ where x is the same as the above x and y is the number of the partition with the
 
 Next up we need to install the base of the os to these drives, this is actually pretty easy just run
 
-```
+```bash
 pacstrap /mnt base base-devel
 ```
 
 then, we need something that tells the system the names of our partitions and how to mount them at boot. Thankfully, the system can generate (most) of this for us, just run
 
-```
+```bash
 genfstab -U /mnt > /mnt/etc/fstab
 ```
 
@@ -440,7 +444,7 @@ what this command does is looks at the id's of the drives in /mnt (the ones we m
 
 Alright, next we need to use a command that you'll probably never use again- chroot. This changes your root directly to be higher up the chain, effectively cutting off access to lower files, though we need to do this to install our bootloader, again this is easy
 
-```
+```bash
 root@archiso ~ # arch-chroot /mnt
 ```
 
@@ -448,13 +452,13 @@ which will change the above to look like: ' root@archiso ~ # ' to ' root@archiso
 
 now we can install the bootlooder with
 
-```
+```bash
 root@archiso / # bootctl install
 ```
 
 Now we need to add a bootloader entry for arch. We're going to use a very simple command line text editor called nano. it's sorta like notepad on windows.
 
-```
+```bash
 root@archiso / # nano /boot/loader/loader.conf
 ```
 
@@ -462,7 +466,7 @@ this will bring up a text editor, it says how to operate it at the bottom (ctr+o
 
 enter, exactly: (Note line 2 says linuZ-linux, that's not a typo, and replace the x with your root partiton)
 
-```
+```bash
 title        Arch Linux
 linux         /vmlinuz-linux
 initrd         /initramfs-linux.ing
@@ -471,13 +475,13 @@ options     root=/dev/sdbx rw
 
 and for our last trick before we reboot save and exit nano with ctr+o, ctl+x then, run
 
-```
+```bash
 root@archiso / # nano /boot/loader/loader.conf
 ```
 
 and enter
 
-```
+```bash
 timeout 3
 default arch
 ```
@@ -486,7 +490,7 @@ then, we're ready to reboot into the new OS!
 
 run consecutively,
 
-```
+```bash
 root@archiso / # exit
 root@archiso / # reboot
 ```
@@ -501,7 +505,7 @@ then run 'passwd' this will prompt you to set a password. For the love of god do
 
 Next you'll need to set a hostname, this is how your computer id's itself on the network, so might help if you make it something sensible like 'usernamelinux' to do this run
 
-```
+```bash
 echo 'mynewawesomehostname' > /etc/hostname
 ```
 
@@ -509,7 +513,7 @@ then let's add a user, as using root all the time is very unsafe. To do so run:
 
 (I recommend using the same password you used for root)
 
-```
+```bash
 useradd -m -G wheel mycrappyusername
 
 followed by,
@@ -521,13 +525,13 @@ I swear to you we're getting there.
 
 run
 
-```
+```bash
 EDITOR=nano visudo
 ```
 
 then find the line that says
 
-```
+```bash
 # %wheel ALL=(ALL) ALL
 ```
 
@@ -547,7 +551,7 @@ Anyway, with that out of the way let's find fix up networking so we can get onli
 
 run `ip link` and look for the name of your network interface. If it's a wired adapter it should be enpXsY where X and Y are number, wif is similar but uses wlp instead of enp. To make sure the network brings itself up on each boot let's enable `dhcpcd` - that service we restarted way back when- on that interface. Just run
 
-```
+```bash
 systemctl enable dhcpcd@enpXsY.service
 
 this enable it at each boot however we should
@@ -558,7 +562,7 @@ systemctl start hdcpcd@enpXsY.service
 
 next up, we should make sure things know what language we speak. Assuming you want to use US english just run
 
-```
+```bash
 locale-gen
 
 followed by,
@@ -568,7 +572,7 @@ localectl set-locale LANG=en_US.UTF-8
 
 Timezones, run each independently
 
-```
+```bash
 tzselect
 
 timedatectl list-timezones
@@ -582,7 +586,7 @@ timedatectl set-ntp true
 
 It's worth noting Linux and Windows use differenent clock standards so every time you reboot between the two windows will messup the clock, to fix it in WINDOWS you can run
 
-```
+```bash
 reg add "HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\TimeZoneInformation" /v RealTimeIsUniversal /d 1 /t REG_DWORD /f
 ```
 
@@ -590,7 +594,7 @@ in an admin command prompt
 
 Alright, we're getting close to graphical stuff now, I swear. Remember that 8Gb partion we made a while ago, time to use it. Now that we're in the full OS the're a good chance the location names of the partitions changed so run `lsblk -f`  again and figure out where that 8Gb portion is
 
-```
+```bash
 lsblk -f
 
 mkswap /dev/sdXY
@@ -602,7 +606,7 @@ then, we need to edit the fstab file we generated earlier.
 
 Let's look at what the fstab file looks like right now. We can read a file from the command line without opening it up for editing with `cat`, so run
 
-```
+```bash
 cat /etc/fstab
 ```
 
@@ -612,7 +616,7 @@ if we run `lsblk -no UUID /dev/sdxy` (obviously substitute x and y) you'll get t
 
 Remember how we used the '>' character before to write the output of genfstab to /etc/fstab, well you can also use two of that same character to *append* an output to a file. However, before we do that let's be safe rather than sorry and make a backup of the fstab file by first moving to the /etc directory then making a copy of the file
 
-```
+```bash
 cd /etc
 cp fstab fstab.bak
 lsblk -no UUID /dev/sdxy >> fstab
@@ -622,13 +626,13 @@ note we didn't need to type /etc/ before each fstab because that's a file in the
 
 but we're not done yet. use `nano` to open up the fstab file and edit it so the last line we just appended looks more like:
 
-```
+```bash
 UUID=whateverthisis none swap defaults 0 0
 ```
 
 Save and close nano and then to finish up swap all we need to do is edit one more file
 
-```
+```bash
 nano /etc/sysctl.d/99-sysctl.conf
 
 and add the single line
@@ -652,7 +656,7 @@ Once the system reboots login with your username, not root. When you type your p
 
 then run:
 
-```
+```bash
 sudo pacman -S xf86-video-vesa mesa
 ```
 
@@ -660,7 +664,7 @@ This command uses sudo or 'superuser do' because you're now logged in as a user,
 
 To install the correct driver for your graphics hardware you can run
 
-```
+```bash
 these next few commands use 'pipe' the character above enter on most US keyboards
 
 lspci | grep -i VGA
@@ -672,19 +676,19 @@ lspci | grep -i 3D
 
 to find the vendor of your graphics card. If the output contains NVIDIA run
 
-```
+```bash
 sudo pacman -S xf86-video-nouveau
 ```
 
 for INTEL run
 
-```
+```bash
 sudo pacman -S xf86-video-intel
 ```
 
 and for AMD run
 
-```
+```bash
 sudo pacman -S xf86-video-amdgpu
 ```
 
@@ -694,7 +698,7 @@ Alright, now we need to install the desktop environment. Because this guide to t
 
 KDE Plasma is pretty big though, so we're gonna want to be sure we're using fast mirrors before we do anything else
 
-```
+```bash
 sudo pacman -S reflector
 ```
 
@@ -702,13 +706,13 @@ then we're going to temporarily switch to the root account using `su` all you ha
 
 now run
 
-```
+```bash
 reflector -c us -n 25 -f 5 > /etc/pacmand.d/mirrorlist
 ```
 
 Finally to install Plasma run
 
-```
+```bash
 sudo pacman -S xorg-server xord-utils xorg-xinit xterm plasma kde-applications
 
 then
@@ -724,7 +728,7 @@ sudo systemctl start ssdm
 
 Note that KDE Plasma is fairly large to download and a bit resource intensive. As an alternative if on older hardware
 
-```
+```bash
 sudo pacman -S xorg-server xorg-utils xorg-xinit xterm mate mate-extra lightdm
 
 then
@@ -742,7 +746,7 @@ Alright, now you can take a few minutes to get used to how your new computer wor
 
 before you wrap up lets do a tiny bit of houskeeping
 
-```
+```bash
 sudo pacman-key --init
 sudo pacman-key --populate
 sudo pacman -S git --needed
@@ -764,27 +768,27 @@ The first language we're going to try out is called python. Python is an interpr
 
 Because we installed yay earlier you could use either that or pacman, but let's just use yay for simplicity. From here on out I'll be coping directly from what my terminal prompt looks like. Yours, for now, probaly looks similar to:
 
-```
+```bash
 username@root /current/folder : command -to -be executed
 ```
 
 However, mine looks like
 
-```
+```bash
 ╭─vega@lyrae /current folder
 ╰─➤  command -to -be -executed
 ```
 
 so, install python just like we've installed other programs with python or yay
 
-```
+```bash
 ╭─vega@lyrae ~
 ╰─➤  yay -S python
 ```
 
 once that's done you should be able to start the python interpreter by simply typing `python` and pressing enter. This will give you a new prompt that takes python code as input
 
-```
+```python
 ╭─vega@lyrae ~
 ╰─➤  python
 Python 3.7.2 (default, Jan 10 2019, 23:51:51)
@@ -838,7 +842,7 @@ Python code doesn't have to be written in line by line, you can put it an a file
 
 super quick detour: while you can open graphical programs though the start menu down in the lower left hand corner just like on Windows, you can actually open a program directly from the terminal. Interestingly, this can make a program that opens in a new window a 'child process' of the terminal, which is why we normally don't do this. What this normally means is that if you start a program from the terminal - the parent- and then close the terminal, the child process, in this case the graphical program you started, will die too. Strangely, VSCode actually separates itself from it's parent process almost immediately, which is why we can start it from a terminal and then close the terminal and it should stay running. so, let's do that.
 
-```
+```bash
 ╭─vega@lyrae ~
 ╰─➤ code
 ```
@@ -903,7 +907,7 @@ Before we talk about our code, let's see it run!
 
 Open up a terminal, and run `cd Documents` to get to your documents folder, `ls` to see what's in there, then `./test.py` to run the program.
 
-```
+```bash
 ╭─vega@lyrae ~
 ╰─➤ cd Documents
 ╭─vega@lyrae ~/Documents
@@ -915,7 +919,7 @@ test.py
 
 Oops! that probably didn't run. If you look at the errors it will tell you you're missing matplotlib ad numpy, let's go get those
 
-```
+```bash
 ╭─vega@lyrae ~/Documents
 ╰─➤ yay -S python-matplotlib python-numpy
 ```
@@ -955,7 +959,7 @@ on line 6 the math library, which gave us access to sin and exponent functions, 
 
 The same is true for `numpy` and `matplotlib` above, both of these are libraries, matplot lib is what handled actually putting the data on the screen, and numpy as can be seen on line 12 of the program:
 
-```
+```bash
 yield t, np.sin(2*np.pi*t) * np.exp(-t/10.)
 ```
 
@@ -1005,14 +1009,14 @@ These are CPUS or Central Processing Units. They're the beating heart of your co
 
 One of the nifty things we do pretty easily in linux is get information about our hardware directly. Just as when we were installing Arch and we used `lsblk` to see an overview of the disks on the system, we can use some other tools to find out some other information about the system. Let's start off basic and see what CPU you have. Go ahead and run
 
-```
+```bash
 ╭─vega@lyrae ~
 ╰─➤  cat /proc/cpuinfo
 ```
 
 This is actually just using that same `cat` command we used before to read the system generated file that tells us about the processor in this system. I'm going to provide the output from my system for refrence
 
-```
+```bash
 processor       : 0
 vendor_id       : AuthenticAMD
 cpu family      : 23
@@ -1050,7 +1054,7 @@ Next is the vendor ID, family, model, name, and stepping. My processor is an AMD
 
 Next is
 
-```
+```bash
 microcode       : 0x8001137
 cpu MHz         : 2018.119
 cache size      : 512 KB
@@ -1099,7 +1103,7 @@ This code first makes two integers, a and b, gives them values, then adds them t
 
 Unlike python which get's converted to something the computer can understand as it executes C is compiled before hand. This makes it so programs written in C are much, much faster than those written in python, though obviously C code is more difficult to write. Compilation is the process of turning a program into a file full of instructions the computer actually understands. This happens in two steps, first the program is turned into assembly code, for the above code this results in an output that looks like
 
-```
+```c
         push    rbp
         mov     rbp, rsp
         mov     DWORD PTR [rbp-4], 8
@@ -1208,7 +1212,7 @@ Moving out of hardware,
 
 There's a program on your system called `free` which can be used to see how much RAM you have, how much is in use, etc. Let's run free with the -h flag so we can see the amounts with nice units.
 
-```
+```bash
 ╭─vega@lyrae ~
 ╰─➤  free -h
               total        used        free      shared  buff/cache   available
@@ -1277,7 +1281,7 @@ Alright, let's move on to seeing the system buses, namely, the pci bus.
 
 The pci bus is where most of the system's add in cards, controllers, and the like connect. Here's a shortened version of the ouput of `lspci` from my system
 
-```
+```bash
 00:00.0 Host bridge: Advanced Micro Devices, Inc. [AMD] Family 17h (Models 00h-0fh) Root Complex
 00:00.2 IOMMU: Advanced Micro Devices, Inc. [AMD] Family 17h (Models 00h-0fh) I/O Memory Management Unit
 00:01.0 Host bridge: Advanced Micro Devices, Inc. [AMD] Family 17h (Models 00h-1fh) PCIe Dummy Host Bridge
@@ -1316,7 +1320,7 @@ Alright, clearly there's a lot going on here, and on first glance it doesn't eve
 
 next thing of note is
 
-```
+```bash
 02:00.0 USB controller: Advanced Micro Devices, Inc. [AMD] X370 Series Chipset USB 3.1 xHCI Controller (rev 02)
 02:00.1 SATA controller: Advanced Micro Devices, Inc. [AMD] X370 Series Chipset SATA Controller (rev 02)
 ```
@@ -1325,7 +1329,7 @@ You can see here that I have a separate controller for my USB 3.1 ports and that
 
 next is:
 
-```
+```bash
 07:00.0 USB controller: ASMedia Technology Inc. ASM1143 USB 3.1 Host Controller
 08:00.0 Ethernet controller: Intel Corporation I211 Gigabit Network Connection (rev 03)
 ```
@@ -1336,7 +1340,7 @@ You'll also see that my network interface is being handled by an Intel network c
 
 moving on:
 
-```
+```bash
 0c:00.0 VGA compatible controller: Advanced Micro Devices, Inc. [AMD/ATI] Vega 10 XL/XT [Radeon RX Vega 56/64] (rev c3)
 0c:00.1 Audio device: Advanced Micro Devices, Inc. [AMD/ATI] Vega 10 HDMI Audio [Radeon Vega 56/64]
 0d:00.0 VGA compatible controller: NVIDIA Corporation GP106 [GeForce GTX 1060 6GB] (rev a1)
@@ -1355,7 +1359,7 @@ See all those PCI ids on the right side, those directly correlate with a lot of 
 
 Finally, if you want a lot more information you can run `sudo lspci -v` to see even more info about anything, for example, here's the output about my GTX1060 GPU:
 
-```
+```bash
 0d:00.0 VGA compatible controller: NVIDIA Corporation GP106 [GeForce GTX 1060 6GB] (rev a1) (prog-if 00 [VGA controller])
     Subsystem: Micro-Star International Co., Ltd. [MSI] GP106 [GeForce GTX 1060 6GB]
     Flags: bus master, fast devsel, latency 0, IRQ 78
@@ -1379,7 +1383,7 @@ Finally, if you want a lot more information you can run `sudo lspci -v` to see e
 
 The most notable thing here is actually at the end:
 
-```
+```bash
 Kernel driver in use: nouveau
 Kernel modules: nouveau
 ```
@@ -1390,7 +1394,7 @@ tells us I'm using the nouveau driver and kernel modules instead of one of the a
 
 Much like lspci, there's also `lsusb`, which as you can imagine, tells us information about the USB devices on the system. I have a LOT of usb devices on this system so I'll just paste in a snippet:
 
-```
+```bash
 Bus 002 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
 Bus 001 Device 003: ID 0c45:6340 Microdia Camera
 Bus 001 Device 008: ID 28de:1142 Valve Software Wireless Steam Controller
@@ -1496,7 +1500,7 @@ The first thing we should do is get an idea about the disk usage, to do that I'l
 
 so first I'll run `df -h` , that `-h` on most Linux commands means to make the output human readable, printing things in terms of Gigabytes or Terabytes etc instead of just a raw byte count.
 
-```
+```bash
 Filesystem      Size  Used Avail Use% Mounted on
 /dev/sdg2       3.7T  2.3T 1.5T  62%  /run/media/vega/raid
 ```
@@ -1511,7 +1515,7 @@ None of this is really all that interesting though, so what about speed? How fas
 
 This gives:
 
-```
+```bash
 /dev/sdg:
  Timing cached reads:   22946 MB in  2.00 seconds = 11492.36 MB/sec
  Timing buffered disk reads: 556 MB in  3.01 seconds = 184.91 MB/sec
@@ -1635,7 +1639,7 @@ We've been using file in /proc and /dev thoughout this, but we never really look
 
 We'll actually start with /dev
 
-```
+```bash
 ╭─vega@lyrae ~
 ╰─➤  cd /dev
 ╭─vega@lyrae /dev
@@ -1813,7 +1817,7 @@ if you run `ls` it normally shows you the all the folders, shortcuts, and files 
 
 further down you'll see the '-l' flag gives a "long listing format" which is an almost impressively bad description. This means that on each listing will be displayed like this:
 
-```
+```bash
 Permissions   numOfLinks owner group size month date time name
 
 example:
@@ -1854,7 +1858,7 @@ To round this off we need to talk about how to change these permissions using `c
 
 For example running
 
-```
+```bash
 ╭─vega@lyrae ~
 ╰─➤  sudo chown vega:vega someFile
 ```
@@ -1863,7 +1867,7 @@ would change both the owner and group to me, vega (assuming I exist on your syst
 
 but what if you want to change every file in a directory?
 
-```
+```bash
 ╭─vega@lyrae ~
 ╰─➤  sudo chown -R vega:vega someFolder
 ```
@@ -1874,7 +1878,7 @@ Using `chmod` is pretty easy too, though there are two ways to use it.
 
 The first, which is easier to understand is with direct flags such as
 
-```
+```bash
 ╭─vega@lyrae ~
 ╰─➤  chmod +x on a file to mark it as executable
 ```
@@ -1895,7 +1899,7 @@ The other uses the octal system to set flags. Octal has 3 bits:
 
 Now, you should notice some of those options are nonsenes? being able to write to a file you can't read? being able to execute a file you can't read? In practice this leads to only some of these being used, but I digress to use these in chmod simply run
 
-```
+```bash
 ╭─vega@lyrae ~
 ╰─➤  chmod 764 someThing
 ```
@@ -1912,7 +1916,7 @@ With all of that out of the way let's finally look at /dev !
 
 Alrighty then, first, a heads up. My /dev folder will have some things yours wont. I'm on a desktop with a lot of hardware, drives, input devices, etc. And I've installed hundreds of programs, some of which interface with the system at a low enough level to necessitate extra files in here. For that reason some are going to be skipped over let's take these in blocks of 10
 
-```
+```bash
 drwxr-xr-x  22 root root         4600 Feb  8 06:03 .
 drwxr-xr-x  18 root root         4096 Jan 26 22:05 ..
 crw-rw-rw-   1 root root      10,  56 Feb  8 06:03 ashmem
@@ -1952,7 +1956,7 @@ Here I've included . and .. in the output for reference, but we'll immediately m
 
 'core' a link to /proc/kcore is a direct way to read memory, used mostly for debugging
 
-```
+```bash
 drwxr-xr-x   2 root root           60 Feb  8 06:02 cpu
 crw-rw----   1 root realtime  10,  60 Feb  8 06:03 cpu_dma_latency
 crw-------   1 root root      10, 203 Feb  8 06:03 cuse
@@ -1980,7 +1984,7 @@ crw-------   1 root root     242,   4 Feb  8 06:03 drm_dp_aux4
 
 'drm_dp_aux' each represent an output from the GPU, so think of these as the actual cables between the monitor and the computer
 
-```
+```bash
 crw-rw----   1 root video     29,   0 Feb  8 06:03 fb0
 lrwxrwxrwx   1 root root           13 Feb  8 06:02 fd -> /proc/self/fd
 crw-rw-rw-   1 root root       1,   7 Feb  8 06:03 full
@@ -1995,7 +1999,7 @@ crw-rw----+  1 root root     240,   6 Feb  8 06:03 hidraw6
 ------------------------------------------------------------------------------------
 to make this output shorter I stripped out hidraw 7-9
 ------------------------------------------------------------------------------------
-```
+`````
 
 'fb0' is your framebuffer - I can't do this justice https://www.kernel.org/doc/Documentation/fb/framebuffer.txt, in practice you're unlikely to ever use this, but it's very good to know
 
@@ -2009,7 +2013,7 @@ to make this output shorter I stripped out hidraw 7-9
 
 'hidraw' is for raw communication with Human Interface Devices (mouse, keyboard, gamepad) and allows for custom drivers, like those necessary for RGB backlit keyboards
 
-```
+```bash
 crw-rw----   1 root realtime  10, 228 Feb  8 06:03 hpet
 drwxr-xr-x   3 root root            0 Feb  8 06:03 hugepages
 crw-------   1 root root      10, 183 Feb  8 06:03 hwrng
@@ -2045,7 +2049,7 @@ crw-rw----   1 root disk      10, 237 Feb  8 06:03 loop-control
 
 'loop-contol' - http://man7.org/linux/man-pages/man4/loop.4.html, effectively used to mount images or or other file systems to be read as a separate block device
 
-```
+```bash
 drwxr-xr-x   2 root root           60 Feb  8 06:03 mapper
 crw-rw----   1 root video    239,   0 Feb  8 06:03 media0
 crw-r-----   1 root kmem       1,   1 Feb  8 06:03 mem
@@ -2076,7 +2080,7 @@ crw-------   1 root root      10,  58 Feb  8 06:03 network_throughput
 
 'network_latency' and 'network_thoughput' is primary used to specify current minimum necessary requirements for the network, used for power saving on wireless adapters
 
-```
+```bash
 crw-rw-rw-   1 root root       1,   3 Feb  8 06:03 null
 crw-------   1 root root     243,   0 Feb  8 06:03 nvme0
 brw-rw----   1 root disk     259,   0 Feb  8 06:03 nvme0n1
@@ -2109,7 +2113,7 @@ drwxr-xr-x   2 root root            0 Feb  8 06:03 pts
 
 'pts' interval virtual filesystem, used for things like docker. Works closely with 'ptmx'
 
-```
+```bash
 crw-rw-rw-   1 root root       1,   8 Feb  8 06:03 random
 crw-rw-r--+  1 root rfkill    10,  55 Feb  8 06:03 rfkill
 lrwxrwxrwx   1 root root            4 Feb  8 06:03 rtc -> rtc0
@@ -2130,7 +2134,7 @@ brw-rw----   1 root disk       8,  98 Feb  8 16:37 sdg2
 
 'sdxn' the 'normal' representation of block devices like HDDs, SSDs, and flash drives to the system. Each number is a partition
 
-```
+```bash
 drwxr-xr-x   4 root root           80 Feb  8 06:03 serial
 crw-rw----+  1 root optical   21,   0 Feb  8 06:03 sg0
 crw-rw----   1 root disk      21,   1 Feb  8 06:03 sg1
@@ -2163,7 +2167,7 @@ lrwxrwxrwx   1 root root           15 Feb  8 06:02 stdout -> /proc/self/fd/1
 
 '**stdout** interface, try `echo hello > /dev/stdout`
 
-```
+```bash
 crw-rw-rw-   1 root tty        5,   0 Feb  8 15:49 tty
 crw--w----   1 root tty        4,   0 Feb  8 06:03 tty0
 ...
@@ -2185,7 +2189,7 @@ crw-rw----+  1 root uucp       4,  67 Feb  8 06:03 ttyS3
 
 'ttySx' are serial port terminals, rarely used outside of scientific or server gear. The physical connector usually looks similar to VGA cable. Your motherboard may well have a serial port header for adding this even if you don't physically see one available on the outside of the case
 
-```
+```bash
 crw-------   1 root root      10,  61 Feb  8 06:03 udmabuf
 crw-------   1 root root      10, 239 Feb  8 06:03 uhid
 crw-rw-rw-+  1 root root      10, 223 Feb  8 06:03 uinput
@@ -2226,7 +2230,7 @@ crw-rw----   1 root tty        7,  71 Feb  8 06:03 vcsu7
 
 'vcsux' virtual console stuff
 
-```
+```bash
 drwxr-xr-x   2 root root           60 Feb  8 06:03 vfio
 crw-------   1 root root      10,  63 Feb  8 06:03 vga_arbiter
 crw-------   1 root root      10, 137 Feb  8 06:03 vhci
@@ -2652,7 +2656,7 @@ if you have multiple monitors before setting the wallpaper though you'll probabl
 
 if you have a high resolution monitor and things are small, you may want to look here: https://wiki.archlinux.org/index.php/HiDPI , the best thing from this is to add
 
-```
+```bash
 QT_QPA_PLATFORMTHEME=qt5ct
 QT_AUTO_SCREEN_SCALE_FACTOR=1
 GDK_SCALE=2
@@ -3677,13 +3681,13 @@ While this book/guide/thing primarily focuses on the less mechancial-engieering-
 
 ## Tab Completion and faster navigation
 
-    Probably the most useful shortcut for using the shell is tab completion. This is used when you need to type a really long command or chain of commands, say I want to run ncmpcpp, a name that is both long and hard to remember, instead of just typing the full name I can type ```ncm``` and press tab, and ta-da suddenly the full name is inserted. If you happen to have another package that has multiple possible endings say you want to run ``lstopo`` but you have `ls, lsusb, lstopo` all on your system, most shells will display a menu underneath with all the possible options. This is nice for commands, but the true power comes in file names, say I want to run ``cat /etc/pacman.d/mirrorlist`` while that's not too awful to type out, you could easily type `cat /e` press tab, get `cat /etc/` add pac to get `cat /etc/pac` press tab, get `cat /etc/pacman.d/` type mir and tab and get the full command, while that sounds complicated it actually speeds using the command line up rather significantly and prevents spelling mistakes
+Probably the most useful shortcut for using the shell is tab completion. This is used when you need to type a really long command or chain of commands, say I want to run ncmpcpp, a name that is both long and hard to remember, instead of just typing the full name I can type `ncm` and press tab, and ta-da suddenly the full name is inserted. If you happen to have another package that has multiple possible endings say you want to run `lstopo` but you have `ls, lsusb, lstopo` all on your system, most shells will display a menu underneath with all the possible options. This is nice for commands, but the true power comes in file names, say I want to run `cat /etc/pacman.d/mirrorlist` while that's not too awful to type out, you could easily type `cat /e` press tab, get `cat /etc/` add pac to get `cat /etc/pac` press tab, get `cat /etc/pacman.d/` type mir and tab and get the full command, while that sounds complicated it actually speeds using the command line up rather significantly and prevents spelling mistakes
 
-    Next up for navigation is directory shortcuts, these can be massive time savers, the most obvious is `~` which is just short hand for the location of the current shell users home directory, so in my case `~` is the exact same as typing out `/home/vega`. The next two have already been touched on which are `.` for the current directory and `..` for the previous directory. Depending on the shell and arbitrary number of dots may take you back and arbitary number of directories. Give it a shot! If nothing else you can always use `../../..` to navigate back as necessary. Finally, `-` represents the last directory you were in so if your in `~/Downloads` and then `cd /etc/pacman.d/`, running `cd -` will bring you back to downloads.
+Next up for navigation is directory shortcuts, these can be massive time savers, the most obvious is `~` which is just short hand for the location of the current shell users home directory, so in my case `~` is the exact same as typing out `/home/vega`. The next two have already been touched on which are `.` for the current directory and `..` for the previous directory. Depending on the shell and arbitrary number of dots may take you back and arbitary number of directories. Give it a shot! If nothing else you can always use `../../..` to navigate back as necessary. Finally, `-` represents the last directory you were in so if your in `~/Downloads` and then `cd /etc/pacman.d/`, running `cd -` will bring you back to downloads.
 
-    The most advanced form of bult in linux navigation comes in the form of `pushd` and `popd`, which as their names imply push and pop directories to a stack (a special kind of list) of directories. Like a stack of any item you can put or 'push' an item on top, and take or 'pop' an item off. Running `dirs -v` will show you a numberd list of the stack, you can navigate to the top item with `popd` or and abitrary item with `cd ~#` where # is the number as shown by `dirs -v`.
+The most advanced form of bult in linux navigation comes in the form of `pushd` and `popd`, which as their names imply push and pop directories to a stack (a special kind of list) of directories. Like a stack of any item you can put or 'push' an item on top, and take or 'pop' an item off. Running `dirs -v` will show you a numberd list of the stack, you can navigate to the top item with `popd` or and abitrary item with `cd ~#` where # is the number as shown by `dirs -v`.
 
-    Finally, there's one more super handy way to get around your file system but it's a non-standard tool so most systems or servers you use other than your own will not have it installed, and that's autojump. Put simply it takes a good guess about where you want to go by only typing part of the name of a folder you've navigated to before, so say you have a long file path `/mnt/data/archived/january2000/pictures/family/vacation/` you can get back to it again by simply running `j vac` which is obviously much simpiler. It works the vast majority of the time in practice, only having issues if you don't include enough letters leading to ambuguity.
+Finally, there's one more super handy way to get around your file system but it's a non-standard tool so most systems or servers you use other than your own will not have it installed, and that's autojump. Put simply it takes a good guess about where you want to go by only typing part of the name of a folder you've navigated to before, so say you have a long file path `/mnt/data/archived/january2000/pictures/family/vacation/` you can get back to it again by simply running `j vac` which is obviously much simpiler. It works the vast majority of the time in practice, only having issues if you don't include enough letters leading to ambuguity.
 
 ## I/O redirection
 
@@ -3707,27 +3711,27 @@ Note, `&>` redirects both stderr and stdout
 
 Finally, the weirdest and rarely used `<>` operator can be used to directly attch file descriptions and read/write files dirctly, this is rearely used as it's kind of a pita, but if you need to script something advanced it's available. Stollen from the above advanced link:
 
->    [j]<>filename
+>  [j]<>filename
 >
->       #  Open file "filename" for reading and writing,
->       #+ and assign file descriptor "j" to it.
->       #  If "filename" does not exist, create it.
->       #  If file descriptor "j" is not specified, default to fd 0, stdin.
->       #
->       #  An application of this is writing at a specified place in a file.
->       echo 1234567890 > File    # Write string to "File".
->       exec 3<> File             # Open "File" and assign fd 3 to it.
->       read -n 4 <&3             # Read only 4 characters.
->       echo -n . >&3             # Write a decimal point there.
->       exec 3>&-                 # Close fd 3.
->       cat File                  # ==> 1234.67890
->       #  Random access, by golly.
+> #  Open file "filename" for reading and writing,
+> #+ and assign file descriptor "j" to it.
+> #  If "filename" does not exist, create it.
+> #  If file descriptor "j" is not specified, default to fd 0, stdin.
+> #
+> #  An application of this is writing at a specified place in a file.
+> echo 1234567890 > File    # Write string to "File".
+> exec 3<> File             # Open "File" and assign fd 3 to it.
+> read -n 4 <&3             # Read only 4 characters.
+> echo -n . >&3             # Write a decimal point there.
+> exec 3>&-                 # Close fd 3.
+> cat File                  # ==> 1234.67890
+> #  Random access, by golly.
 
 ## Wild Cards & Regex
 
 Regular Expressions or 'Regex' are an incredibly powerful tool used to match strings in a logical way. For example, say you wanted to find all the phone numbers on page that started with the area code 555, the next three digits were any number, and the last four digits could be represented as either numbers or letters, and '-' separating each group. With regex that's easy, the regular expression for this looks like:
 
-```5{3}-[0-9]{3}-[a-zA-Z0-9]{4}```
+`5{3}-[0-9]{3}-[a-zA-Z0-9]{4}`
 
 Which while I could explain, I think just staring at that a little while should make it obvious and ideally the mental effort will lead to a better understanding. Regex can do a lot more than this though. Go ahead and checkout https://regex101.com and give it a shot.
 
@@ -3814,7 +3818,7 @@ When we installed arch we actually changed the default shell from bash to zsh, b
   * Need some way to visually seperate things, this literally just makes a horizontal line in the terminal
 * [fltrdr](https://github.com/octobanana/fltrdr)
   * Wanna read at 1000wpm, this is the tool for you.
-* [crex]( https://github.com/octobanana/crex)
+* [crex](https://github.com/octobanana/crex)
   * test regular expressions in the terminal
 * lynx, w3m, browsh
   * Browse the web from a terminal (not a joke and actually useful)
@@ -4046,8 +4050,6 @@ TaskWeb (TaskWarrior)
 
 * datasheets
 
-  *
-
 
 # Appendix C - BOM
 
@@ -4208,61 +4210,61 @@ If you'd like more information on Swartz's infulence you can watch a documentry 
 
 Another important document is "The Conscience of a Hacker" written by "The Mentor" in '86
 
->    Another one got caught today, It's all over the papers.
+> Another one got caught today, It's all over the papers.
 > "Teenager Arrested in Computer Crime Scandal", "Hacker arrested
 > after Bank Tampering"...
 >
->    Damn kids. They're all alike.
+> Damn kids. They're all alike.
 >
->    But did you, in your three-piece psychology and 1950's
+> But did you, in your three-piece psychology and 1950's
 > technobrain, ever take a look behind the eyes of a hacker? did
 > you ever wonder what made him tick, what forces shaped him, what
 > may have molded him?
 >
->    I am a hacker. Enter my world.
+> I am a hacker. Enter my world.
 >
->    Mine is a world that begins with school... I'm smarter than
+> Mine is a world that begins with school... I'm smarter than
 > most of the other kids, this crap they teach us bores me...
->                     Come on...  Ain't Got All Day!!
->    Damn underachiever. They're all alike.
+> Come on...  Ain't Got All Day!!
+> Damn underachiever. They're all alike.
 >
->    I'm in junior high or high school. I've listened to the
+> I'm in junior high or high school. I've listened to the
 > teachers explain for the fifteenth time how to reduce a
 > fraction. I understand it. "No Ms. Smith, I didn't show my work.
 > I did it in my head..."
 >
->    Damn kid. Probably copied it. They're all alike.
+> Damn kid. Probably copied it. They're all alike.
 >
->    I made a discovery today. I found a computer. Wait a xecond,
+> I made a discovery today. I found a computer. Wait a xecond,
 > this is cool. It does what I want it to. if it makes a mistake,
 > it's because I screwed it up. Not Because it doesn't like me...
 > Or feels threatend by me...
 > Or thinks I'm a smart ass...
 > Or doesn't like teaching and shouldn't be here...
 >
->    Damn kid. All he does is play games. They're all alike.
+> Damn kid. All he does is play games. They're all alike.
 >
->    And then it happened... a door opened to a world... rushing
+> And then it happened... a door opened to a world... rushing
 > through the phone line like junk through an addict's veins, an
 > electronic impulse is sent out, a refuge from the day-to-day
 > incompetencies is sought... a board is found.
 >
->    "this is it... this is wwhere I belong..."
+> "this is it... this is wwhere I belong..."
 >
->    I know everyone herre... even if I've never met them, never
+> I know everyone herre... even if I've never met them, never
 > talked to them, may never hear from them again... I know you
 > all...
 >
->    Damn kid. tying up the phone line again. They're all alike...
->                     Come on...  Ain't Got All Day!!
->    You bet your ass we're all alike... we've been spoon-fed baby
+> Damn kid. tying up the phone line again. They're all alike...
+> Come on...  Ain't Got All Day!!
+> You bet your ass we're all alike... we've been spoon-fed baby
 > food at school when we hungered for steak... the bits of meat
 > that you did let slip through were prechewed and tasteless.
 > We've been dominated by sadist, or ignored by the apathetic. The
 > few that had something to teach us found us willing pupils, but
 > those few are like drops of water in the desert.
 >
->    This is our world now... the world of the electron and the
+> This is our world now... the world of the electron and the
 > switch, the beauty of the baud. We make use of a service already
 > existing without paying for what could be dirt-cheap if it
 > wasn't run by profiteering gluttons, and you call us criminals.
@@ -4273,18 +4275,18 @@ Another important document is "The Conscience of a Hacker" written by "The Mento
 > murder, cheat, and lie to us and try to make us believe it's for
 > our own good, yet we're the criminals.
 >
->    Yes, I am a criminal. My crime is that of curiosity. My crime
+> Yes, I am a criminal. My crime is that of curiosity. My crime
 > is that of judging people by what they say and think, not what
 > they look like. My crime is that of outsmarting you, something
 > that you will never forgive me for.
 >
->                     Come on...  Ain't Got All Day!!
+> Come on...  Ain't Got All Day!!
 >
 > I am a hacker, and this is my manifesto. You may stop this
 > individual, but you can't stop us all... after all, we're all alike.
 >
 > +++The Mentor+++
->    Racketeers
+> Racketeers
 >
 
 Finally, I'd like to make a few notes about online communities, trolling, hate speech, and the like. Clearly the tech industry leans significantly on the liberal/libertarian side; however, most of us also strongly support your right to say whatever you like even if we don't support it. This is particually frustrating when it comes to large, non-grouped online communities like Twitter or Tumblr where except by blocking, everyone is in the same public sphere instead of isolated. While the isolation can have negitive effects too, like echo chambers where false information and hate breed, the samller communities are also benefical as they allow for a better sense of community and for individual moderation policies decided by the useres instead of awkward rules like [Tumblr's](https://gizmodo.com/tumblrs-porn-filter-flags-its-own-examples-of-permitted-1831151178?utm_source=gizmodo_twitter&utm_medium=socialflow&utm_campaign=socialflow_gizmodo_twitter&fbclid=IwAR2cfAMZ5IpJLINVt6WSuLCcu7KX5D83FQ8F4J-DTxbyJFMZ4704-VxTbN4) [NSFW](https://staff.tumblr.com/post/181199101690/hey-tumblr-a-couple-of-weeks-ago-we-announced-an) ban and the chaos that insued. Clearly the lines between hate speech and trolling and free speech are a problem online, and frankly the internet is young. We haven't really figured out the right way to handle it yet. Should Twitter have the right to remove the Alt-Right or are they to important of a polticial forum to deny freedom of speech despite being a public company? Is it ethically okay to use services like Tor for privacy when by doing so you're indirectly helping people get away with things like child ... abuse (I don't want this document getting flagged by something, ironically). Or because the tools are going to exist regardless and criminals will always find another way is it okay? The truth is, it's not black and white, and it's well worth your time to sit down and consider what you are personally okay with and what you think, as a society, we need to change and how we might go about doing that. Personally, I think services like Mastodon which offer security and privacy while keeping individual communities free to handle themselves are the best option, but they're also more complicated. Just know that decesion you make online can have real world consequences, and that at the end of the day, there's a human on the other side of that screen.

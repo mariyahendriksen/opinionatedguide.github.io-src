@@ -36,7 +36,7 @@ So let's look at this command. The first part, certutil, is a program on your co
 
 **MAC**: open up a terminal by going to the Utilities fore in Applications and open 'Terminal'. The mac terminal is very, very similar to what you'll use in Linux actually, and the commands here are actually identical. You should see something like
 
-```
+```bash
 MacBook:~ username$
 ```
 
@@ -44,11 +44,11 @@ waiting for input.
 
 That `~` represents that you're in your user or 'home' folder, and assuming you downloaded Arch's install image to your downloads folder you should be able to type
 
-``` MacBook:~ username$ shasum -a 1 Downloads/arch```
+`MacBook:~ username$ shasum -a 1 Downloads/arch`
 
 followed by pressing tab to make that auto complete to something like
 
-``` MacBook:~ username$ shasum -a 1 Downloads/archlinux-20xx.xx.xx-x86_64.iso```
+`MacBook:~ username$ shasum -a 1 Downloads/archlinux-20xx.xx.xx-x86_64.iso`
 
 upon pressing enter the terminal should print out a long string of text.
 
@@ -86,7 +86,7 @@ First, you'll need to open up 'Disk Utility' in Applications/Utilities, then pic
 
 Now, you'll need to open a terminal like you did back when checking the checksum. Plug in either an empty flash drive or one which you don't mind erasing, and run
 
-```diskutil list``` and you should see something like `/dev/diskX (external, physical)` which is your flash drive. Now run `diskutil unmountDisk /dev/diskX` where X is your flash drive disk number from above, then finally run ```dd if=path/to/arch.iso of=/dev/rdiskX bs=1m```. Note that the `of` part has /**r**diskX . The path to your arch iso is probably something like `~/Downloads/archlinux-20xx.xx.xx-x86_64.iso`
+`diskutil list` and you should see something like `/dev/diskX (external, physical)` which is your flash drive. Now run `diskutil unmountDisk /dev/diskX` where X is your flash drive disk number from above, then finally run `dd if=path/to/arch.iso of=/dev/rdiskX bs=1m`. Note that the `of` part has /**r**diskX . The path to your arch iso is probably something like `~/Downloads/archlinux-20xx.xx.xx-x86_64.iso`
 
 This command won't print anything while it's running, but when it's done you'll see a new line asking for input. Two more notes ripped straight from https://wiki.archlinux.org/index.php/USB_flash_installation_media#In_macOS:
 
@@ -122,7 +122,7 @@ Obviously if you need this you'll need IRC open on a differnt device than the on
 
 Now you'll need to power off your computer. Turn it back on and as you do mash the everliving hell out of both f2 and delete (unless you know what key gets you into the UEFI / BIOS settings). This should bring up a menu that either looks super fancy or looks stright out of the 80's. Either is fine. The setting we're looking for is 'Secure Boot' it's probably under a menu called 'Boot' or 'Security'. You'll need to shut this off. In theory secure boot should protect against a nasty kind of virus called a rootkit, in practice it doesn't and only serves to make installing linux more annoying, don't worry, I'm a security nut and am comfortable leaving it off. Exit and save settings, and as your computer boots again mash F11 or whatever key gets you to a boot menu, and select your USB key. If it shows up twice try the first one first, if that doesn't work try the other one. (If you end up back in Windows just restart and go back into the bios settings, go to 'Boot' and reorder the boot menu entries so your flash drive is the first option) The system should boot first to a screen with a few options, pick Arch Linux if you have to or just wait for it to move on. You should, with any luck, see a list of text flash down the screen that looks roughly like
 
-```
+```bash
 [OK] doing thing
 [OK] starting thing
 [OK] did thing
@@ -132,7 +132,7 @@ Now you'll need to power off your computer. Turn it back on and as you do mash t
 
 Then, you should be greeted by a mininal prompt that looks like
 
-```
+```bash
 root@archiso ~ #
 ```
 
@@ -144,7 +144,7 @@ You'll need an internet connection to do anything, if you can connect you comput
 
 If you didn't connect your computer to ethernet before you started arch, the first thing you should type in this prompt is
 
-```
+```bash
 systemctl dhcpcd restart
 ```
 
@@ -152,7 +152,7 @@ this manually restarts the service that asks the network for an IP address, whic
 
 Now, try
 
-```
+```bash
 ping archlinux.org
 ```
 
@@ -184,7 +184,7 @@ This means we'll be able to see what type of file system is on each block device
 
 So, we can use this command to see information like we saw graphically back when we opened disk management in windows, only now with their linux names. In linux each block device is actually stored as a file, as bizarre as that may seem. This file is actually located in the dev folder which sits on top the root folder. The root folder is simply designated by a single '/' so a normal file structure may look like '/home/USERNAME/Documents/office/' and so on. It's worth noting that '/' is actually a folder in itself, it's just the absolute bottom folder, hence it's called the root folder. So the dev folder is located at /dev. In /dev there's a lot of things, but at the moment what we're really concerned about is the storage devices. so, looking at this example output from `lsblk` you'll see three storage devices /dev/sda /dev/sdb and /dev/nvme0n1
 
-```
+```bash
 vega@linux ~ # lsblk -f
 NAME    FSTYPE LABEL    UUID                                 FSAVAIL FSUSE% MOUNTPOINT
 sda
@@ -208,7 +208,7 @@ looking at that output again you'll see each device has multiple things under it
 
 For Simplicity now we're actually going to look at a simpler 'lsblk -f' output with only /dev/sda and sdb. sda is still the boot usb stick you're on, but sdb is now the singular drive in a laptop that has windows installed and available free space in accordance with this guide.
 
-```
+```bash
 root@archiso ~ # lsblk -f
 
 sdb
@@ -222,7 +222,7 @@ alright, so now on sdb we see there's 4 partitions (sdb1,2,3,4) where in this ca
 
 We're going to need to make some changes this list tough, as we actually need one more small division in the partition table. run the command
 
-```
+```bash
 root@archiso ~ # cfdisk /dev/sdb
 ```
 
@@ -230,7 +230,7 @@ this should bring up a strange command line based almost graphical interface whi
 
 now, run lsblk again. You should see something like
 
-```
+```bash
 root@archiso ~ # lsblk
 sdb
 ├─sdb1      ntfs   Recovery 36C8A86BC8A82B57
@@ -242,7 +242,7 @@ sdb
 
 so now we need to format these partitions with a file system. For the root file system, where we're gonna put all the programs, files, and the OS itself we'll use the ext4 file system. It's by far the most common file system for linux. To do this look at the lsblk output and look for the large empty space we left (not the 8Gb space we just made!) and run
 
-```
+```bash
 root@archiso ~ # mkfs.ext4 /dev/sdxy
 ```
 
@@ -250,7 +250,7 @@ where xy is the correct letter and number for your partition, in the above examp
 
 alright, that's actually most of the really hard stuff done. Now we need to mount both the file system we just made and the boot filesystem. run:
 
-```
+```bash
 mount /dev/sdbx /mnt
 mount /dev/sdby /mnt/boot
 ```
@@ -259,13 +259,13 @@ where x is the same as the above x and y is the number of the partition with the
 
 Next up we need to install the base of the os to these drives, this is actually pretty easy just run
 
-```
+```bash
 pacstrap /mnt base base-devel
 ```
 
 then, we need something that tells the system the names of our partitions and how to mount them at boot. Thankfully, the system can generate (most) of this for us, just run
 
-```
+```bash
 genfstab -U /mnt > /mnt/etc/fstab
 ```
 
@@ -273,7 +273,7 @@ what this command does is looks at the id's of the drives in /mnt (the ones we m
 
 Alright, next we need to use a command that you'll probably never use again- chroot. This changes your root directly to be higher up the chain, effectively cutting off access to lower files, though we need to do this to install our bootloader, again this is easy
 
-```
+```bash
 root@archiso ~ # arch-chroot /mnt
 ```
 
@@ -281,13 +281,13 @@ which will change the above to look like: ' root@archiso ~ # ' to ' root@archiso
 
 now we can install the bootlooder with
 
-```
+```bash
 root@archiso / # bootctl install
 ```
 
 Now we need to add a bootloader entry for arch. We're going to use a very simple command line text editor called nano. it's sorta like notepad on windows.
 
-```
+```bash
 root@archiso / # nano /boot/loader/loader.conf
 ```
 
@@ -295,7 +295,7 @@ this will bring up a text editor, it says how to operate it at the bottom (ctr+o
 
 enter, exactly: (Note line 2 says linuZ-linux, that's not a typo, and replace the x with your root partiton)
 
-```
+```bash
 title        Arch Linux
 linux         /vmlinuz-linux
 initrd         /initramfs-linux.ing
@@ -304,13 +304,13 @@ options     root=/dev/sdbx rw
 
 and for our last trick before we reboot save and exit nano with ctr+o, ctl+x then, run
 
-```
+```bash
 root@archiso / # nano /boot/loader/loader.conf
 ```
 
 and enter
 
-```
+```bash
 timeout 3
 default arch
 ```
@@ -319,7 +319,7 @@ then, we're ready to reboot into the new OS!
 
 run consecutively,
 
-```
+```bash
 root@archiso / # exit
 root@archiso / # reboot
 ```
@@ -334,7 +334,7 @@ then run 'passwd' this will prompt you to set a password. For the love of god do
 
 Next you'll need to set a hostname, this is how your computer id's itself on the network, so might help if you make it something sensible like 'usernamelinux' to do this run
 
-```
+```bash
 echo 'mynewawesomehostname' > /etc/hostname
 ```
 
@@ -342,7 +342,7 @@ then let's add a user, as using root all the time is very unsafe. To do so run:
 
 (I recommend using the same password you used for root)
 
-```
+```bash
 useradd -m -G wheel mycrappyusername
 
 followed by,
@@ -354,13 +354,13 @@ I swear to you we're getting there.
 
 run
 
-```
+```bash
 EDITOR=nano visudo
 ```
 
 then find the line that says
 
-```
+```bash
 # %wheel ALL=(ALL) ALL
 ```
 
@@ -380,7 +380,7 @@ Anyway, with that out of the way let's find fix up networking so we can get onli
 
 run `ip link` and look for the name of your network interface. If it's a wired adapter it should be enpXsY where X and Y are number, wif is similar but uses wlp instead of enp. To make sure the network brings itself up on each boot let's enable `dhcpcd` - that service we restarted way back when- on that interface. Just run
 
-```
+```bash
 systemctl enable dhcpcd@enpXsY.service
 
 this enable it at each boot however we should
@@ -391,7 +391,7 @@ systemctl start hdcpcd@enpXsY.service
 
 next up, we should make sure things know what language we speak. Assuming you want to use US english just run
 
-```
+```bash
 locale-gen
 
 followed by,
@@ -401,7 +401,7 @@ localectl set-locale LANG=en_US.UTF-8
 
 Timezones, run each independently
 
-```
+```bash
 tzselect
 
 timedatectl list-timezones
@@ -415,7 +415,7 @@ timedatectl set-ntp true
 
 It's worth noting Linux and Windows use differenent clock standards so every time you reboot between the two windows will messup the clock, to fix it in WINDOWS you can run
 
-```
+```bash
 reg add "HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\TimeZoneInformation" /v RealTimeIsUniversal /d 1 /t REG_DWORD /f
 ```
 
@@ -423,7 +423,7 @@ in an admin command prompt
 
 Alright, we're getting close to graphical stuff now, I swear. Remember that 8Gb partion we made a while ago, time to use it. Now that we're in the full OS the're a good chance the location names of the partitions changed so run `lsblk -f`  again and figure out where that 8Gb portion is
 
-```
+```bash
 lsblk -f
 
 mkswap /dev/sdXY
@@ -435,7 +435,7 @@ then, we need to edit the fstab file we generated earlier.
 
 Let's look at what the fstab file looks like right now. We can read a file from the command line without opening it up for editing with `cat`, so run
 
-```
+```bash
 cat /etc/fstab
 ```
 
@@ -445,7 +445,7 @@ if we run `lsblk -no UUID /dev/sdxy` (obviously substitute x and y) you'll get t
 
 Remember how we used the '>' character before to write the output of genfstab to /etc/fstab, well you can also use two of that same character to *append* an output to a file. However, before we do that let's be safe rather than sorry and make a backup of the fstab file by first moving to the /etc directory then making a copy of the file
 
-```
+```bash
 cd /etc
 cp fstab fstab.bak
 lsblk -no UUID /dev/sdxy >> fstab
@@ -455,13 +455,13 @@ note we didn't need to type /etc/ before each fstab because that's a file in the
 
 but we're not done yet. use `nano` to open up the fstab file and edit it so the last line we just appended looks more like:
 
-```
+```bash
 UUID=whateverthisis none swap defaults 0 0
 ```
 
 Save and close nano and then to finish up swap all we need to do is edit one more file
 
-```
+```bash
 nano /etc/sysctl.d/99-sysctl.conf
 
 and add the single line
@@ -485,7 +485,7 @@ Once the system reboots login with your username, not root. When you type your p
 
 then run:
 
-```
+```bash
 sudo pacman -S xf86-video-vesa mesa
 ```
 
@@ -493,7 +493,7 @@ This command uses sudo or 'superuser do' because you're now logged in as a user,
 
 To install the correct driver for your graphics hardware you can run
 
-```
+```bash
 these next few commands use 'pipe' the character above enter on most US keyboards
 
 lspci | grep -i VGA
@@ -505,19 +505,19 @@ lspci | grep -i 3D
 
 to find the vendor of your graphics card. If the output contains NVIDIA run
 
-```
+```bash
 sudo pacman -S xf86-video-nouveau
 ```
 
 for INTEL run
 
-```
+```bash
 sudo pacman -S xf86-video-intel
 ```
 
 and for AMD run
 
-```
+```bash
 sudo pacman -S xf86-video-amdgpu
 ```
 
@@ -527,7 +527,7 @@ Alright, now we need to install the desktop environment. Because this guide to t
 
 KDE Plasma is pretty big though, so we're gonna want to be sure we're using fast mirrors before we do anything else
 
-```
+```bash
 sudo pacman -S reflector
 ```
 
@@ -535,13 +535,13 @@ then we're going to temporarily switch to the root account using `su` all you ha
 
 now run
 
-```
+```bash
 reflector -c us -n 25 -f 5 > /etc/pacmand.d/mirrorlist
 ```
 
 Finally to install Plasma run
 
-```
+```bash
 sudo pacman -S xorg-server xord-utils xorg-xinit xterm plasma kde-applications
 
 then
@@ -557,7 +557,7 @@ sudo systemctl start ssdm
 
 Note that KDE Plasma is fairly large to download and a bit resource intensive. As an alternative if on older hardware
 
-```
+```bash
 sudo pacman -S xorg-server xorg-utils xorg-xinit xterm mate mate-extra lightdm
 
 then
@@ -575,7 +575,7 @@ Alright, now you can take a few minutes to get used to how your new computer wor
 
 before you wrap up lets do a tiny bit of houskeeping
 
-```
+```bash
 sudo pacman-key --init
 sudo pacman-key --populate
 sudo pacman -S git --needed
@@ -597,27 +597,27 @@ The first language we're going to try out is called python. Python is an interpr
 
 Because we installed yay earlier you could use either that or pacman, but let's just use yay for simplicity. From here on out I'll be coping directly from what my terminal prompt looks like. Yours, for now, probaly looks similar to:
 
-```
+```bash
 username@root /current/folder : command -to -be executed
 ```
 
 However, mine looks like
 
-```
+```bash
 ╭─vega@lyrae /current folder
 ╰─➤  command -to -be -executed
 ```
 
 so, install python just like we've installed other programs with python or yay
 
-```
+```bash
 ╭─vega@lyrae ~
 ╰─➤  yay -S python
 ```
 
 once that's done you should be able to start the python interpreter by simply typing `python` and pressing enter. This will give you a new prompt that takes python code as input
 
-```
+```bash
 ╭─vega@lyrae ~
 ╰─➤  python
 Python 3.7.2 (default, Jan 10 2019, 23:51:51)
@@ -671,7 +671,7 @@ Python code doesn't have to be written in line by line, you can put it an a file
 
 super quick detour: while you can open graphical programs though the start menu down in the lower left hand corner just like on Windows, you can actually open a program directly from the terminal. Interestingly, this can make a program that opens in a new window a 'child process' of the terminal, which is why we normally don't do this. What this normally means is that if you start a program from the terminal - the parent- and then close the terminal, the child process, in this case the graphical program you started, will die too. Strangely, VSCode actually separates itself from it's parent process almost immediately, which is why we can start it from a terminal and then close the terminal and it should stay running. so, let's do that.
 
-```
+```bash
 ╭─vega@lyrae ~
 ╰─➤ code
 ```
@@ -736,7 +736,7 @@ Before we talk about our code, let's see it run!
 
 Open up a terminal, and run `cd Documents` to get to your documents folder, `ls` to see what's in there, then `./test.py` to run the program.
 
-```
+```bash
 ╭─vega@lyrae ~
 ╰─➤ cd Documents
 ╭─vega@lyrae ~/Documents
@@ -748,7 +748,7 @@ test.py
 
 Oops! that probably didn't run. If you look at the errors it will tell you you're missing matplotlib ad numpy, let's go get those
 
-```
+```bash
 ╭─vega@lyrae ~/Documents
 ╰─➤ yay -S python-matplotlib python-numpy
 ```
@@ -788,7 +788,7 @@ on line 6 the math library, which gave us access to sin and exponent functions, 
 
 The same is true for `numpy` and `matplotlib` above, both of these are libraries, matplot lib is what handled actually putting the data on the screen, and numpy as can be seen on line 12 of the program:
 
-```
+```python
 yield t, np.sin(2*np.pi*t) * np.exp(-t/10.)
 ```
 

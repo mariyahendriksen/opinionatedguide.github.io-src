@@ -66,7 +66,7 @@ if you have multiple monitors before setting the wallpaper though you'll probabl
 
 if you have a high resolution monitor and things are small, you may want to look here: https://wiki.archlinux.org/index.php/HiDPI , the best thing from this is to add
 
-```
+```bash
 QT_QPA_PLATFORMTHEME=qt5ct
 QT_AUTO_SCREEN_SCALE_FACTOR=1
 GDK_SCALE=2

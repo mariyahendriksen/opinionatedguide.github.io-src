@@ -10,14 +10,14 @@ These are CPUS or Central Processing Units. They're the beating heart of your co
 
 One of the nifty things we do pretty easily in linux is get information about our hardware directly. Just as when we were installing Arch and we used `lsblk` to see an overview of the disks on the system, we can use some other tools to find out some other information about the system. Let's start off basic and see what CPU you have. Go ahead and run
 
-```
+```bash
 ╭─vega@lyrae ~
 ╰─➤  cat /proc/cpuinfo
 ```
 
 This is actually just using that same `cat` command we used before to read the system generated file that tells us about the processor in this system. I'm going to provide the output from my system for refrence
 
-```
+```bash
 processor       : 0
 vendor_id       : AuthenticAMD
 cpu family      : 23
@@ -55,7 +55,7 @@ Next is the vendor ID, family, model, name, and stepping. My processor is an AMD
 
 Next is
 
-```
+```bash
 microcode       : 0x8001137
 cpu MHz         : 2018.119
 cache size      : 512 KB
@@ -104,7 +104,7 @@ This code first makes two integers, a and b, gives them values, then adds them t
 
 Unlike python which get's converted to something the computer can understand as it executes C is compiled before hand. This makes it so programs written in C are much, much faster than those written in python, though obviously C code is more difficult to write. Compilation is the process of turning a program into a file full of instructions the computer actually understands. This happens in two steps, first the program is turned into assembly code, for the above code this results in an output that looks like
 
-```
+```c
         push    rbp
         mov     rbp, rsp
         mov     DWORD PTR [rbp-4], 8
@@ -213,7 +213,7 @@ Moving out of hardware,
 
 There's a program on your system called `free` which can be used to see how much RAM you have, how much is in use, etc. Let's run free with the -h flag so we can see the amounts with nice units.
 
-```
+```bash
 ╭─vega@lyrae ~
 ╰─➤  free -h
               total        used        free      shared  buff/cache   available
@@ -282,7 +282,7 @@ Alright, let's move on to seeing the system buses, namely, the pci bus.
 
 The pci bus is where most of the system's add in cards, controllers, and the like connect. Here's a shortened version of the ouput of `lspci` from my system
 
-```
+```bash
 00:00.0 Host bridge: Advanced Micro Devices, Inc. [AMD] Family 17h (Models 00h-0fh) Root Complex
 00:00.2 IOMMU: Advanced Micro Devices, Inc. [AMD] Family 17h (Models 00h-0fh) I/O Memory Management Unit
 00:01.0 Host bridge: Advanced Micro Devices, Inc. [AMD] Family 17h (Models 00h-1fh) PCIe Dummy Host Bridge
@@ -321,7 +321,7 @@ Alright, clearly there's a lot going on here, and on first glance it doesn't eve
 
 next thing of note is
 
-```
+```bash
 02:00.0 USB controller: Advanced Micro Devices, Inc. [AMD] X370 Series Chipset USB 3.1 xHCI Controller (rev 02)
 02:00.1 SATA controller: Advanced Micro Devices, Inc. [AMD] X370 Series Chipset SATA Controller (rev 02)
 ```
@@ -330,7 +330,7 @@ You can see here that I have a separate controller for my USB 3.1 ports and that
 
 next is:
 
-```
+```bash
 07:00.0 USB controller: ASMedia Technology Inc. ASM1143 USB 3.1 Host Controller
 08:00.0 Ethernet controller: Intel Corporation I211 Gigabit Network Connection (rev 03)
 ```
@@ -341,7 +341,7 @@ You'll also see that my network interface is being handled by an Intel network c
 
 moving on:
 
-```
+```bash
 0c:00.0 VGA compatible controller: Advanced Micro Devices, Inc. [AMD/ATI] Vega 10 XL/XT [Radeon RX Vega 56/64] (rev c3)
 0c:00.1 Audio device: Advanced Micro Devices, Inc. [AMD/ATI] Vega 10 HDMI Audio [Radeon Vega 56/64]
 0d:00.0 VGA compatible controller: NVIDIA Corporation GP106 [GeForce GTX 1060 6GB] (rev a1)
@@ -360,7 +360,7 @@ See all those PCI ids on the right side, those directly correlate with a lot of 
 
 Finally, if you want a lot more information you can run `sudo lspci -v` to see even more info about anything, for example, here's the output about my GTX1060 GPU:
 
-```
+```bash
 0d:00.0 VGA compatible controller: NVIDIA Corporation GP106 [GeForce GTX 1060 6GB] (rev a1) (prog-if 00 [VGA controller])
     Subsystem: Micro-Star International Co., Ltd. [MSI] GP106 [GeForce GTX 1060 6GB]
     Flags: bus master, fast devsel, latency 0, IRQ 78
@@ -384,7 +384,7 @@ Finally, if you want a lot more information you can run `sudo lspci -v` to see e
 
 The most notable thing here is actually at the end:
 
-```
+```bash
 Kernel driver in use: nouveau
 Kernel modules: nouveau
 ```
@@ -395,7 +395,7 @@ tells us I'm using the nouveau driver and kernel modules instead of one of the a
 
 Much like lspci, there's also `lsusb`, which as you can imagine, tells us information about the USB devices on the system. I have a LOT of usb devices on this system so I'll just paste in a snippet:
 
-```
+```bash
 Bus 002 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
 Bus 001 Device 003: ID 0c45:6340 Microdia Camera
 Bus 001 Device 008: ID 28de:1142 Valve Software Wireless Steam Controller
@@ -501,7 +501,7 @@ The first thing we should do is get an idea about the disk usage, to do that I'l
 
 so first I'll run `df -h` , that `-h` on most Linux commands means to make the output human readable, printing things in terms of Gigabytes or Terabytes etc instead of just a raw byte count.
 
-```
+```bash
 Filesystem      Size  Used Avail Use% Mounted on
 /dev/sdg2       3.7T  2.3T 1.5T  62%  /run/media/vega/raid
 ```
@@ -516,7 +516,7 @@ None of this is really all that interesting though, so what about speed? How fas
 
 This gives:
 
-```
+```bash
 /dev/sdg:
  Timing cached reads:   22946 MB in  2.00 seconds = 11492.36 MB/sec
  Timing buffered disk reads: 556 MB in  3.01 seconds = 184.91 MB/sec

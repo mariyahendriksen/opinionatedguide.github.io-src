@@ -4,7 +4,7 @@ We've been using file in /proc and /dev thoughout this, but we never really look
 
 We'll actually start with /dev
 
-```
+```bash
 ╭─vega@lyrae ~
 ╰─➤  cd /dev
 ╭─vega@lyrae /dev
@@ -182,7 +182,7 @@ if you run `ls` it normally shows you the all the folders, shortcuts, and files 
 
 further down you'll see the '-l' flag gives a "long listing format" which is an almost impressively bad description. This means that on each listing will be displayed like this:
 
-```
+```bash
 Permissions   numOfLinks owner group size month date time name
 
 example:
@@ -223,7 +223,7 @@ To round this off we need to talk about how to change these permissions using `c
 
 For example running
 
-```
+```bash
 ╭─vega@lyrae ~
 ╰─➤  sudo chown vega:vega someFile
 ```
@@ -232,7 +232,7 @@ would change both the owner and group to me, vega (assuming I exist on your syst
 
 but what if you want to change every file in a directory?
 
-```
+```bash
 ╭─vega@lyrae ~
 ╰─➤  sudo chown -R vega:vega someFolder
 ```
@@ -243,7 +243,7 @@ Using `chmod` is pretty easy too, though there are two ways to use it.
 
 The first, which is easier to understand is with direct flags such as
 
-```
+```bash
 ╭─vega@lyrae ~
 ╰─➤  chmod +x on a file to mark it as executable
 ```
@@ -264,7 +264,7 @@ The other uses the octal system to set flags. Octal has 3 bits:
 
 Now, you should notice some of those options are nonsenes? being able to write to a file you can't read? being able to execute a file you can't read? In practice this leads to only some of these being used, but I digress to use these in chmod simply run
 
-```
+```bash
 ╭─vega@lyrae ~
 ╰─➤  chmod 764 someThing
 ```
@@ -281,7 +281,7 @@ With all of that out of the way let's finally look at /dev !
 
 Alrighty then, first, a heads up. My /dev folder will have some things yours wont. I'm on a desktop with a lot of hardware, drives, input devices, etc. And I've installed hundreds of programs, some of which interface with the system at a low enough level to necessitate extra files in here. For that reason some are going to be skipped over let's take these in blocks of 10
 
-```
+```bash
 drwxr-xr-x  22 root root         4600 Feb  8 06:03 .
 drwxr-xr-x  18 root root         4096 Jan 26 22:05 ..
 crw-rw-rw-   1 root root      10,  56 Feb  8 06:03 ashmem
@@ -321,7 +321,7 @@ Here I've included . and .. in the output for reference, but we'll immediately m
 
 'core' a link to /proc/kcore is a direct way to read memory, used mostly for debugging
 
-```
+```bash
 drwxr-xr-x   2 root root           60 Feb  8 06:02 cpu
 crw-rw----   1 root realtime  10,  60 Feb  8 06:03 cpu_dma_latency
 crw-------   1 root root      10, 203 Feb  8 06:03 cuse
@@ -349,7 +349,7 @@ crw-------   1 root root     242,   4 Feb  8 06:03 drm_dp_aux4
 
 'drm_dp_aux' each represent an output from the GPU, so think of these as the actual cables between the monitor and the computer
 
-```
+```bash
 crw-rw----   1 root video     29,   0 Feb  8 06:03 fb0
 lrwxrwxrwx   1 root root           13 Feb  8 06:02 fd -> /proc/self/fd
 crw-rw-rw-   1 root root       1,   7 Feb  8 06:03 full
@@ -378,7 +378,7 @@ to make this output shorter I stripped out hidraw 7-9
 
 'hidraw' is for raw communication with Human Interface Devices (mouse, keyboard, gamepad) and allows for custom drivers, like those necessary for RGB backlit keyboards
 
-```
+```bash
 crw-rw----   1 root realtime  10, 228 Feb  8 06:03 hpet
 drwxr-xr-x   3 root root            0 Feb  8 06:03 hugepages
 crw-------   1 root root      10, 183 Feb  8 06:03 hwrng
@@ -414,7 +414,7 @@ crw-rw----   1 root disk      10, 237 Feb  8 06:03 loop-control
 
 'loop-contol' - http://man7.org/linux/man-pages/man4/loop.4.html, effectively used to mount images or or other file systems to be read as a separate block device
 
-```
+```bash
 drwxr-xr-x   2 root root           60 Feb  8 06:03 mapper
 crw-rw----   1 root video    239,   0 Feb  8 06:03 media0
 crw-r-----   1 root kmem       1,   1 Feb  8 06:03 mem
@@ -445,7 +445,7 @@ crw-------   1 root root      10,  58 Feb  8 06:03 network_throughput
 
 'network_latency' and 'network_thoughput' is primary used to specify current minimum necessary requirements for the network, used for power saving on wireless adapters
 
-```
+```bash
 crw-rw-rw-   1 root root       1,   3 Feb  8 06:03 null
 crw-------   1 root root     243,   0 Feb  8 06:03 nvme0
 brw-rw----   1 root disk     259,   0 Feb  8 06:03 nvme0n1
@@ -478,7 +478,7 @@ drwxr-xr-x   2 root root            0 Feb  8 06:03 pts
 
 'pts' interval virtual filesystem, used for things like docker. Works closely with 'ptmx'
 
-```
+```bash
 crw-rw-rw-   1 root root       1,   8 Feb  8 06:03 random
 crw-rw-r--+  1 root rfkill    10,  55 Feb  8 06:03 rfkill
 lrwxrwxrwx   1 root root            4 Feb  8 06:03 rtc -> rtc0
@@ -499,7 +499,7 @@ brw-rw----   1 root disk       8,  98 Feb  8 16:37 sdg2
 
 'sdxn' the 'normal' representation of block devices like HDDs, SSDs, and flash drives to the system. Each number is a partition
 
-```
+```bash
 drwxr-xr-x   4 root root           80 Feb  8 06:03 serial
 crw-rw----+  1 root optical   21,   0 Feb  8 06:03 sg0
 crw-rw----   1 root disk      21,   1 Feb  8 06:03 sg1
@@ -532,7 +532,7 @@ lrwxrwxrwx   1 root root           15 Feb  8 06:02 stdout -> /proc/self/fd/1
 
 '**stdout** interface, try `echo hello > /dev/stdout`
 
-```
+```bash
 crw-rw-rw-   1 root tty        5,   0 Feb  8 15:49 tty
 crw--w----   1 root tty        4,   0 Feb  8 06:03 tty0
 ...
@@ -554,7 +554,7 @@ crw-rw----+  1 root uucp       4,  67 Feb  8 06:03 ttyS3
 
 'ttySx' are serial port terminals, rarely used outside of scientific or server gear. The physical connector usually looks similar to VGA cable. Your motherboard may well have a serial port header for adding this even if you don't physically see one available on the outside of the case
 
-```
+```bash
 crw-------   1 root root      10,  61 Feb  8 06:03 udmabuf
 crw-------   1 root root      10, 239 Feb  8 06:03 uhid
 crw-rw-rw-+  1 root root      10, 223 Feb  8 06:03 uinput
@@ -595,7 +595,7 @@ crw-rw----   1 root tty        7,  71 Feb  8 06:03 vcsu7
 
 'vcsux' virtual console stuff
 
-```
+```bash
 drwxr-xr-x   2 root root           60 Feb  8 06:03 vfio
 crw-------   1 root root      10,  63 Feb  8 06:03 vga_arbiter
 crw-------   1 root root      10, 137 Feb  8 06:03 vhci
