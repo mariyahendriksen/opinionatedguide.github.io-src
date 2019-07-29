@@ -993,7 +993,7 @@ But more than that, Linux actually exposes the system to the user and doesn't tr
 You'll start to see this more as we move forward though these next few chapters. Speaking of...
 
 
-Chapter 3 - Into the hardware
+# Chapter 3 - Into the hardware
 
 One of the nifty things about Linux is you don't need to install extra software to check out the deeper parts of your hardware. While on windows you might need a tool like CPU-Z to look at information about the CPU on Linux you can do it out of the box. Let's get started on that then!
 
@@ -1629,7 +1629,9 @@ Parallel, Serial, Tape, CD, gameport
 
 ## How to know what to buy
 
-[TODO - possibly move]# Chapter 4 - Back to the Root of Things
+[TODO - possibly move]
+
+# Chapter 4 - Back to the Root of Things
 
 We've been using file in /proc and /dev thoughout this, but we never really looked to see what else is in there. Let's do that.
 
@@ -3248,7 +3250,7 @@ speakers, piezos, amps, mics and pickup patters
 
 add motors, analog meters, various connection standards, radio, flex/pressure sense, grounding (chasis, digital, analog, ground planes, etc.), solar/photo reactive,
 
-# Relating AC and Music
+## Relating AC and Music
 
 [TODO]
 
@@ -3709,19 +3711,21 @@ Finally, the weirdest and rarely used `<>` operator can be used to directly attc
 
 > [j]<>filename
 >
-> #  Open file "filename" for reading and writing,
-> #+ and assign file descriptor "j" to it.
-> #  If "filename" does not exist, create it.
-> #  If file descriptor "j" is not specified, default to fd 0, stdin.
-> #
-> #  An application of this is writing at a specified place in a file.
+> Open file "filename" for reading and writing,
+> and assign file descriptor "j" to it.
+> If "filename" does not exist, create it.
+> If file descriptor "j" is not specified, default to fd 0, stdin.
+> 
+> An application of this is writing at a specified place in a file.
+> 
 > echo 1234567890 > File    # Write string to "File".
 > exec 3<> File             # Open "File" and assign fd 3 to it.
 > read -n 4 <&3             # Read only 4 characters.
 > echo -n . >&3             # Write a decimal point there.
 > exec 3>&-                 # Close fd 3.
 > cat File                  # ==> 1234.67890
-> #  Random access, by golly.
+> 
+> Random access, by golly.
 
 ## Wild Cards & Regex
 

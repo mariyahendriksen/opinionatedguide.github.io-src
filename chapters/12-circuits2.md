@@ -72,7 +72,7 @@ speakers, piezos, amps, mics and pickup patters
 
 add motors, analog meters, various connection standards, radio, flex/pressure sense, grounding (chasis, digital, analog, ground planes, etc.), solar/photo reactive,
 
-# Relating AC and Music
+## Relating AC and Music
 
 [TODO]
 
