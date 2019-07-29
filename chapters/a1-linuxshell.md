@@ -73,21 +73,21 @@ Note, `&>` redirects both stderr and stdout
 
 Finally, the weirdest and rarely used `<>` operator can be used to directly attch file descriptions and read/write files dirctly, this is rearely used as it's kind of a pita, but if you need to script something advanced it's available. Stollen from the above advanced link:
 
->    [j]<>filename
+> [j]<>filename
 >
->       #  Open file "filename" for reading and writing,
->       #+ and assign file descriptor "j" to it.
->       #  If "filename" does not exist, create it.
->       #  If file descriptor "j" is not specified, default to fd 0, stdin.
->       #
->       #  An application of this is writing at a specified place in a file.
->       echo 1234567890 > File    # Write string to "File".
->       exec 3<> File             # Open "File" and assign fd 3 to it.
->       read -n 4 <&3             # Read only 4 characters.
->       echo -n . >&3             # Write a decimal point there.
->       exec 3>&-                 # Close fd 3.
->       cat File                  # ==> 1234.67890
->       #  Random access, by golly.
+> #  Open file "filename" for reading and writing,
+> #+ and assign file descriptor "j" to it.
+> #  If "filename" does not exist, create it.
+> #  If file descriptor "j" is not specified, default to fd 0, stdin.
+> #
+> #  An application of this is writing at a specified place in a file.
+> echo 1234567890 > File    # Write string to "File".
+> exec 3<> File             # Open "File" and assign fd 3 to it.
+> read -n 4 <&3             # Read only 4 characters.
+> echo -n . >&3             # Write a decimal point there.
+> exec 3>&-                 # Close fd 3.
+> cat File                  # ==> 1234.67890
+> #  Random access, by golly.
 
 ## Wild Cards & Regex
 

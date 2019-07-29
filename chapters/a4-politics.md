@@ -86,61 +86,61 @@ If you'd like more information on Swartz's infulence you can watch a documentry 
 
 Another important document is "The Conscience of a Hacker" written by "The Mentor" in '86
 
->    Another one got caught today, It's all over the papers.
+> Another one got caught today, It's all over the papers.
 > "Teenager Arrested in Computer Crime Scandal", "Hacker arrested
 > after Bank Tampering"...
 >
->    Damn kids. They're all alike.
+> Damn kids. They're all alike.
 >
->    But did you, in your three-piece psychology and 1950's
+> But did you, in your three-piece psychology and 1950's
 > technobrain, ever take a look behind the eyes of a hacker? did
 > you ever wonder what made him tick, what forces shaped him, what
 > may have molded him?
 >
->    I am a hacker. Enter my world.
+> I am a hacker. Enter my world.
 >
->    Mine is a world that begins with school... I'm smarter than
+> Mine is a world that begins with school... I'm smarter than
 > most of the other kids, this crap they teach us bores me...
->                     Come on...  Ain't Got All Day!!
->    Damn underachiever. They're all alike.
+> Come on...  Ain't Got All Day!!
+> Damn underachiever. They're all alike.
 >
->    I'm in junior high or high school. I've listened to the
+> I'm in junior high or high school. I've listened to the
 > teachers explain for the fifteenth time how to reduce a
 > fraction. I understand it. "No Ms. Smith, I didn't show my work.
 > I did it in my head..."
 >
->    Damn kid. Probably copied it. They're all alike.
+> Damn kid. Probably copied it. They're all alike.
 >
->    I made a discovery today. I found a computer. Wait a xecond,
+> I made a discovery today. I found a computer. Wait a xecond,
 > this is cool. It does what I want it to. if it makes a mistake,
 > it's because I screwed it up. Not Because it doesn't like me...
 > Or feels threatend by me...
 > Or thinks I'm a smart ass...
 > Or doesn't like teaching and shouldn't be here...
 >
->    Damn kid. All he does is play games. They're all alike.
+> Damn kid. All he does is play games. They're all alike.
 >
->    And then it happened... a door opened to a world... rushing
+> And then it happened... a door opened to a world... rushing
 > through the phone line like junk through an addict's veins, an
 > electronic impulse is sent out, a refuge from the day-to-day
 > incompetencies is sought... a board is found.
 >
->    "this is it... this is wwhere I belong..."
+> "this is it... this is wwhere I belong..."
 >
->    I know everyone herre... even if I've never met them, never
+> I know everyone herre... even if I've never met them, never
 > talked to them, may never hear from them again... I know you
 > all...
 >
->    Damn kid. tying up the phone line again. They're all alike...
->                     Come on...  Ain't Got All Day!!
->    You bet your ass we're all alike... we've been spoon-fed baby
+> Damn kid. tying up the phone line again. They're all alike...
+> Come on...  Ain't Got All Day!!
+> You bet your ass we're all alike... we've been spoon-fed baby
 > food at school when we hungered for steak... the bits of meat
 > that you did let slip through were prechewed and tasteless.
 > We've been dominated by sadist, or ignored by the apathetic. The
 > few that had something to teach us found us willing pupils, but
 > those few are like drops of water in the desert.
 >
->    This is our world now... the world of the electron and the
+> This is our world now... the world of the electron and the
 > switch, the beauty of the baud. We make use of a service already
 > existing without paying for what could be dirt-cheap if it
 > wasn't run by profiteering gluttons, and you call us criminals.
@@ -151,18 +151,18 @@ Another important document is "The Conscience of a Hacker" written by "The Mento
 > murder, cheat, and lie to us and try to make us believe it's for
 > our own good, yet we're the criminals.
 >
->    Yes, I am a criminal. My crime is that of curiosity. My crime
+> Yes, I am a criminal. My crime is that of curiosity. My crime
 > is that of judging people by what they say and think, not what
 > they look like. My crime is that of outsmarting you, something
 > that you will never forgive me for.
 >
->                     Come on...  Ain't Got All Day!!
+> Come on...  Ain't Got All Day!!
 >
 > I am a hacker, and this is my manifesto. You may stop this
 > individual, but you can't stop us all... after all, we're all alike.
 >
 > +++The Mentor+++
->    Racketeers
+> Racketeers
 >
 
 Finally, I'd like to make a few notes about online communities, trolling, hate speech, and the like. Clearly the tech industry leans significantly on the liberal/libertarian side; however, most of us also strongly support your right to say whatever you like even if we don't support it. This is particually frustrating when it comes to large, non-grouped online communities like Twitter or Tumblr where except by blocking, everyone is in the same public sphere instead of isolated. While the isolation can have negitive effects too, like echo chambers where false information and hate breed, the samller communities are also benefical as they allow for a better sense of community and for individual moderation policies decided by the useres instead of awkward rules like [Tumblr's](https://gizmodo.com/tumblrs-porn-filter-flags-its-own-examples-of-permitted-1831151178?utm_source=gizmodo_twitter&utm_medium=socialflow&utm_campaign=socialflow_gizmodo_twitter&fbclid=IwAR2cfAMZ5IpJLINVt6WSuLCcu7KX5D83FQ8F4J-DTxbyJFMZ4704-VxTbN4) [NSFW](https://staff.tumblr.com/post/181199101690/hey-tumblr-a-couple-of-weeks-ago-we-announced-an) ban and the chaos that insued. Clearly the lines between hate speech and trolling and free speech are a problem online, and frankly the internet is young. We haven't really figured out the right way to handle it yet. Should Twitter have the right to remove the Alt-Right or are they to important of a polticial forum to deny freedom of speech despite being a public company? Is it ethically okay to use services like Tor for privacy when by doing so you're indirectly helping people get away with things like child ... abuse (I don't want this document getting flagged by something, ironically). Or because the tools are going to exist regardless and criminals will always find another way is it okay? The truth is, it's not black and white, and it's well worth your time to sit down and consider what you are personally okay with and what you think, as a society, we need to change and how we might go about doing that. Personally, I think services like Mastodon which offer security and privacy while keeping individual communities free to handle themselves are the best option, but they're also more complicated. Just know that decesion you make online can have real world consequences, and that at the end of the day, there's a human on the other side of that screen.
