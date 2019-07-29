@@ -62,7 +62,7 @@ The OSI model of networking is
 
 ### HTTP
 
-![Codes](./imgs/openg/http-status-codes.png)
+![Codes]({static}/openg/http-status-codes.png)
 > https://www.monkeyuser.com/2017/http-status-codes/
 
 ### FTP

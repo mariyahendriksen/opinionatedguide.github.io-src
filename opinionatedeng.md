@@ -131,7 +131,7 @@ This struggle is part of learning and proof that you're doing well. These experi
 
 To quote someone much smarted than myself:
 
-![Live Overflow Tips](./imgs/openg/lotips.png)
+![Live Overflow Tips]({static}/openg/lotips.png)
 
 Finally, there's
 
@@ -167,7 +167,7 @@ You should really make a full backup of your computer before doing this, as inst
 
 # Chapter 2 - Let's do it then, Installing Arch Linux
 
-![Arch Logo](./imgs/openg/archlogo.png)
+![Arch Logo]({static}/openg/archlogo.png)
 
 Unlike Windows or Mac which are primarily differentiated by versions (Windows XP, Vista, 7, 10...), Linux has two important things to look out for: The distribution and the kernel version number. Linux is actually just the name of the underlying 'core' of the system, known as the kernel, as such, there are literally thousands of Linux variations. Some of the well known variants include Ubuntu, Fedora, OpenSuse, and Arch just to name a few. Each of these has a different target audience, with some meant for servers, some meant for casual users as an alternative to Windows, others as work station for hard core computing. They also ship with different software pre-installed to be accessed after the first boot. The other differentiating factor is the version of the Linux Kernel that they use. Some chose to use an older, battle hardended kernel that is known to be very, very stable, others chose a nice middle ground, while yet others continuously release an update to the newest available kernel. There are pros and cons to each model and each has its place; however, the one I'm going to have you install is know as one of the hardest to work with, but also one of the most powerful: Arch Linux. Arch is what's known as a rolling release distribution, which means it gets the bleeding edge features and the newest kernel pretty much as fast as possible, though really the biggest thing that makes Arch special is how bare bones it is out of the box, shipping with basically no pre installed software. In fact, when you first start it up the only thing you'll see is a screen to type and run commands, and that's where we're going to start.
 
@@ -999,7 +999,7 @@ One of the nifty things about Linux is you don't need to install extra software 
 
 ## The CPU
 
-![CPUS](./imgs/openg/cpus.jpg)
+![CPUS]({static}/openg/cpus.jpg)
 
 These are CPUS or Central Processing Units. They're the beating heart of your computer, doing the day-to-day number crunching. The rectangular one of one of the first CPU's in the lineage leading up to CPU's like the ones used in desktop's today, with further sucessors shown in order from top left to the bottom right. The metal-capped one at the bottom right, while old, is visulally quite representative of a moden desktop CPU, though the CPUs in a laptop or smart phone do look quite differnt still.
 
@@ -1060,7 +1060,7 @@ Each of these things is very important, but I'm going to start with cpu MHz as i
 
 ### Clock Speed
 
-![transistor](./imgs/openg/transistor.jpg)
+![transistor]({static}/openg/transistor.jpg)
 
 However, to get to that we've gotta go just a bit further down the rabbit hole to the relay. Relays are super simple to understand, they're just a metal switch that is pulled open or closed using another input signal, basically imagine a light switch, where the switch itself is controlled by yet another electrical signal. Relays are slow though, they require a physical metal plate to move to change the connection. Because of this they have limited reliability and worth note they're actually loud. You can hear an audible click of the switch as they change state.
 
@@ -1158,7 +1158,7 @@ Put simply, just as with adding more Random Access Memory (RAM) to your system, 
 
 Let's take a look. install the `hwloc` package using yay and then run `lstopo` and you should get an output that looks a bit like this
 
-![lstopo](./imgs/openg/lstopo.png)
+![lstopo]({static}/openg/lstopo.png)
 
 The stuff on the right are connections around the system, you can ignore those for now, but see the various cache layers, designated by L3, L2, L1d and L1i, and you can see how each core has it's own cache. Finally, you can see that each core has two processing units? Hey, wait, what's that all about?
 
@@ -1170,7 +1170,7 @@ the CPU is one of the most power hungry parts of your computer, and as such it d
 
 I very strongly recommend looking into this on any system though, as by default some CPUs will run at the minimum frequency only.
 
-![cpupower](./imgs/openg/cpupower.png)
+![cpupower]({static}/openg/cpupower.png)
 
 **Physically, what and where is this thing?**
 
@@ -1178,7 +1178,7 @@ The CPU is on a square or rectangular board that is usually covered by a large h
 
 ## RAM
 
-![RAM](./imgs/openg/ram.jpg)
+![RAM]({static}/openg/ram.jpg)
 
  This is RAM or Random Access Memory. The above two sticks are the normal sized used in desktop PCs, this form factor is called a DIM while the bottom two are from laptops and are called SO-DIMS, the placement of the notch is an indicator of the generation of RAM, with neraly all modern ram being a consecutive generation of the DDR standard. At the time of writing (Q2,2019) DDR4 is common in new, medium to high end devices, with many DDR3 devices still being used. Of note many more compact devices solder the ram chips directly to the board, meaning there is no form factor to consider.
 
@@ -1190,7 +1190,7 @@ While support for this will vary depending on your motherboard, you should be ab
 
 The output will probably repeat multiple times, printing once for each physical stick of ram in your system. I actually have 4 sticks, but I'll just be showing one:
 
-![dmiram](./imgs/openg/dmiram.png)
+![dmiram]({static}/openg/dmiram.png)
 
 You should note that many of the things mentioned above can be seen here, though I do want to look at some things here.
 
@@ -1231,7 +1231,7 @@ Going back to when cache was mentioned though, RAM's primary job is to hold bulk
 
 ## The Motherboard
 
-![mobo](./imgs/openg/mobo.jpg)
+![mobo]({static}/openg/mobo.jpg)
 
 This is an older motherboard, but still new enough to have modern parts. Let's start by looking at the the most obvious physical features and move to smaller things from there.
 
@@ -1239,11 +1239,11 @@ The most obvious thing to point out is the size of the motherboard. This is a mA
 
 The large, white square is the CPU socket. This is an older board made for an AM3+ processor. The AM3+ processor line, as well as most consumer processors from AMD use a PGA or Pin Grid Array socket. these CPUs have many pins on the bottom wich fall into these holes to make contact. Before the CPU is inserted the metal leaver arm, seen at the bottom of the socket if you look carefully, is raised and the CPU should smoothly plop right in, after which the arm can be lowered. modern Intel CPUs follow a similar-ish mechanism, only instead of having a bunch of pins that go into holes the 'pins' are actually tiny springy pieces of metal on the motherboard which make contact with pads on the CPU, that socket looks a bit like this, albeit this is an old one:
 
-![File:CPU Socket 775 T.jpg](./imgs/openg/581px-CPU_Socket_775_T.jpg)
+![File:CPU Socket 775 T.jpg]({static}/openg/581px-CPU_Socket_775_T.jpg)
 
 ([img source](https://commons.wikimedia.org/wiki/File:CPU_Socket_775_T.jpg))
 
-If you're looking at a server or high end workstation you may actually run into a single motherboard with multiple CPU sockets. These are becoming less common with time, but even though there are multiple CPUs the system still operates as one larger system. For example, I have access to a system with 4, 8 core, 16 thread cpu's to give for a total of of 64 threads. Giving this beautiful sight:![64t](./imgs/openg/64thread.png)
+If you're looking at a server or high end workstation you may actually run into a single motherboard with multiple CPU sockets. These are becoming less common with time, but even though there are multiple CPUs the system still operates as one larger system. For example, I have access to a system with 4, 8 core, 16 thread cpu's to give for a total of of 64 threads. Giving this beautiful sight:![64t]({static}/openg/64thread.png)
 
 Clearly, a server with that much horsepower will use a lot of electricity though, and there is some overhead for the system when getting information from one physical CPU to another.
 
@@ -1267,7 +1267,7 @@ Finally, along the top of the back left edge you'll see the metal tops of the ma
 
 So, how do we get any information from the motherboard? Well, in case it wasn't already obvious, the motherboard isn't really one thing. It's more a common interconnect point and routing system than anything; however, it does have some of it's own responsibilities. To start small let's look at one small, but exceedingly import role of the motherboard: fan and temperature control.
 
-To see what your fans are doing on Linux you'll need to grab the package `lm_sensors` with yay, then you can run run `sudo sensors-decect` and mash enter until it's done. After this you should be able to run `sensors` and see an output similar to this one:![sense](./imgs/openg/sensors.png)
+To see what your fans are doing on Linux you'll need to grab the package `lm_sensors` with yay, then you can run run `sudo sensors-decect` and mash enter until it's done. After this you should be able to run `sensors` and see an output similar to this one:![sense]({static}/openg/sensors.png)
 
 Of note, depending on your system, there's a small chance nothing will be detected at all or that some information will be wrong. Even in my case this is true as my CPU fan is reporting 0 RPM. Actually entering your motherboard's UEFI or BIOS settings may expose more information, but we'll talk about that more later.
 
@@ -1349,7 +1349,7 @@ If you continue down this list you'll see there's yet another USB controller and
 
 What's cool is this information relates back to something we saw earlier when looking at the CPU:
 
-![lstopo2](./imgs/openg/lstopo.png)
+![lstopo2]({static}/openg/lstopo.png)
 
 See all those PCI ids on the right side, those directly correlate with a lot of the above.
 
@@ -1464,7 +1464,7 @@ external VRM, over/under volting, max power, choke count, digital vrm
 
 ## Storage
 
-![disks](./imgs/openg/hdds.jpg)
+![disks]({static}/openg/hdds.jpg)
 
 > Pictured here are 3 hard drives, 2 of which are 'full size' at 3.5" and the the other a 'laptop drive' at 2.5", the left most hard drive has been opened up, which has certainly ruined it as dust has gotten in. Below the smaller Hard drive is an NVMe ssd, a micro sd card, and a flash drive. All of which are examples of solid state storage
 
@@ -1486,7 +1486,7 @@ At the end of the day, for bulk media storage that you still want to be able to 
 
 Most hard drives connect though either SATA or SAS, with almost all consumer drives being SATA, and enterprise drives using a mix. SAS has some extra features and depending on the drive may be capable of writing an reading at the same time, a nifty trick SATA drives can't do without alternating between the two rapidly.
 
-For bulk storage servers you can get insane capacites, and buliding one yourself isn't all that hard. Here's mine:![powervault](./imgs/openg/powervault.jpg)
+For bulk storage servers you can get insane capacites, and buliding one yourself isn't all that hard. Here's mine:![powervault]({static}/openg/powervault.jpg)
 
 > A modified powervault MD1000 with a hard drive poking out and the computer - being used an archive server - it connects to. It currently is only housing three, 3Tb SAS hard drives.
 
@@ -1503,7 +1503,7 @@ Filesystem      Size  Used Avail Use% Mounted on
 
 Alright, so I already have the disk 62% used, let's give that a closer look by firing up `ncdu` at the mount point. This will take a little while to scan, the more files the longer it will take. After spending a few minutes to analyze the disk I'm greeted with this:
 
-![ncdu](./imgs/openg/ncdu.png)
+![ncdu]({static}/openg/ncdu.png)
 
 From this you should be able to plainly see that the majority of the hard drive is taken up by Archived files, Music, Games, Videos, and Pictures. Pretty Mundane, but I could easily dive into the Archives and see why they're so big and save myself some space
 
@@ -1569,7 +1569,7 @@ Zfs, hardware raid, software raid, emulated hardware (bios), etc.
 
 ## Network Interfaces
 
-![NICS](./imgs/openg/nics.jpg)
+![NICS]({static}/openg/nics.jpg)
 
 Pictured here are three Network Interface cards or a NIC. The three on the left are for WiFi (though some of this form factor may include bluetooth as well) while the one on the right has an ethernet port for wired access. Most computer's will not have a separate card for the wired interface though, as most motherboard's have a wired network interface built in.
 
@@ -2269,31 +2269,31 @@ once it installs go ahead and open it up
 
 you should see something like this:
 
-![2019-02-08-194336_3836x2042_scrot](./imgs/openg/2019-02-08-194336_3836x2042_scrot.png)
+![2019-02-08-194336_3836x2042_scrot]({static}/openg/2019-02-08-194336_3836x2042_scrot.png)
 
 This is a super powerful equivalent to task manager from windows. You can see the load on all 16 of my cpu threads, the memory usage on the system, uptime, loadavg, and number of tasks running here, but best of all we can see a nice tree of all the processes, and how each one of them is impacting the system. (you may need to press f5 to put it in tree mode) From here you can also see the Process's ID known as the PID, these numbers should directly corolate with those visable in /proc
 
 Leaving that windows open lets open up two more terminals, in one navigate to /proc and in the other start up python:
 
- ![2019-02-08-194844_3241x2113_scrot](./imgs/openg/2019-02-08-194844_3241x2113_scrot.png)
+ ![2019-02-08-194844_3241x2113_scrot]({static}/openg/2019-02-08-194844_3241x2113_scrot.png)
 
 from here go back to the window running htop and use f3 to search for python if there are multiple processes that come up just keep pressing i3 until you find one that has a tree that looks like:
 
 (note your terminal will probably be named either konsole or xterm, not deepin-terminal)
 
-![2019-02-08-195158_1685x128_scrot](./imgs/openg/2019-02-08-195158_1685x128_scrot.png)
+![2019-02-08-195158_1685x128_scrot]({static}/openg/2019-02-08-195158_1685x128_scrot.png)
 
 and look to the left to find the pid of the running python process, in my case it's 754.
 
 Go over to the terminal where you navigated to /proc and now navigate to the folder with the id of your process, in my case i'd run `cd 754`  then run 'ls' and look at everything in this folder:
 
-![2019-02-08-195440_1912x424_scrot](./imgs/openg/2019-02-08-195440_1912x424_scrot.png)
+![2019-02-08-195440_1912x424_scrot]({static}/openg/2019-02-08-195440_1912x424_scrot.png)
 
 now, we're gonna run one more thing before we leave, and we'll come back to it later, but I want to show you now, so you can appreciate how cool it is later: go ahead and run `sudo cat stack`
 
 you should see something like:
 
- ![2019-02-08-200152_831x306_scrot](./imgs/openg/2019-02-08-200152_831x306_scrot.png)
+ ![2019-02-08-200152_831x306_scrot]({static}/openg/2019-02-08-200152_831x306_scrot.png)
 
 but when we run this in the python terminal:
 
@@ -2304,7 +2304,7 @@ while(1):
 
 and read the stack again we'll see:
 
-![2019-02-08-200307_427x115_scrot](./imgs/openg/2019-02-08-200307_427x115_scrot.png)
+![2019-02-08-200307_427x115_scrot]({static}/openg/2019-02-08-200307_427x115_scrot.png)
 
 Which while may not look overly interesting, I assure you will be something of interest later.
 
@@ -2437,7 +2437,7 @@ Building, fixing, and analyzing circuitry requires the use of a few tools and ap
 
 [TODO]
 
-![multimeter](./imgs/openg/multimeter.jpg)
+![multimeter]({static}/openg/multimeter.jpg)
 
 ## Resistance and the OHM meter
 
@@ -2495,15 +2495,15 @@ https://en.wikipedia.org/wiki/Arbitrary_waveform_generator
 
 The osciliscope (or OScope or simply Scope) allows you to see an AC signal and how it varies over time as a plot of Voltage on the Y axis and time on the X, Most OScopes will allow you to look at multiple signals at once, with one overlaid on the other. Furthermore, most support X-Y mode, where the plot is actually the voltage of one input as the X axis and the voltage of another as the Y, moving a dot and it's trail around the screen. In fact, this is how the first computer monitors worked:
 
-![Image result for asteroids game](./imgs/openg/oscopeastroids.jpeg)
+![Image result for asteroids game]({static}/openg/oscopeastroids.jpeg)
 
 Modern OScopes look much different than their phosphorescent green ancestors though:
 
-![Image result for oscilloscope](./imgs/openg/modernscope.jpeg)
+![Image result for oscilloscope]({static}/openg/modernscope.jpeg)
 
 However, a decent 'Digital Storage Oscilloscope' or DSO like the one above run a minimum of \$300 at the time of writing, so many hobbyist opt for older scopes like this one:
 
-![Image result for oscilloscope](./imgs/openg/oldscope.jpeg)
+![Image result for oscilloscope]({static}/openg/oldscope.jpeg)
 
 or a cheap, low resolution, low speed one from Ebay. For most uses, both of these will be perfectly fine. For just starting out though I'd recommend a logic analyzer (I'll talk about that next) and oscilloscope combo tool, like the **LHT00SU1** which can be found on Ebay pretty easily. Be aware they can fry your USB port or worse though.
 
@@ -2515,7 +2515,7 @@ But what are these actually used for day to day, and why would you want one? [TO
 
 Logic Analyzers... analyze logic. Who knew? But what does that mean? Well, in reality they are *somewhat* similar to an oscilloscope in that they show a voltage over time, the difference is they only show either on or off over time based on the set TTL (Transistor–transistor logic) voltage. This lets you eavesdrop on the digital communication going on over a wire. Here's an example output:
 
-![logic](./imgs/openg/logic.png)
+![logic]({static}/openg/logic.png)
 
 In this particular encoding, the longer high bumps represent a 1 and the short high bumps a 0, so you're looking at the binary that was sent over a wire. It's actually pretty rare that a wire sends raw high for a 1 and low for 0 so other schemes, like the one above, are used. For most schemes the software can actually be used to decode the received data into raw binary or if it was human readable characters even that.
 
@@ -2606,7 +2606,7 @@ The first two are terminal based `nano` and `vim`,
 
 nano, is the similist of all the editors I'll list here. It's stupid simlpe to use and for quick just opening a text file and changing one line, probably the fastest. It clearly prints it's instructions at the bottom of the termianl:
 
-![nano](./imgs/openg/nano.png)
+![nano]({static}/openg/nano.png)
 
 where ^ is the ctrl key, and M the alt key. However, you'll quickly find nano rather limiting, so onto vim!
 
@@ -2620,13 +2620,13 @@ Graphically I recomend Visual Studio Code with Platform IO, Bracket Pair Coloriz
 
 This gives you a pretty kick butt editor on bar with most full Integrated Development Envrioments or IDEs. I recomend you try out IDEs, espcially if for some unholy reason you want to write in Java, but otherwise this will do fine.
 
-![code](./imgs/openg/code.png)
+![code]({static}/openg/code.png)
 
 ## The Desktop Envrioment
 
 This is the biggest change, I'm going to recomend switching from KDE, which we installled when we setup arch, to i3. i3 is a tiling window manager, this means it looks something like this:
 
-![i3](./imgs/openg/i3.png)
+![i3]({static}/openg/i3.png)
 
 This is with 3 windows ope: Marktext (the program I'm writing this in), a file manager, and an terminal I used to launch the program (scrot) to take the screenshot. What's cool about i3 is how it will always use space as efficently as possible by tiling the windows, and you can navigate between the windows (or multiple monitors) entirely by keyboard (mouse still works obviously) and open multiple virtual workspaces. When programming and using a computer for advanced things it's not uncommon to have a dozen windows open and having things organized like this can be a life saver.
 
@@ -2669,7 +2669,7 @@ If you're looking for more ways to make your setup the best it can be or config 
 
 ## The Physical Enviroment & Hardware
 
-![penv](./imgs/openg/physicalenv.jpg)
+![penv]({static}/openg/physicalenv.jpg)
 
 Working on a laptop with a mushy membrane keyboard is totally fine for some people, but when you're deep into some complicated work having the best possible setup can save a lot of time, frustration, and mental overhead.
 
@@ -2741,7 +2741,7 @@ Another thing to mention is red-light filters. While I dont personally use one m
 
 Probably the most important thing you can do for your workspace is getting a nice keyboard. If you're rocking a rubber dome or membrane keyboard, moving to a mechanical keyboard will make a massive difference.
 
-![keycomp](./imgs/openg/mechkey.png)
+![keycomp]({static}/openg/mechkey.png)
 
 ([source](https://commons.wikimedia.org/wiki/File:Keyboard_Construction_Button_Press.JPG))
 
@@ -2759,7 +2759,7 @@ really it's all a matter of prefrence, I'm actually using a switch not listed he
 
 Furthermore, there are other types of switches like IBM's old Model M line which use a buckling spring, which are quite stiff and have a very unique, heavy feeling. If you don't want to use a 20 year old keyboard Unicomp makes clones that are quite nice.
 
-You should also consider they layout of your keyboard. Some people absolutely need a number pad while others are happy to omit it and have the shorted hand travel to their mouse. Even still others want an extravagent number of keys or a weird split keyboard like mine:![keeb](./imgs/openg/splitkeeb.jpg)
+You should also consider they layout of your keyboard. Some people absolutely need a number pad while others are happy to omit it and have the shorted hand travel to their mouse. Even still others want an extravagent number of keys or a weird split keyboard like mine:![keeb]({static}/openg/splitkeeb.jpg)
 
 > This is a custom built ErgoDone keyboard, The Ergodox-ez can be purchased for ~300 USD, or you can build one like mine for a bit under 200
 
@@ -3115,7 +3115,7 @@ The OSI model of networking is
 
 ### HTTP
 
-![Codes](./imgs/openg/http-status-codes.png)
+![Codes]({static}/openg/http-status-codes.png)
 > https://www.monkeyuser.com/2017/http-status-codes/
 
 ### FTP
@@ -3548,7 +3548,7 @@ https://www.youtube.com/watch?v=RDZnlcnmPUA
 
 Never claim something is 'unhackable':
 https://techcrunch.com/2019/05/10/eyedisk-encrypted-flash-drive-unhackable/,
-![unhackable](./imgs/openg/unhackable1.jpg)
+![unhackable]({static}/openg/unhackable1.jpg)
 
 
 # Chapter 22 - Security
@@ -4300,7 +4300,7 @@ Names, Timezones, unicode, maps (Tiwan v china)
 
 ## Religion
 
-![swearingin](../imgs/openg/swearingin.png)
+![swearingin](.{static}/openg/swearingin.png)
 
 The engineering community is strangly divided, the 'old gaurd' is actually realitively conservative and professional, but as time has moved forward it's quite the opposite. Unsuprisingly, this corolates with religion as well. The main way this plays into politics is a general hard stance for the separation of church and state. This is in part due to a past of religoutly motivated legilation negitively impacting copyright law, but also just generally an understood ideal that is beneficial to democracy. Furthermore, it would probably be worth your time to look into basics of most world religions, as engineering is incressingly a global field where you will have no choice but to work with people from diverse backgrounds across the globe.
 
@@ -4315,7 +4315,7 @@ The 'Hacking' community in particular is usally very clear on sexual liberation/
 Finally, a little less NSFW, the Maker and engineering communities also tend to overlap rather heavily with more artisticaly minded and sub-culture heavy groups, ranging from those obsessed with comics to anime nerds or furries. I really recomend you do at least a little reseach into various sub cultrues and geek culture to better understand some of the people you'll probably interact with. You might just find something new you enjoy while you're at it.
 
 Also, because this got a bit heavy for a bit, let's touch on Rule 34. We all know it, but where does it come from? 4Chan of course. Here's the full set:
-![irules](../imgs/openg/irules.jpg)
+![irules](.{static}/openg/irules.jpg)
 
 ## Thank you
 If you've made it this far I just want to say thank you. We need more people to really consider the ethics of technology as we design it and procede with it. DeepFakes, Automated driving, and even more mass online censorship are issues we're only going to face more with time and it's people like you who are going to help make sure we take the best path we can. So, from the bottom of my heart, thank you.
