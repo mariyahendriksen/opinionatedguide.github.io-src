@@ -1115,7 +1115,7 @@ As you can see, this is incredibly difficult to read to a 'normal' person, so ev
 
 This in turn gets turned into binary as can bee seen by this screenshot generated using https://godbolt.org/
 
-![2019-02-08-145014_2400x522_scrot](./godbolt.png)
+![2019-02-08-145014_2400x522_scrot]({static}/openg/godbolt.png)
 
 See the weird numbers next to each instruction? like 4004b255? That's a base 16 number or hexadecimal usually refered to as 'Hex'. Hex is what is used by most computer guys to represent numbers because computers operate in base 2, or binary- like 01001100, which is very difficult to read and type accurately, however, base 10, the normal numbering system your used to, makes translating between binary and decimal a bit uncomfortable as the common factor is 5, an number that is both odd and in turn not a factor of two, where as 16 is $2^4$ so that means we can easily represent binary like this:
 

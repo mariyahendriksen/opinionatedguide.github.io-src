@@ -44,6 +44,9 @@ MARKDOWN = {
   'output_format': 'html5',
 }
 
+PLUGIN_PATHS = ["plugins"]
+PLUGINS = ["render_math","filetime_from_git"]
+
 DEFAULT_PAGINATION = 10
 
 # Uncomment following line if you want document-relative URLs when developing
