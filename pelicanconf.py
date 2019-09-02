@@ -23,10 +23,10 @@ AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 
 # Blogroll
-LINKS = (('Pelican', 'http://getpelican.com/'),
-         ('Python.org', 'http://python.org/'),
-         ('Jinja2', 'http://jinja.pocoo.org/'),
-         ('You can modify those links in your config file', '#'),)
+LINKS = (('Vega Deftwing Patreon', 'https://www.patreon.com/deftwing'),
+         ('Vega Deftwing Personal Page', 'http://deftwing.us/'),
+         ('Vega Deftwing Telegram', 't.me/vegadeftwing'),
+         ('OpGuides SRC', 'https://github.com/opinionatedguide/opinionatedguide.github.io-src'),)
 
 # Social widget
 SOCIAL = (('You can add links in your config file', '#'),
