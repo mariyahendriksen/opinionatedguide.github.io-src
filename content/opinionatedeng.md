@@ -3,7 +3,7 @@ Date: 2019-7-27 12:00
 Modified: 2019-7-27 12:00
 Category: Engineering
 Tags: Engineering
-Slug: Opinionated Engineering
+Slug: OpinionatedEngineering
 Authors: Vega Deftwing
 
 [TOC]

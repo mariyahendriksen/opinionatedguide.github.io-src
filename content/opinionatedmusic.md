@@ -3,7 +3,7 @@ Date: 2019-7-27 12:00
 Modified: 2019-7-27 12:00
 Category: Music
 Tags: Music
-Slug: Opinionated Music
+Slug: OpinionatedMusic
 Authors: Vega Deftwing
 
 [TOC]

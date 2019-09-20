@@ -3,7 +3,7 @@ Date: 2019-7-27 12:00
 Modified: 2019-7-27 12:00
 Category: Design
 Tags: Design
-Slug: Opinionated Design
+Slug: OpinionatedDesign
 Authors: Vega Deftwing
 
 [TOC]
