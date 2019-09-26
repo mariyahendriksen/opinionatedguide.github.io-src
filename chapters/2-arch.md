@@ -6,7 +6,7 @@ Unlike Windows or Mac which are primarily differentiated by versions (Windows XP
 
 For most distros like Ubuntu or OpenSuse (feel free to look these up, this page isn't going anywhere) there's a nice graphical, point and click installer which helps you install the system and somewhat mitigates potential risk of killing your original OS (Mac/Win) or losing data; however, the goal of this guide is to learn. Arch's install process, entirely by typing commands in this terminal is hard, but that difficulty leads to a deeper understanding and respect for the system as a whole
 
-When we're done you'll have a system that has exactly what you need and nothing you don't. You won't find weird forcibly installed software like Win 10's Candy Crush App here, and your system will only do exactly what you tell it. Of course, this implies you know how to speak it's language and tell it what you want. Thankfully with some practice you'll get used to running Arch and you'll wonder why you ever dealt with other systmes to begin with.
+When we're done you'll have a system that has exactly what you need and nothing you don't. You won't find weird forcibly installed software like Win 10's Candy Crush App here, and your system will only do exactly what you tell it. Of course, this implies you know how to speak it's language and tell it what you want. Thankfully with some practice you'll get used to running Arch and you'll wonder why you ever dealt with other systems to begin with.
 
 Install instructions will vary dependent on your hardware, but I'm going to assume you have a desktop or laptop which shipped with Windows 10 and has a UEFI system. Most laptops newer than ~2016 should be in this category. If your system uses a BIOS or Legacy boot instead, or if you have a mac, this won't apply to you, but you should be able to follow some of the resources I used to make this guide which are linked below along with some searching online to figure it out.
 
@@ -130,7 +130,7 @@ Now you'll need to power off your computer. Turn it back on and as you do mash t
 
 > If something comes up as [FAILED] even though you still get to the login prompt, don't worry about it for now
 
-Then, you should be greeted by a mininal prompt that looks like
+Then, you should be greeted by a minimal prompt that looks like
 
 ```bash
 root@archiso ~ #
@@ -145,7 +145,7 @@ You'll need an internet connection to do anything, if you can connect you comput
 If you didn't connect your computer to ethernet before you started arch, the first thing you should type in this prompt is
 
 ```bash
-systemctl dhcpcd restart
+systemctl restart dhcpcd
 ```
 
 this manually restarts the service that asks the network for an IP address, which you need to do since currently the system is in such a minimal state it won't do that automatically.
@@ -226,7 +226,7 @@ We're going to need to make some changes this list tough, as we actually need on
 root@archiso ~ # cfdisk /dev/sdb
 ```
 
-this should bring up a strange command line based almost graphical interface which you can used to edit, add, or remove partitions. With that 100Gb (or whatever you chose free space we made earlier), let's divide it into two partions, one that's 8GB and the other that's just what's left. We're doing this so we have somewhere to put SWAP in a second, but let's get to that later, for now just use your arrow keys and highlight the large empty block and select new, select primary, then make it 8GB, which is 8*1024Mb or 8192, and then select end. Finally write it, then quit. Whew. Bit stressful even for me. Don't worry, Linux get's much much easier, especially when we get our graphical tools back.
+this should bring up a strange command line based almost graphical interface which you can used to edit, add, or remove partitions. With that 100Gb (or whatever you chose free space we made earlier), let's divide it into two partitions, one that's 8GB and the other that's just what's left. We're doing this so we have somewhere to put SWAP in a second, but let's get to that later, for now just use your arrow keys and highlight the large empty block and select new, select primary, then make it 8GB, which is 8*1024Mb or 8192, and then select end. Finally write it, then quit. Whew. Bit stressful even for me. Don't worry, Linux get's much much easier, especially when we get our graphical tools back.
 
 now, run lsblk again. You should see something like
 

@@ -57,11 +57,11 @@ Yes, there is always a relevant XKCD, and yes, you will always feel like everyon
 
 --from https://bad.pet/q/
 
-The technical community can be ruthless with it comes to expecting people to have 'basic' knowledge sometimes, but don't let it get to you. I do want to provide some general ideas that, while not universally, are generally shared among the engineering and sounding community:
+The technical community can be ruthless with it comes to expecting people to have 'basic' knowledge sometimes, but don't let it get to you. I do want to provide some general ideas that, while not universally, are generally shared among the engineering and surrounding community:
 
 Ⅰ - Any good solution is fast, easy to understand, and above all elegant.
 
-Ⅱ - Any task which can be automated should be - if a computer can do it faster than you than you shouldn't do it by hand
+Ⅱ - Any task which can be automated should be - if a computer can do it faster than you then you shouldn't do it by hand
 
 Ⅲ - Any problem that has been solved in a way that satisfies the above two rules should be looked at for reuse before reinventing the wheel
 
@@ -75,7 +75,7 @@ On the note of point Ⅲ...
 
 ![Standards](https://imgs.xkcd.com/comics/standards.png)
 
-Though the one I was stressing here was really Ⅳ, you should **always** check the internet before asking in chat. It's not that we're being rude, it's just a matter of courtesy. If you're unsure of the answer or it's validity in your case, by all means ask, but asking good questions, and only when necessary, will quickly help you make friends in chat much faster. Note, there is one exception: if chat is currently talking about something that you know don't know about and it's already relevant to the conversation, it's totally reasonable to interject and ask for a super quick primer on what's going on or a relevant link. This may seem obvious, but a good number of technical chats die because of exectaly the aforementioned problems. (or gatekeeping, but that's a whole different matter...) so please don't ask things a search engine can already answer (but don't feel bad asking a question when the all mighty Google can't)
+Though the one I was stressing here was really Ⅳ, you should **always** check the internet before asking in chat. It's not that we're being rude, it's just a matter of courtesy. If you're unsure of the answer or it's validity in your case, by all means ask, but asking good questions, and only when necessary, will quickly help you make friends in chat much faster. Note, there is one exception: if chat is currently talking about something that you know don't know about and it's already relevant to the conversation, it's totally reasonable to interject and ask for a super quick primer on what's going on or a relevant link. This may seem obvious, but a good number of technical chats die because of exactly the aforementioned problems. (or gatekeeping, but that's a whole different matter...) so please don't ask things a search engine can already answer (but don't feel bad asking a question when the all mighty Google can't)
 
 TLDR: RTFM & STFW http://www.catb.org/esr/faqs/smart-questions.html#rtfm
 

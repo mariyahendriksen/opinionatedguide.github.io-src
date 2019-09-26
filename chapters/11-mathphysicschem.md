@@ -20,8 +20,26 @@ Imaginary numbers, systems of equations
 
 ### 6 - Matrix Theory
 
+### 7 - Signals
+
 ## Ⅱ - Physics
+
+### 1 - Newtonian
+
+### 2 - Electromagnetism
+
+### 3 - Relativity and the Quantum
 
 ## Ⅲ - Chem
 
+### 1 - Atomic Structure, Basics of the Table, Bonding
 
+### 2 - Acid/base, Electrochem, Thermochem, Photochem
+
+### 3 - Organic Chemistry
+
+## Continued
+
+### Other sources, interesting videos, etc:
+
+- Minute Physics, Thought Emporium, Cody's Lab, 3Blue1Brown

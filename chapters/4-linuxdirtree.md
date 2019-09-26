@@ -205,7 +205,7 @@ The vast majority of the time you will only see 'd' or '-' designating a file or
 
 Moving on to the 'rwx' blocks, these stand for read, write, and execute respectively and each block in order states the permission of the owner of the file, those that are in the same group as the owner, and everyone else, for this reason these permissions will almost exclusively be set such that permissions are lost with each level, for example a file with
 
--rwxr--r-- , is a file (no 'd'), which may be read, written, or if it is a program ran by, the owner, yet by anyone else in the same group as the owner or anyone else on the system may only be read. So if we changed the permissions on that python file we wrote back in Chapter 2 to be this then while anyone else could see the code, they couldn't run it without making a copy.
+-rwxr--r-- , is a file (no 'd'), which may be read, written, or if it is a program ran, by the owner, yet by anyone else in the same group as the owner or anyone else on the system may only be read. So if we changed the permissions on that python file we wrote back in Chapter 2 to be this then while anyone else could see the code, they couldn't run it without making a copy.
 
 with that let's skip over the number of links, as I've never found it particularly useful and jump to the owner and group fields. The owner of a file is a single user, usually the one who created it. The root user is often the owner of important system files, which is why we have to temporarily use root account when we do many admin actions, such as updating or installing programs using `sudo`.
 
@@ -460,7 +460,7 @@ crw-------   1 root root     247,   0 Feb  8 06:03 ptp0
 drwxr-xr-x   2 root root            0 Feb  8 06:03 pts
 ```
 
-'null' literally just discards anything it receives. Useful when a command outputs junk when doing things, and getting rid of the junk
+'null' literally just discards anything it receives. Useful when a command outputs junk when doing things, and getting rid of the junk. '/dev/null' is referred to regularly in jokes in technical circles
 
 'nvmexxxx' the system NVMe storage device(s), will only exist if you have an NVMe solid sate drive
 
@@ -789,7 +789,7 @@ init system: https://www.lifewire.com/how-to-use-the-init-command-in-linux-40669
 
 ## Dbus
 
-[TODO]
+[TODO]reguallarly
 
 https://github.com/KnowNo/How-Linux-Works-2nd-Edition/blob/master/How.Linux.Works.What.Every.Superuser.Should.Know.2nd.Edition.PDF.pdf
 

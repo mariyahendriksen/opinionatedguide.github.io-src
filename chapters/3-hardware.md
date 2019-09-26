@@ -550,7 +550,7 @@ Finally, a quick note about Western Digital Green drives: Linux eats them. Thank
 Solid state drives, like HDDs, come in many capacites, speeds, and form factors; however, SSDs come in many, many more than HDDs. The primary two of note at the moment are SATA SSDs and NVMe SSDs. Sata SSDs are typically the same size and shape (though sometimes a bit thinner) as the normal 2.5" laptop hard drive; however, some other standards are used such as mSATA and m.2. Unfortunately, the m.2
 
 [TODO]
-Optane, NVMe, Sata, technically all flash, Ram disks
+Optane, NVMe, Sata, technically all flash, Ram disks, different controllers
 
 ### Cloud Storage (Some one elses' drives)
 

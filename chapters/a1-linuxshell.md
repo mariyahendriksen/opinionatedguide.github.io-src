@@ -4,20 +4,22 @@
 
 [TODO] : add detail to each command
 
-- man
-- pwd
-- ls
-- cd
-- mv
-- rm
-- touch
-- cp & rsync
-- mkdir & rmdir
-- cat
-- date
-- chmod & chown
-- less & more
-- ln
+- **man** "man [command/topic]", ex, "man ascii", bring up an indepth manual page for a given command/topic.
+- **pwd** - Print working directory - literally just a command to tell you the file path to where you are
+- **ls** - list - list the files/folders in the current directory, lots of flags available
+  - Alternative recommendation: **exa** 
+- **cd** - change directory, if you can't use this may god have mercy
+  - Alternative recommendation: **j (for autojump)** 
+- **mv** - move (or rename) a file to a new location (or name)
+  - Alternative recommendation: **rsync**
+- **rm** - remove a file/folder
+- **touch** - create an empty file, or change last accessed time of existing file
+- **mkdir & rmdir** - make or remove an empty directory (folder)
+- **cat** - output the contents of a file
+  - Alternative recommendation: **bat**, **less**, **more**, **fltrdr**, or an editor like **vim** or **nano** 
+- **date** - output current date and time
+- **chmod & chown** - change a file or folders permissions or owner
+- **ln** - make a symbolic / hard link (shortcut)
 - du & df
 - clear (only use in scripts)
 - passwd
@@ -167,54 +169,79 @@ When we installed arch we actually changed the default shell from bash to zsh, b
 ## Useful Non-Stock CLI Tools
 
 * tldr
+  
   * tldr, 'for too long didn't read' provides a quick, easy to read version of the man page for many common linux commands. Forget how to use `tar` ? just run `tldr tar`
 * autojump
+  
   * refrence above description in faster navigation
 * mpd + ncmpcpp
+  
   * 'music player daemon' and 'ncurses music player client plus plus' are two cli tools that work in tandem to provide an experiance that I presonally find superiour to any graphical music player
 * irssi
+  
   * full featured IRC client, chat right from your terminal
 * screenfetch
+  
   * get some nift stats about your terminal, add to your shell's RC file to be one of the cool kids
 * [moreutils](https://joeyh.name/code/moreutils/)
+  
   * "moreutils is a growing collection of the unix tools that nobody thought to write long ago when unix was young."
 * [hr](https://github.com/octobanana/hr)
+  
   * Need some way to visually seperate things, this literally just makes a horizontal line in the terminal
 * [fltrdr](https://github.com/octobanana/fltrdr)
+  
   * Wanna read at 1000wpm, this is the tool for you.
 * [crex]( https://github.com/octobanana/crex)
+  
   * test regular expressions in the terminal
 * lynx, w3m, browsh
+  
   * Browse the web from a terminal (not a joke and actually useful)
 * entr
+  
   * monitor file system for changes
 * noti
+  
   * send a graphical system notification when a command finishes
 * progress
+  
   * start a command and have no way to see what its doing (rsync, cp, etc)? This is your tool
 * figlet, toilet, banner
+  
   * makes big text, run `figlet Your Text Here` and see your text in big, ascii letters
 * no more secrets
+  
   * reveal text in a martix effect.. I'm streching the meaning of useful here
 * stress-ng
+  
   * stresstest your system in pretty much any super specific way you can think of, or hammer your cpu to test an overclock
 * pandoc
+  
   * convert between damn near any text format to any other format
 * taskwarrior
+  
   * keep track of To-Do's and tasks, can also be paired with timewarrior for timetracking
 * waifu2x (many forks available)
+  
   * Upscale and de-noise images zoom-and-enhance style but for real-    this ones' a bit GPU intensive because it uses AI
 * youtube-dl
+  
   * despite the name this tool can download videos or audio from almost any page on the internet, even supporting playlists in many cases too.
 * [rat](https://github.com/ericfreese/rat)
+  
   * "Compose shell commands to build terminal applications"
 * magic-wormhole
+  
   * tool for getting a file between two systems easily and secure, just run `wormhole send` and `wormhole recive` on the respective systems
 * Ix, Gist
+  
   * Paste tools, like pastebin
 * DMIDecode
+  
   * get info from BIOS
 * hexyl
+  
   * pretty terminal based hex viewer
 * [UXY](https://github.com/sustrik/uxy)
   * "UXY tool also wraps some common UNIX tools and exports their output in UXY format."
@@ -223,6 +250,7 @@ When we installed arch we actually changed the default shell from bash to zsh, b
 
     This gives a nice format for manipulation of commands though pipes for super complex shell scripting
 * lsof
+  
   * list what files a runnig process has open
 
 While some of these may be included, they're some of the OG addons or tools to make included things better:
