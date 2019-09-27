@@ -93,11 +93,11 @@ Yes, there is always a relevant XKCD, and yes, you will always feel like everyon
 
 --from https://bad.pet/q/
 
-The technical community can be ruthless with it comes to expecting people to have 'basic' knowledge sometimes, but don't let it get to you. I do want to provide some general ideas that, while not universally, are generally shared among the engineering and sounding community:
+The technical community can be ruthless with it comes to expecting people to have 'basic' knowledge sometimes, but don't let it get to you. I do want to provide some general ideas that, while not universally, are generally shared among the engineering and surrounding community:
 
 Ⅰ - Any good solution is fast, easy to understand, and above all elegant.
 
-Ⅱ - Any task which can be automated should be - if a computer can do it faster than you than you shouldn't do it by hand
+Ⅱ - Any task which can be automated should be - if a computer can do it faster than you then you shouldn't do it by hand
 
 Ⅲ - Any problem that has been solved in a way that satisfies the above two rules should be looked at for reuse before reinventing the wheel
 
@@ -111,7 +111,7 @@ On the note of point Ⅲ...
 
 ![Standards](https://imgs.xkcd.com/comics/standards.png)
 
-Though the one I was stressing here was really Ⅳ, you should **always** check the internet before asking in chat. It's not that we're being rude, it's just a matter of courtesy. If you're unsure of the answer or it's validity in your case, by all means ask, but asking good questions, and only when necessary, will quickly help you make friends in chat much faster. Note, there is one exception: if chat is currently talking about something that you know don't know about and it's already relevant to the conversation, it's totally reasonable to interject and ask for a super quick primer on what's going on or a relevant link. This may seem obvious, but a good number of technical chats die because of exectaly the aforementioned problems. (or gatekeeping, but that's a whole different matter...) so please don't ask things a search engine can already answer (but don't feel bad asking a question when the all mighty Google can't)
+Though the one I was stressing here was really Ⅳ, you should **always** check the internet before asking in chat. It's not that we're being rude, it's just a matter of courtesy. If you're unsure of the answer or it's validity in your case, by all means ask, but asking good questions, and only when necessary, will quickly help you make friends in chat much faster. Note, there is one exception: if chat is currently talking about something that you know don't know about and it's already relevant to the conversation, it's totally reasonable to interject and ask for a super quick primer on what's going on or a relevant link. This may seem obvious, but a good number of technical chats die because of exactly the aforementioned problems. (or gatekeeping, but that's a whole different matter...) so please don't ask things a search engine can already answer (but don't feel bad asking a question when the all mighty Google can't)
 
 TLDR: RTFM & STFW http://www.catb.org/esr/faqs/smart-questions.html#rtfm
 
@@ -127,7 +127,7 @@ No matter what you care about, know there's a [wide range of communities](https:
 
 I'm going to keep this short and sweet: Nobody learns (effectively) by being shown what to do. You can watch hundreds of hours of people playing guitar, even explaining how they do it, but you wont be able to randomly pick one up and play if you never have before. Furthermore, as much as you can learn from direct reading and instruction, it has it's place and limits. This guide, book, whatever you want to call it, was never meant to be followed like instructions. You should go out on your own and poke around as you go though. If you find a topic dull, don't read it as in depth. I don't want you wasting your time. Break things. Make mistakes. By the end of this you should know what a burning resistor smells like, what it's like to try to recover a slightly busted linux system, and how it feels when a bug has been eluding you for hours and your code still doesn't work. The only way that happens (unless I made a mistake which is also probable) is if you try ideas when you get them and do more than what's in this book.
 
-This struggle is part of learning and proof that you're doing well. These experinaces should teach you things in their own right. The smell of burning elcetronics may help you diagnose a future circuit, the lesson to not fall into a pit of technical debt may help when a bug has engulfed your code, and the late night of terminal only based work as you try to get your computer working again will teach you more than this book ever can.
+This struggle is part of learning and proof that you're doing well. These experiences should teach you things in their own right. The smell of burning electronics may help you diagnose a future circuit, the lesson to not fall into a pit of technical debt may help when a bug has engulfed your code, and the late night of terminal only based work as you try to get your computer working again will teach you more than this book ever can.
 
 To quote someone much smarted than myself:
 
@@ -173,7 +173,7 @@ Unlike Windows or Mac which are primarily differentiated by versions (Windows XP
 
 For most distros like Ubuntu or OpenSuse (feel free to look these up, this page isn't going anywhere) there's a nice graphical, point and click installer which helps you install the system and somewhat mitigates potential risk of killing your original OS (Mac/Win) or losing data; however, the goal of this guide is to learn. Arch's install process, entirely by typing commands in this terminal is hard, but that difficulty leads to a deeper understanding and respect for the system as a whole
 
-When we're done you'll have a system that has exactly what you need and nothing you don't. You won't find weird forcibly installed software like Win 10's Candy Crush App here, and your system will only do exactly what you tell it. Of course, this implies you know how to speak it's language and tell it what you want. Thankfully with some practice you'll get used to running Arch and you'll wonder why you ever dealt with other systmes to begin with.
+When we're done you'll have a system that has exactly what you need and nothing you don't. You won't find weird forcibly installed software like Win 10's Candy Crush App here, and your system will only do exactly what you tell it. Of course, this implies you know how to speak it's language and tell it what you want. Thankfully with some practice you'll get used to running Arch and you'll wonder why you ever dealt with other systems to begin with.
 
 Install instructions will vary dependent on your hardware, but I'm going to assume you have a desktop or laptop which shipped with Windows 10 and has a UEFI system. Most laptops newer than ~2016 should be in this category. If your system uses a BIOS or Legacy boot instead, or if you have a mac, this won't apply to you, but you should be able to follow some of the resources I used to make this guide which are linked below along with some searching online to figure it out.
 
@@ -297,7 +297,7 @@ Now you'll need to power off your computer. Turn it back on and as you do mash t
 
 > If something comes up as [FAILED] even though you still get to the login prompt, don't worry about it for now
 
-Then, you should be greeted by a mininal prompt that looks like
+Then, you should be greeted by a minimal prompt that looks like
 
 ```bash
 root@archiso ~ #
@@ -312,7 +312,7 @@ You'll need an internet connection to do anything, if you can connect you comput
 If you didn't connect your computer to ethernet before you started arch, the first thing you should type in this prompt is
 
 ```bash
-systemctl dhcpcd restart
+systemctl restart dhcpcd
 ```
 
 this manually restarts the service that asks the network for an IP address, which you need to do since currently the system is in such a minimal state it won't do that automatically.
@@ -393,7 +393,7 @@ We're going to need to make some changes this list tough, as we actually need on
 root@archiso ~ # cfdisk /dev/sdb
 ```
 
-this should bring up a strange command line based almost graphical interface which you can used to edit, add, or remove partitions. With that 100Gb (or whatever you chose free space we made earlier), let's divide it into two partions, one that's 8GB and the other that's just what's left. We're doing this so we have somewhere to put SWAP in a second, but let's get to that later, for now just use your arrow keys and highlight the large empty block and select new, select primary, then make it 8GB, which is 8*1024Mb or 8192, and then select end. Finally write it, then quit. Whew. Bit stressful even for me. Don't worry, Linux get's much much easier, especially when we get our graphical tools back.
+this should bring up a strange command line based almost graphical interface which you can used to edit, add, or remove partitions. With that 100Gb (or whatever you chose free space we made earlier), let's divide it into two partitions, one that's 8GB and the other that's just what's left. We're doing this so we have somewhere to put SWAP in a second, but let's get to that later, for now just use your arrow keys and highlight the large empty block and select new, select primary, then make it 8GB, which is 8*1024Mb or 8192, and then select end. Finally write it, then quit. Whew. Bit stressful even for me. Don't worry, Linux get's much much easier, especially when we get our graphical tools back.
 
 now, run lsblk again. You should see something like
 
@@ -1545,7 +1545,7 @@ Finally, a quick note about Western Digital Green drives: Linux eats them. Thank
 Solid state drives, like HDDs, come in many capacites, speeds, and form factors; however, SSDs come in many, many more than HDDs. The primary two of note at the moment are SATA SSDs and NVMe SSDs. Sata SSDs are typically the same size and shape (though sometimes a bit thinner) as the normal 2.5" laptop hard drive; however, some other standards are used such as mSATA and m.2. Unfortunately, the m.2
 
 [TODO]
-Optane, NVMe, Sata, technically all flash, Ram disks
+Optane, NVMe, Sata, technically all flash, Ram disks, different controllers
 
 ### Cloud Storage (Some one elses' drives)
 
@@ -1838,7 +1838,7 @@ The vast majority of the time you will only see 'd' or '-' designating a file or
 
 Moving on to the 'rwx' blocks, these stand for read, write, and execute respectively and each block in order states the permission of the owner of the file, those that are in the same group as the owner, and everyone else, for this reason these permissions will almost exclusively be set such that permissions are lost with each level, for example a file with
 
--rwxr--r-- , is a file (no 'd'), which may be read, written, or if it is a program ran by, the owner, yet by anyone else in the same group as the owner or anyone else on the system may only be read. So if we changed the permissions on that python file we wrote back in Chapter 2 to be this then while anyone else could see the code, they couldn't run it without making a copy.
+-rwxr--r-- , is a file (no 'd'), which may be read, written, or if it is a program ran, by the owner, yet by anyone else in the same group as the owner or anyone else on the system may only be read. So if we changed the permissions on that python file we wrote back in Chapter 2 to be this then while anyone else could see the code, they couldn't run it without making a copy.
 
 with that let's skip over the number of links, as I've never found it particularly useful and jump to the owner and group fields. The owner of a file is a single user, usually the one who created it. The root user is often the owner of important system files, which is why we have to temporarily use root account when we do many admin actions, such as updating or installing programs using `sudo`.
 
@@ -2093,7 +2093,7 @@ crw-------   1 root root     247,   0 Feb  8 06:03 ptp0
 drwxr-xr-x   2 root root            0 Feb  8 06:03 pts
 ```
 
-'null' literally just discards anything it receives. Useful when a command outputs junk when doing things, and getting rid of the junk
+'null' literally just discards anything it receives. Useful when a command outputs junk when doing things, and getting rid of the junk. '/dev/null' is referred to regularly in jokes in technical circles
 
 'nvmexxxx' the system NVMe storage device(s), will only exist if you have an NVMe solid sate drive
 
@@ -2422,7 +2422,7 @@ init system: https://www.lifewire.com/how-to-use-the-init-command-in-linux-40669
 
 ## Dbus
 
-[TODO]
+[TODO]reguallarly
 
 https://github.com/KnowNo/How-Linux-Works-2nd-Edition/blob/master/How.Linux.Works.What.Every.Superuser.Should.Know.2nd.Edition.PDF.pdf
 
@@ -2626,25 +2626,25 @@ This gives you a pretty kick butt editor on bar with most full Integrated Develo
 
 ## The Desktop Envrioment
 
-This is the biggest change, I'm going to recomend switching from KDE, which we installled when we setup arch, to i3. i3 is a tiling window manager, this means it looks something like this:
+This is the biggest change, I'm going to recomend switching from KDE, which we installed when we setup arch, to i3. i3 is a tiling window manager, this means it looks something like this:
 
 ![i3]({static}/openg/i3.png)
 
-This is with 3 windows ope: Marktext (the program I'm writing this in), a file manager, and an terminal I used to launch the program (scrot) to take the screenshot. What's cool about i3 is how it will always use space as efficently as possible by tiling the windows, and you can navigate between the windows (or multiple monitors) entirely by keyboard (mouse still works obviously) and open multiple virtual workspaces. When programming and using a computer for advanced things it's not uncommon to have a dozen windows open and having things organized like this can be a life saver.
+This is with 3 windows open: Marktext (the program I'm writing this in), a file manager, and an terminal I used to launch the program (scrot) to take the screenshot. What's cool about i3 is how it will always use space as efficiently as possible by tiling the windows, and you can navigate between the windows (or multiple monitors) entirely by keyboard (mouse still works obviously) and open multiple virtual workspaces. When programming and using a computer for advanced things it's not uncommon to have a dozen windows open and having things organized like this can be a life saver.
 
 i3, when first installed, is very, very minimal, it will greet you with a plain black bar and clicking with either mouse button anywhere will do nothing. You should, however, be able to open a terminal by using your modkey (probably the windows or alt key) and enter.
 
-i3 actually comes in a bunch of seprate parts, the most important of which are the windowmanager itself, the status bar, and the runner.
+referingi3 actually comes in a bunch of separate parts, the most important of which are the window manager itself, the status bar, and the runnrefferder.
 
-The window manager is the thing that actually manages the windows, this is the part most people are refering to when talking about i3 (assuming they're not talking about an i3 Intel CPU) and is sometimes refferd to as i3wm. A very popular 'fork' of i3 is `i3-gaps` which is available in the community respository.
+The window manager is the thing that actually manages the windows, this is the part most people are refering to when talking about i3 (assuming they're not talking about an i3 Intel CPU) and is sometimes refferd to as i3wm. A very popular 'fork' of i3 is `i3-gaps` which is available in the community repository.
 
-Ontop of the raw window manager you'll probably want a status bar of some kind. While the default i3bar which is inclued with the i3-gaps package is fine when paired with `i3status`, it does leave a bit to be desired. Many other options are available. I personally use `polybar` though I have friends that have used `lemonbar`  or`i3blocks`.
+On top of the raw window manager you'll probably want a status bar of some kind. While the default i3bar which is included with the i3-gaps package is fine when paired with `i3status`, it does leave a bit to be desired. Many other options are available. I personally use `polybar` though I have friends that have used `lemonbar`  or`i3blocks`.
 
 Finally you'll want a runner/application launcher. While i3-demu is included, I find it rather annoying to use, and much prefer `rofi` -- this is much better explained here than I can briefly: https://github.com/davatorium/rofi
 
 To further make i3 reasonable to use you'll want a few more things:
 
-`compton` is a composite manager. This is used to allow application to have some transparency, prevent screan tearing, and do slight effects, like but a shadow behind windows.
+`compton` is a composite manager. This is used to allow application to have some transparency, prevent screen tearing, and do slight effects, like but a shadow behind windows.
 
 `lxappearance-gtk3` can be used to set the theme used by various graphical applications. I use [Sweet](https://www.gnome-look.org/p/1253385/) but there are nearly endless options
 
@@ -2675,7 +2675,7 @@ If you're looking for more ways to make your setup the best it can be or config 
 
 Working on a laptop with a mushy membrane keyboard is totally fine for some people, but when you're deep into some complicated work having the best possible setup can save a lot of time, frustration, and mental overhead.
 
-Furthermore, the work enviroment can change how long you can work for and how productive your work time really is. Be it for comfort or productivity, there are many reasons to take care in making sure you're setup is right for you.
+Furthermore, the work environment can change how long you can work for and how productive your work time really is. Be it for comfort or productivity, there are many reasons to take care in making sure you're setup is right for you.
 
 If you are on a laptop some of the following is still applicable, but consider how any of what I'm about to mention may be adapted to your own setup.
 
@@ -2691,53 +2691,53 @@ Unfortuately, there is no magic rule for how far away your monitor should be fro
 
 I personally have my three, 4k (that's 3840x2160, or 4 times the resolution of 1080p) monitors positioned approximately 30 inches from my eyes.
 
-Before moving forward though, I think it would make sense to talk about some of this dispaly terminology, if you're already cool with this just skip this massive quote block
+Before moving forward though, I think it would make sense to talk about some of this display terminology, if you're already cool with this just skip this massive quote block
 
-> Aspect ratio is the ratio is the ratio of the width to the height of the screen, most modern screens are 16:9, or have 16 units of width for every 9 units of height. Most older displays, often now called square screens, are actually 4:3. Many people actually still prefer this for the extra vertial room it affords at a given size, and some laptops are actually moving back to a more 'square' aspect ratio. On the other hand more exotinc ultra-wide dispalys are also coming out
+> Aspect ratio is the ratio is the ratio of the width to the height of the screen, most modern screens are 16:9, or have 16 units of width for every 9 units of height. Most older displays, often now called square screens, are actually 4:3. Many people actually still prefer this for the extra vertical room it affords at a given size, and some laptops are actually moving back to a more 'square' aspect ratio. On the other hand more exotic ultra-wide displays are also coming out
 
-> Sizing of display's is a bit odd. A 27" 16:9 display, is not the same size as a 27" 4:3 display as displays are measured diagonally.
+> Sizing of displays is a bit odd. A 27" 16:9 display, is not the same size as a 27" 4:3 display as displays are measured diagonally.
 
 > Resolution of a display refers to the number of pixels, HD technically starts at 720p, or 720 pixels across, though this is generally rather low by modern standards, with acceptable usually considered 1080p, which is technically 1920x1080. You may also see 1080i, this is a strange concept, not actually related to resolution, and we'll come back to it in a moment
 
-> The interface on your dispaly matters greatly as well, the most common at the are HDMI, Display Port, DVI, and VGA
+> The interface on your display matters greatly as well, the most common at the are HDMI, Display Port, DVI, and VGA
 >
-> VGA is the worst option here, as it's an analog signal. This means the signal can do strange things, getting corrputed between your computer and the monitor. Typically this is a blue, screw in connection with many pins
+> VGA is the worst option here, as it's an analog signal. This means the signal can do strange things, getting corrupted between your computer and the monitor. Typically this is a blue, screw in connection with many pins
 >
 > DVI is still pretty common and looks like an even larger VGA connection, with a typically white, screw in connector. This signal is normally digital, though there is a varient of DVI that can be adapted into VGA. Of note, DVI can also be adapted to HDMI though you will not have audio, as DVI does not carry sound
 >
-> HDMI, probably the most well known connector, has multiple revisions, the revision determines many things such as the maximum resolution, refresh rate, and weather or not more obsucre things such as HDR are supported. HDMI is usually considered the best of these three options
+> HDMI, probably the most well known connector, has multiple revisions, the revision determines many things such as the maximum resolution, refresh rate, and weather or not more obscure things such as HDR are supported. HDMI is usually considered the best of these three options
 >
-> Taking the crown however, is Display Port (DP). Like HDMI display port does have multiple revisions which do differentiate similar things; however, Display Port will genearlly support high resolutions and more features at any given point. Assuming you're runnig a bog-standard 60hz 1080p display however, you'll find no difference between DVI, HDMI, and DP - unless you need sound.
+> Taking the crown however, is Display Port (DP). Like HDMI display port does have multiple revisions which do differentiate similar things; however, Display Port will generally support high resolutions and more features at any given point. Assuming you're running a bog-standard 60hz 1080p display however, you'll find no difference between DVI, HDMI, and DP - unless you need sound.
 
-> Next, you'll want to note the refresh rate of your monitor. This is how many times per second your monitor refreshes the screen. Typically monitors run at 60hz and TVs at 30 or 60. Because unlike a TV you're causing things on screen to change though, 30hz is generally considered bad and can even cause motion sickness. While 60hz may be standard, going for something even higher, with many displays offering well above 120hz, is something you may want to consider, espically if you plan on gaming.
+> Next, you'll want to note the refresh rate of your monitor. This is how many times per second your monitor refreshes the screen. Typically monitors run at 60hz and TVs at 30 or 60. Because unlike a TV you're causing things on screen to change though, 30hz is generally considered bad and can even cause motion sickness. While 60hz may be standard, going for something even higher, with many displays offering well above 120hz, is something you may want to consider, especially if you plan on gaming.
 >
-> Newer displays may support Freesync or Gsync, and both of these technologies require a supported graphics card in the system as well. These allow the display and computer to adaptively change the refresh rate so the monitor and computer both send and display frames in sync, which can make even a low refresh rate 'feel' much higher. This is a feature typically marketed to gamers and only supported in video games, but this has been changing. Gsync monitors genearlly have a much better implimentation of the technology but it requires an Nvidia graphics card. As of the time of writing both Freesync and GSync are supported on linux, but quite rough around the edges.
+> Newer displays may support Freesync or Gsync, and both of these technologies require a supported graphics card in the system as well. These allow the display and computer to adaptively change the refresh rate so the monitor and computer both send and display frames in sync, which can make even a low refresh rate 'feel' much higher. This is a feature typically marketed to gamers and only supported in video games, but this has been changing. Gsync monitors genearlly have a much better implementation of the technology but it requires an Nvidia graphics card. As of the time of writing both Freesync and GSync are supported on linux, but quite rough around the edges.
 
 > related to refresh rate is latency. In general this can actually mean two things, one is how long it takes for an image sent to the screen to actually be displayed. The lower this time the better, with good screens being sub 10 milisecond. Unfortuately, there's no standard among the industry to measure this and many get it wrong.
 >
 > Also with latency theres grey to grey times, this is a measure of how long it takes a pixel to go from one shade to another. The lower this is the less motion blur the screen will exhibit
 
-> The color depth of the display determines how percisely a color may be displayed. The higer this is the better, but almost all modern displays will be the same, and unless you're an artist or creative professional you're unlikely to notice a difference
+> The color depth of the display determines how precisely a color may be displayed. The higher this is the better, but almost all modern displays will be the same, and unless you're an artist or creative professional you're unlikely to notice a difference
 >
 > On the other hand, you are likely to notice the color gamut or what range of colors the display is actually capable of displaying.
 >
-> For example, two displays may both be capable of displaying 255 levels of red, but if one display's range is only from a dingy red to a dark-ish red, while the other is from a brillinat red to a deep dark red, there's a massive differnce in color availability. If this is imporant to you, notably as a creative professionaly in photo or video, you may want to read more at https://en.wikipedia.org/wiki/Gamut
+> For example, two displays may both be capable of displaying 255 levels of red, but if one display's range is only from a dingy red to a dark-ish red, while the other is from a brilliant red to a deep dark red, there's a massive difference in color availability. If this is important to you, notably as a creative professionally in photo or video, you may want to read more at https://en.wikipedia.org/wiki/Gamut
 
-> The next obvious thing to mention is dynamic range, or how deep the blacks are and how vivid the whites are. Again, this is simple, the higher the better. Many display types (LCD, TN-Panel) will have similar specifacions in all these areas, but particularly here. OLED is probaly the best when it comes to dynamic range as it can display true black by actually turning the soucre of the light off, but unfortuately these are quite susiptiable to burn in and image presistance.
+> The next obvious thing to mention is dynamic range, or how deep the blacks are and how vivid the whites are. Again, this is simple, the higher the better. Many display types (LCD, TN-Panel) will have similar specifications in all these areas, but particularly here. OLED is probably the best when it comes to dynamic range as it can display true black by actually turning the source of the light off, but unfortunately these are quite susceptible to burn in and image persistence.
 >
 > There are some newer displays which feature HDR or High Dynamic Range, which allows the panel to selective change the brightness in an area of the screen, giving much better dynamic range in supported applications than a normal display
 
-> burnin and image presistance are both negitive effects on many displays where a pixel etither permantanly or temporarily resists change in color. This can lead to being able to read previously displayed bright white text on a now black image for example. Mor commonly you'll find TVs which have a particualr station's logo 'burnt in' to one corner of the screen, presisting even after changing channels
+> burn in and image persistence are both negative effects on many displays where a pixel either permanently or temporarily resists change in color. This can lead to being able to read previously displayed bright white text on a now black image for example. More commonly you'll find TVs which have a particular station's logo 'burnt in' to one corner of the screen, persisting even after changing channels
 
-> Brightness is obvious, how bright or dim is the display. The big thing to note here is weather the brightness is PWM or DC controlled. Displays with PWM controlled brightness are much more common, however, it's a bit of a cheat. Instead of actually changing the intensity of the back light directly, they're simply strobing the light on and off to fast for the eye to see. This can cause eye strain over time though, and genally DC control, which actually does change the brightness directly is prefered. If you have a PWM display and don't mind it at full brightness, this should help with eyes strain, as there is no longer a strobe effect as the display's backlight is just constatnly on.
+> Brightness is obvious, how bright or dim is the display. The big thing to note here is weather the brightness is PWM or DC controlled. Displays with PWM controlled brightness are much more common, however, it's a bit of a cheat. Instead of actually changing the intensity of the back light directly, they're simply strobing the light on and off to fast for the eye to see. This can cause eye strain over time though, and generally DC control, which actually does change the brightness directly is preferred. If you have a PWM display and don't mind it at full brightness, this should help with eyes strain, as there is no longer a strobe effect as the display's backlight is just constantly on.
 
-clearly there's a lot to be considered here. A no compromise monitor can cost thounands of dollars, but nice 4k 27" monitors like mine can be found for <250 on sale, and I love them. Just figure out what you need and what would be the most benefical for you and work from there
+clearly there's a lot to be considered here. A no compromise monitor can cost thousands of dollars, but nice 4k 27" monitors like mine can be found for <250 on sale, and I love them. Just figure out what you need and what would be the most beneficial for you and work from there
 
 ---
 
-One of the great things about i3 is how powerful it can be with multiple displays, though even if you're not using i3 having a 'multi head' setup can be a god send for productivity. Even if your monitors don't match it's worth it. If you have the budget to get two maching monitors, great, if not just getting a cheapo used monitor from a thrift store will be a massive improvement. I think 2 is the magic number for most people. 3 monitors take up a lot of room and unless you do some very multi-tasked things you won't see much benefit that using something like i3's workspaces wouldn't provide anyways.
+One of the great things about i3 is how powerful it can be with multiple displays, though even if you're not using i3 having a 'multi head' setup can be a god send for productivity. Even if your monitors don't match it's worth it. If you have the budget to get two matching monitors, great, if not just getting a cheapo used monitor from a thrift store will be a massive improvement. I think 2 is the magic number for most people. 3 monitors take up a lot of room and unless you do some very multi-tasked things you won't see much benefit that using something like i3's workspaces wouldn't provide anyways.
 
-Another thing to mention is red-light filters. While I dont personally use one many people find that reducting the amount of blue light coming from their displays significant helps with eyestrain. If this intrests you give `redshift` a shot. I use it every now and then if I have a headache.
+Another thing to mention is red-light filters. While I dont personally use one many people find that reducing the amount of blue light coming from their displays significant helps with eyestrain. If this interests you give `redshift` a shot. I use it every now and then if I have a headache.
 
 **Keyboard**
 
@@ -2747,7 +2747,7 @@ Probably the most important thing you can do for your workspace is getting a nic
 
 ([source](https://commons.wikimedia.org/wiki/File:Keyboard_Construction_Button_Press.JPG))
 
-The membrance/rubber dome keyboard on the left doesn't give much physical feedback to your fingers when you press a key, compared to the mechanical key switch on the right. A decent mechancial keyboard can be found on amazon for <50 USD, though as with anything in life the more you spend the better the product. One thing to keep in mind is the color of the switch used. Above you can see that keyboard has blue switches, blue switches have a noticeable 'bump', that is the switch has a spot of higher resistance before it actually botmoms out, and the key actually presses at this point, furthermore, blue keys are clicky - they are lound and some people find this annoying. Finally, they're also pretty light, not taking too much force to push down. Genearly, blues are considered the 'gold standard' among typist, but games on the other hand may prefer a brown, red, or black switch.
+The membrane/rubber dome keyboard on the left doesn't give much physical feedback to your fingers when you press a key, compared to the mechanical key switch on the right. A decent mechanical keyboard can be found on amazon for <50 USD, though as with anything in life the more you spend the better the product. One thing to keep in mind is the color of the switch used. Above you can see that keyboard has blue switches, blue switches have a noticeable 'bump', that is the switch has a spot of higher resistance before it actually botmoms out, and the key actually presses at this point, furthermore, blue keys are clicky - they are loud and some people find this annoying. Finally, they're also pretty light, not taking too much force to push down. Generally, blues are considered the 'gold standard' among typist, but games on the other hand may prefer a brown, red, or black switch.
 
 |           | Linear | Bump  | Bump + Click |
 | --------- | ------ | ----- | ------------ |
@@ -2757,11 +2757,11 @@ The membrance/rubber dome keyboard on the left doesn't give much physical feedba
 > these are the common colors and how they feel for Cherry MX switches. Most other mechancial switches are 'clones' of MX switches- though sometimes these clones are actually superiour-
 > but these clones don't always follow this chart
 
-really it's all a matter of prefrence, I'm actually using a switch not listed here on my keyboard, but genearlly finding what you like among the above first is a good place to start. If I'm not using my main keyboard I generally use Blues. If you'd like to try some out before pulling the trigger on a full keyboard you can find switch test boards for sale online.
+really it's all a matter of preference, I'm actually using a switch not listed here on my keyboard, but generally finding what you like among the above first is a good place to start. If I'm not using my main keyboard I generally use Blues. If you'd like to try some out before pulling the trigger on a full keyboard you can find switch test boards for sale online.
 
 Furthermore, there are other types of switches like IBM's old Model M line which use a buckling spring, which are quite stiff and have a very unique, heavy feeling. If you don't want to use a 20 year old keyboard Unicomp makes clones that are quite nice.
 
-You should also consider they layout of your keyboard. Some people absolutely need a number pad while others are happy to omit it and have the shorted hand travel to their mouse. Even still others want an extravagent number of keys or a weird split keyboard like mine:![keeb]({static}/openg/splitkeeb.jpg)
+You should also consider they layout of your keyboard. Some people absolutely need a number pad while others are happy to omit it and have the shorted hand travel to their mouse. Even still others want an extravagant number of keys or a weird split keyboard like mine:![keeb]({static}/openg/splitkeeb.jpg)
 
 > This is a custom built ErgoDone keyboard, The Ergodox-ez can be purchased for ~300 USD, or you can build one like mine for a bit under 200
 
@@ -2769,11 +2769,11 @@ Beyond the physical layout you may also consider the keymap or software layout. 
 
 though obviously anything is possible. A lot of programmers like to disable their Caps key for example and put something more useful there, or you may just want to move around a letter or two. Using a standard layout like Dovark is a bit easier though as I can easily load my keymap pretty quickly on any computer. Plain old Qwerty is fine, but I personally like my 'weird' keymap.
 
-If you're shelling out big bucks on a nice keyboard anyway, you may also want to get a keyboard which supports QMK, a compeletly open source firmware which gives you total control of your keyboard, allowing you do to cool things like type greek letters ( Ω , α, β) or type perentheses by tapping the shift keys. I find that particually helpful as my keyboard doesn't actually have enough keys to do have every key nicely available (note how I don't have a function row) for more info check out https://docs.qmk.fm/#/ . You can actually buy an adapter to use a normal keyboard with QMK, but it's a bit hack-y and I really recomend just saving up to get a full keyboard made for it.
+If you're shelling out big bucks on a nice keyboard anyway, you may also want to get a keyboard which supports QMK, a completely open source firmware which gives you total control of your keyboard, allowing you do to cool things like type greek letters ( Ω , α, β) or type parentheses by tapping the shift keys. I find that particularly helpful as my keyboard doesn't actually have enough keys to do have every key nicely available (note how I don't have a function row) for more info check out https://docs.qmk.fm/#/ . You can actually buy an adapter to use a normal keyboard with QMK, but it's a bit hack-y and I really recomend just saving up to get a full keyboard made for it.
 
-Back to ergonomics, you'll want to make sure your keyboard is a t a comfortable height for you and that you can type in a way that isn't putning your wrists at any weird angles
+Back to ergonomics, you'll want to make sure your keyboard is a t a comfortable height for you and that you can type in a way that isn't putting your wrists at any weird angles
 
-Finally, one of the nice things about i3 is the ability to navigate everything entirely from the keyboard as well as bind as much as you want to as many keys as you'd like. Want a key combo to launch a file manager? easy. Want a key to navigate to open up a termial and immediatly run a command- no problem. Set things up as you like and enjoy being able to use your system at break neck speed while everyone else drags things around slowly.
+Finally, one of the nice things about i3 is the ability to navigate everything entirely from the keyboard as well as bind as much as you want to as many keys as you'd like. Want a key combo to launch a file manager? easy. Want a key to navigate to open up a terminal and immediately run a command- no problem. Set things up as you like and enjoy being able to use your system at break neck speed while everyone else drags things around slowly.
 
 **Mouse and other input**
 
@@ -3171,12 +3171,29 @@ Imaginary numbers, systems of equations
 
 ### 6 - Matrix Theory
 
+### 7 - Signals
+
 ## Ⅱ - Physics
+
+### 1 - Newtonian
+
+### 2 - Electromagnetism
+
+### 3 - Relativity and the Quantum
 
 ## Ⅲ - Chem
 
+### 1 - Atomic Structure, Basics of the Table, Bonding
 
-# Chapter 12 - Diodes,  Transistors, and Integrated Circuits
+### 2 - Acid/base, Electrochem, Thermochem, Photochem
+
+### 3 - Organic Chemistry
+
+## Continued
+
+### Other sources, interesting videos, etc:
+
+- Minute Physics, Thought Emporium, Cody's Lab, 3Blue1Brown# Chapter 12 - Diodes,  Transistors, and Integrated Circuits
 
 [TODO]
 
@@ -3381,6 +3398,7 @@ common interfaces, simulation, serial/print debugging (slow), internal data logg
 ### Hardware Testing
 
 
+
 # Chapter 19 - Compilers and Assemblers
 
 [TODO]
@@ -3403,6 +3421,11 @@ At this point I highly recommend '[The Art of Exploitation](https://nostarch.com
 [TODO]
 
 Fuzzing (sandsifter), make and alts, etc.
+
+## Continuous Integration 
+
+## Continuous Deployment
+
 
 
 # Chapter 21 - Exploitation
@@ -3469,6 +3492,8 @@ replay attacks
 
 radio, rfid, etc
 
+rowhammer, Heartbleed
+
 ### Social Engineering
 
 Phishing
@@ -3520,6 +3545,10 @@ and testing (fuzzing)
 decompilers, dissassembly, analysis
 
 Wireshark
+
+Cheatengine
+
+dynamic linking
 
 ## Getting some practice
 
@@ -3613,7 +3642,7 @@ Before we start, I'll warn you this isn't easy, but it's also not as bad as it s
 [TODO]
 
 
-# Chapter 30 - 3D printing, cases, and making real things
+# Chapter 30 - 3D printing, CNC, and making things
 
 [TODO]
 
@@ -3638,54 +3667,62 @@ While this book/guide/thing primarily focuses on the less mechancial-engieering-
 
 ## The Basic Commands
 
-[TODO] : add detail to each command
+Of note, while the majority of these commands should be available on nearly any unix system you may use, many of the alternate recommendations may not be.
 
-- man
-- pwd
-- ls
-- cd
-- mv
-- rm
-- touch
-- cp & rsync
-- mkdir & rmdir
-- cat
-- date
-- chmod & chown
-- less & more
-- ln
-- du & df
-- clear (only use in scripts)
-- passwd
-- sudo & su
-- head & tail
-- tee
-- grep, sed, awk, tr
-- w
-- tar, gzip, bzip, zip
-- ssh , scp, ftp
-- diff
-- sort
-- uniq
-- export
-- systemctl
-- ip, ping, & dig
-- ps
-- free
-- top
-- kill
-- whereis
-- wget
+- **man** "man [command/topic]", ex, "man ascii", bring up an indepth manual page for a given command/topic.
+  - Alternative recommendation: **tldr**, actually digestible and much faster when it gives enough info 
+- **pwd** - Print working directory - literally just a command to tell you the file path to where you are
+- **ls** - list - list the files/folders in the current directory, lots of flags available
+  - Alternative recommendation: **exa** 
+- **cd** - change directory, if you can't use this may god have mercy
+  - Alternative recommendation: **j (for autojump)** 
+- **mv** - move (or rename) a file to a new location (or name)
+  - Alternative recommendation: **rsync**
+- **rm** - remove a file/folder
+- **touch** - create an empty file, or change last accessed time of existing file
+- **mkdir & rmdir** - make or remove an empty directory (folder)
+- **cat** - output the contents of a file
+  - Alternative recommendation: **bat**, **less**, **more**, **fltrdr**, or an editor like **vim** or **nano** 
+- **date** - output current date and time
+- **chmod & chown** - change a file or folders permissions or owner
+- **ln** - make a symbolic / hard link (shortcut)
+- **du & df** - Disk usage and disk free, **df** will show you how much room you have left per disk, **du** serves to help find what's using up your disk
+  - Alternative recommendation: **ncdu** doesn't suck. 
+- **clear** - clear the screen of text- (only use in scripts)
+  - Alternative recommendation: **ctrl + l** , much faster
+- **passwd** - change a users password
+- **sudo & su** - run a command as another user, typically root
+- **head & tail** - print a number of lines from the top or bottom of a file
+- **tee** - mostly used with pipes to print output to terminal as well as put it into a file
+- **grep, sed, awk, tr** - the 'big four' commands used for text processing in a terminal. **grep** (and **egrep**) are used for search, for example running `ls | grep myfile` to confirm a file is indeed in a folder. **sed** is used for text/character replacement. **awk** is a programming language in it's own right, used primarily for selecting text fields by separator, for example only printing the permissions column in the output of `ls -l` 
+- **w** -  show who is currently logged in and what they're running, epically applicable on shared servers if you need to see if there's an active ssh connection to your system
+- **tar, gzip, bzip, zip** - all used for making compressed folders (like .zip files)
+- **ssh , scp, ftp** - used for doing remote access, letting you run commands on one system from another
+- **diff** - show the differences between two files
+- **sort** - sort input by a number of criteria
+- **uniq** - remove duplicate entries
+  - **fdupes** is recommended if the goal is to identify duplicate files 
+- **export** - used to set environment variables, these for example use `export EDITOR=nano` to use nano as your terminal text viewer by default.
+- **systemctl** - literally system control, wayyy to big to cover quickly, used for everything from setting services to run on boot, shutting down/restarting the system, to viewing logs. Look up Systemd for more information
+- **ip, ping, & dig** - **ip** is used to view as well as modify aspects of network configuration at the more hardware-level, such as turning on/off a networking interface.  **ping** allows you to see if you're able to reach a site/ip address, and **dig** allows you to check if you're able to turn a domain name to an ip, such as checking the ip address that archlinux.org points to with `dig archlinux.org`
+- **ps** - process management: listing processing, finding the parent of a particular process, etc. 
+- **free** - display information about system RAM usage
+- **top** - a graphical-ish view of the running processes, ram, and CPU usage
+  - Alternative recommendation: **htop**
+- **kill**, murder a process in various ways
+- **whereis** - find the location of an executable, ex `whereis ls` will tell you it's in `/usr/bin/ls`
+- **wget, curl** - retrieve a web page
+  -  Alternative recommendation: **lynx**, **w3m**
 
 ## Tab Completion and faster navigation
 
 Probably the most useful shortcut for using the shell is tab completion. This is used when you need to type a really long command or chain of commands, say I want to run ncmpcpp, a name that is both long and hard to remember, instead of just typing the full name I can type `ncm` and press tab, and ta-da suddenly the full name is inserted. If you happen to have another package that has multiple possible endings say you want to run ``lstopo`` but you have `ls, lsusb, lstopo` all on your system, most shells will display a menu underneath with all the possible options. This is nice for commands, but the true power comes in file names, say I want to run `cat /etc/pacman.d/mirrorlist` while that's not too awful to type out, you could easily type `cat /e` press tab, get `cat /etc/` add pac to get `cat /etc/pac` press tab, get `cat /etc/pacman.d/` type mir and tab and get the full command, while that sounds complicated it actually speeds using the command line up rather significantly and prevents spelling mistakes
 
-Next up for navigation is directory shortcuts, these can be massive time savers, the most obvious is `~` which is just short hand for the location of the current shell users home directory, so in my case `~` is the exact same as typing out `/home/vega`. The next two have already been touched on which are `.` for the current directory and `..` for the previous directory. Depending on the shell and arbitrary number of dots may take you back and arbitary number of directories. Give it a shot! If nothing else you can always use `../../..` to navigate back as necessary. Finally, `-` represents the last directory you were in so if your in `~/Downloads` and then `cd /etc/pacman.d/`, running `cd -` will bring you back to downloads.
+Next up for navigation is directory shortcuts, these can be massive time savers, the most obvious is `~` which is just short hand for the location of the current shell users home directory, so in my case `~` is the exact same as typing out `/home/vega`. The next two have already been touched on which are `.` for the current directory and `..` for the previous directory. Depending on the shell and arbitrary number of dots may take you back and arbitrary number of directories. Give it a shot! If nothing else you can always use `../../..` to navigate back as necessary. Finally, `-` represents the last directory you were in so if your in `~/Downloads` and then `cd /etc/pacman.d/`, running `cd -` will bring you back to downloads.
 
-The most advanced form of bult in linux navigation comes in the form of `pushd` and `popd`, which as their names imply push and pop directories to a stack (a special kind of list) of directories. Like a stack of any item you can put or 'push' an item on top, and take or 'pop' an item off. Running `dirs -v` will show you a numberd list of the stack, you can navigate to the top item with `popd` or and abitrary item with `cd ~#` where # is the number as shown by `dirs -v`.
+The most advanced form of built in linux navigation comes in the form of `pushd` and `popd`, which as their names imply push and pop directories to a stack (a special kind of list) of directories. Like a stack of any item you can put or 'push' an item on top, and take or 'pop' an item off. Running `dirs -v` will show you a numbered list of the stack, you can navigate to the top item with `popd` or and abitrary item with `cd ~#` where # is the number as shown by `dirs -v`.
 
-Finally, there's one more super handy way to get around your file system but it's a non-standard tool so most systems or servers you use other than your own will not have it installed, and that's autojump. Put simply it takes a good guess about where you want to go by only typing part of the name of a folder you've navigated to before, so say you have a long file path `/mnt/data/archived/january2000/pictures/family/vacation/` you can get back to it again by simply running `j vac` which is obviously much simpiler. It works the vast majority of the time in practice, only having issues if you don't include enough letters leading to ambuguity.
+Finally, there's one more super handy way to get around your file system but it's a non-standard tool so most systems or servers you use other than your own will not have it installed, and that's autojump. Put simply it takes a good guess about where you want to go by only typing part of the name of a folder you've navigated to before, so say you have a long file path `/mnt/data/archived/january2000/pictures/family/vacation/` you can get back to it again by simply running `j vac` which is obviously much simpler. It works the vast majority of the time in practice, only having issues if you don't include enough letters leading to ambiguity.
 
 ## I/O redirection
 
@@ -3803,54 +3840,79 @@ When we installed arch we actually changed the default shell from bash to zsh, b
 ## Useful Non-Stock CLI Tools
 
 * tldr
+  
   * tldr, 'for too long didn't read' provides a quick, easy to read version of the man page for many common linux commands. Forget how to use `tar` ? just run `tldr tar`
 * autojump
+  
   * refrence above description in faster navigation
 * mpd + ncmpcpp
+  
   * 'music player daemon' and 'ncurses music player client plus plus' are two cli tools that work in tandem to provide an experiance that I presonally find superiour to any graphical music player
 * irssi
+  
   * full featured IRC client, chat right from your terminal
 * screenfetch
+  
   * get some nift stats about your terminal, add to your shell's RC file to be one of the cool kids
 * [moreutils](https://joeyh.name/code/moreutils/)
+  
   * "moreutils is a growing collection of the unix tools that nobody thought to write long ago when unix was young."
 * [hr](https://github.com/octobanana/hr)
+  
   * Need some way to visually seperate things, this literally just makes a horizontal line in the terminal
 * [fltrdr](https://github.com/octobanana/fltrdr)
+  
   * Wanna read at 1000wpm, this is the tool for you.
 * [crex]( https://github.com/octobanana/crex)
+  
   * test regular expressions in the terminal
 * lynx, w3m, browsh
+  
   * Browse the web from a terminal (not a joke and actually useful)
 * entr
+  
   * monitor file system for changes
 * noti
+  
   * send a graphical system notification when a command finishes
 * progress
+  
   * start a command and have no way to see what its doing (rsync, cp, etc)? This is your tool
 * figlet, toilet, banner
+  
   * makes big text, run `figlet Your Text Here` and see your text in big, ascii letters
 * no more secrets
+  
   * reveal text in a martix effect.. I'm streching the meaning of useful here
 * stress-ng
+  
   * stresstest your system in pretty much any super specific way you can think of, or hammer your cpu to test an overclock
 * pandoc
+  
   * convert between damn near any text format to any other format
 * taskwarrior
+  
   * keep track of To-Do's and tasks, can also be paired with timewarrior for timetracking
 * waifu2x (many forks available)
+  
   * Upscale and de-noise images zoom-and-enhance style but for real-    this ones' a bit GPU intensive because it uses AI
 * youtube-dl
+  
   * despite the name this tool can download videos or audio from almost any page on the internet, even supporting playlists in many cases too.
 * [rat](https://github.com/ericfreese/rat)
+  
   * "Compose shell commands to build terminal applications"
 * magic-wormhole
+  
   * tool for getting a file between two systems easily and secure, just run `wormhole send` and `wormhole recive` on the respective systems
 * Ix, Gist
+  
   * Paste tools, like pastebin
 * DMIDecode
+  
   * get info from BIOS
 * hexyl
+  
   * pretty terminal based hex viewer
 * [UXY](https://github.com/sustrik/uxy)
   * "UXY tool also wraps some common UNIX tools and exports their output in UXY format."
@@ -3859,6 +3921,7 @@ When we installed arch we actually changed the default shell from bash to zsh, b
 
     This gives a nice format for manipulation of commands though pipes for super complex shell scripting
 * lsof
+  
   * list what files a runnig process has open
 
 While some of these may be included, they're some of the OG addons or tools to make included things better:
@@ -3873,7 +3936,7 @@ While some of these may be included, they're some of the OG addons or tools to m
 
 * GDB + gef
 
-  * GDB, the original debugger, has it's faults. GEF, a config file for GDB on steroids, fixes many of them. While orgiginally made for exploit developers, many people use it for everyday debugging
+  * GDB, the original debugger, has it's faults. GEF, a config file for GDB on steroids, fixes many of them. While originally made for exploit developers, many people use it for everyday debugging
 
 ## Common Graphical Linux Utils
 

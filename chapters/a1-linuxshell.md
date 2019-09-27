@@ -2,9 +2,10 @@
 
 ## The Basic Commands
 
-[TODO] : add detail to each command
+Of note, while the majority of these commands should be available on nearly any unix system you may use, many of the alternate recommendations may not be.
 
 - **man** "man [command/topic]", ex, "man ascii", bring up an indepth manual page for a given command/topic.
+  - Alternative recommendation: **tldr**, actually digestible and much faster when it gives enough info 
 - **pwd** - Print working directory - literally just a command to tell you the file path to where you are
 - **ls** - list - list the files/folders in the current directory, lots of flags available
   - Alternative recommendation: **exa** 
@@ -20,38 +21,43 @@
 - **date** - output current date and time
 - **chmod & chown** - change a file or folders permissions or owner
 - **ln** - make a symbolic / hard link (shortcut)
-- du & df
-- clear (only use in scripts)
-- passwd
-- sudo & su
-- head & tail
-- tee
-- grep, sed, awk, tr
-- w
-- tar, gzip, bzip, zip
-- ssh , scp, ftp
-- diff
-- sort
-- uniq
-- export
-- systemctl
-- ip, ping, & dig
-- ps
-- free
-- top
-- kill
-- whereis
-- wget
+- **du & df** - Disk usage and disk free, **df** will show you how much room you have left per disk, **du** serves to help find what's using up your disk
+  - Alternative recommendation: **ncdu** doesn't suck. 
+- **clear** - clear the screen of text- (only use in scripts)
+  - Alternative recommendation: **ctrl + l** , much faster
+- **passwd** - change a users password
+- **sudo & su** - run a command as another user, typically root
+- **head & tail** - print a number of lines from the top or bottom of a file
+- **tee** - mostly used with pipes to print output to terminal as well as put it into a file
+- **grep, sed, awk, tr** - the 'big four' commands used for text processing in a terminal. **grep** (and **egrep**) are used for search, for example running `ls | grep myfile` to confirm a file is indeed in a folder. **sed** is used for text/character replacement. **awk** is a programming language in it's own right, used primarily for selecting text fields by separator, for example only printing the permissions column in the output of `ls -l` 
+- **w** -  show who is currently logged in and what they're running, epically applicable on shared servers if you need to see if there's an active ssh connection to your system
+- **tar, gzip, bzip, zip** - all used for making compressed folders (like .zip files)
+- **ssh , scp, ftp** - used for doing remote access, letting you run commands on one system from another
+- **diff** - show the differences between two files
+- **sort** - sort input by a number of criteria
+- **uniq** - remove duplicate entries
+  - **fdupes** is recommended if the goal is to identify duplicate files 
+- **export** - used to set environment variables, these for example use `export EDITOR=nano` to use nano as your terminal text viewer by default.
+- **systemctl** - literally system control, wayyy to big to cover quickly, used for everything from setting services to run on boot, shutting down/restarting the system, to viewing logs. Look up Systemd for more information
+- **ip, ping, & dig** - **ip** is used to view as well as modify aspects of network configuration at the more hardware-level, such as turning on/off a networking interface.  **ping** allows you to see if you're able to reach a site/ip address, and **dig** allows you to check if you're able to turn a domain name to an ip, such as checking the ip address that archlinux.org points to with `dig archlinux.org`
+- **ps** - process management: listing processing, finding the parent of a particular process, etc. 
+- **free** - display information about system RAM usage
+- **top** - a graphical-ish view of the running processes, ram, and CPU usage
+  - Alternative recommendation: **htop**
+- **kill**, murder a process in various ways
+- **whereis** - find the location of an executable, ex `whereis ls` will tell you it's in `/usr/bin/ls`
+- **wget, curl** - retrieve a web page
+  -  Alternative recommendation: **lynx**, **w3m**
 
 ## Tab Completion and faster navigation
 
 Probably the most useful shortcut for using the shell is tab completion. This is used when you need to type a really long command or chain of commands, say I want to run ncmpcpp, a name that is both long and hard to remember, instead of just typing the full name I can type `ncm` and press tab, and ta-da suddenly the full name is inserted. If you happen to have another package that has multiple possible endings say you want to run ``lstopo`` but you have `ls, lsusb, lstopo` all on your system, most shells will display a menu underneath with all the possible options. This is nice for commands, but the true power comes in file names, say I want to run `cat /etc/pacman.d/mirrorlist` while that's not too awful to type out, you could easily type `cat /e` press tab, get `cat /etc/` add pac to get `cat /etc/pac` press tab, get `cat /etc/pacman.d/` type mir and tab and get the full command, while that sounds complicated it actually speeds using the command line up rather significantly and prevents spelling mistakes
 
-Next up for navigation is directory shortcuts, these can be massive time savers, the most obvious is `~` which is just short hand for the location of the current shell users home directory, so in my case `~` is the exact same as typing out `/home/vega`. The next two have already been touched on which are `.` for the current directory and `..` for the previous directory. Depending on the shell and arbitrary number of dots may take you back and arbitary number of directories. Give it a shot! If nothing else you can always use `../../..` to navigate back as necessary. Finally, `-` represents the last directory you were in so if your in `~/Downloads` and then `cd /etc/pacman.d/`, running `cd -` will bring you back to downloads.
+Next up for navigation is directory shortcuts, these can be massive time savers, the most obvious is `~` which is just short hand for the location of the current shell users home directory, so in my case `~` is the exact same as typing out `/home/vega`. The next two have already been touched on which are `.` for the current directory and `..` for the previous directory. Depending on the shell and arbitrary number of dots may take you back and arbitrary number of directories. Give it a shot! If nothing else you can always use `../../..` to navigate back as necessary. Finally, `-` represents the last directory you were in so if your in `~/Downloads` and then `cd /etc/pacman.d/`, running `cd -` will bring you back to downloads.
 
-The most advanced form of bult in linux navigation comes in the form of `pushd` and `popd`, which as their names imply push and pop directories to a stack (a special kind of list) of directories. Like a stack of any item you can put or 'push' an item on top, and take or 'pop' an item off. Running `dirs -v` will show you a numberd list of the stack, you can navigate to the top item with `popd` or and abitrary item with `cd ~#` where # is the number as shown by `dirs -v`.
+The most advanced form of built in linux navigation comes in the form of `pushd` and `popd`, which as their names imply push and pop directories to a stack (a special kind of list) of directories. Like a stack of any item you can put or 'push' an item on top, and take or 'pop' an item off. Running `dirs -v` will show you a numbered list of the stack, you can navigate to the top item with `popd` or and abitrary item with `cd ~#` where # is the number as shown by `dirs -v`.
 
-Finally, there's one more super handy way to get around your file system but it's a non-standard tool so most systems or servers you use other than your own will not have it installed, and that's autojump. Put simply it takes a good guess about where you want to go by only typing part of the name of a folder you've navigated to before, so say you have a long file path `/mnt/data/archived/january2000/pictures/family/vacation/` you can get back to it again by simply running `j vac` which is obviously much simpiler. It works the vast majority of the time in practice, only having issues if you don't include enough letters leading to ambuguity.
+Finally, there's one more super handy way to get around your file system but it's a non-standard tool so most systems or servers you use other than your own will not have it installed, and that's autojump. Put simply it takes a good guess about where you want to go by only typing part of the name of a folder you've navigated to before, so say you have a long file path `/mnt/data/archived/january2000/pictures/family/vacation/` you can get back to it again by simply running `j vac` which is obviously much simpler. It works the vast majority of the time in practice, only having issues if you don't include enough letters leading to ambiguity.
 
 ## I/O redirection
 
@@ -265,7 +271,7 @@ While some of these may be included, they're some of the OG addons or tools to m
 
 * GDB + gef
 
-  * GDB, the original debugger, has it's faults. GEF, a config file for GDB on steroids, fixes many of them. While orgiginally made for exploit developers, many people use it for everyday debugging
+  * GDB, the original debugger, has it's faults. GEF, a config file for GDB on steroids, fixes many of them. While originally made for exploit developers, many people use it for everyday debugging
 
 ## Common Graphical Linux Utils
 
