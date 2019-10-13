@@ -1412,11 +1412,13 @@ we've already used this to get information about the system ram, but other thing
 
 ### Chipset
 
-[TODO]
+The chipset is a chip usually located in the bottom right 1/4 of a motherboard that corodinates the data flow between the processor and most of everything else- excluding the few direct-CPU attached things like the Graphics card. Older systems had both a Northbridge and and a SouthBridge as two separate chips, but everything modern has just the single chip, as the Northbridge, which had memory the memory controller, isn't necessary on modern systems where the memory controller has been integrated into the CPU itself.
 
-lane division, other responsibilities, AMD!=AMD, etc
+For the most part, the chipset on a motherboard will match a certain CPU socket, that is each generation of CPU will have it's own chipset and socket; however, this is not always the case as sometimes one chipset may support multiple CPU generations or a CPU generation will work with multiple chipsets. This is the case with AMD's ryzen line where a first generation Ryzen CPU such as the Ryzen 1700 will work in an x370, x470, or x570 board, and a third generation Ryzen CPU such as the Ryzen 3700 will work in any motherboard with one of those as well, albeit running a generation mis-match may result in degraded performance or missing features (such as lacking PCIe 4.0).
 
-multi gen-cpu support
+Finally, it's notable that the chipset typically acts as a PCIe lane 'splitter' of sorts, turning (usually) 4 lanes into may more so that more devices may be attached. This can be particularly important when many high bandwidth devices are attached though, as even though these lanes are split, there's still only that original 4 lanes of bandwidth to go around.
+
+[TODO] picture
 
 ### Expansion slots
 
@@ -1450,13 +1452,23 @@ Both AGP and ISA have been phased out a long time ago, but very old cards may po
 
 [TODO]
 
-physical chips, battery for RTC
+Motherboards have to coordinate the communication of all the peripherals on the system and their own internal buses, furthermore, they have to have some sort of minimal configuration settings for setting things like which drive to boot off of or what speed the CPU or RAM should run at. These configuration settings are stored in some ROM or 'Read Only Memory', which is an independent chip on the motherboard. This configuration is read by the Binary Input Output System (BIOS) or the Unified Extensible Firmware Interface (UEFI). UEFI is essentially just the newer replacement for BIOS, and usually includes a compatibility mode for BIOS based hardware. When you first turn on the system you can typically mash either the delete or F12 key to enter this configuration page. It's typically from this interface that you'd select your boot device, change your CPU or RAM clock speed, and set the system time. On that note, the system also likely has a battery on board which power's the on-board real time clock, which allows the system to maintain the time even when disconnected from power. On some systems the ROM is actually volatile meaning if this battery dies and the system is disconnected from power you may loose the BIOS/UEFI settings.
+
+Of note, you may need to update the UEFI or BIOS of a system which is sometimes done via a special admin command within windows but more commonly done by downloading a file to flash drive, putting the drive in a specific usb port, and loading the update file. When this is done it's common to lose all UEFI/BIOS settings as well, as it overwrites the ROM.
+
+Finally, it should be noted that it's pretty easy to make your system not boot or boot-loop if you break things here. So, be careful. If you set your fan speeds slower to make the system quieter then everything overheats and dies ヽ（´ー｀）┌
+
+[TODO] physical chips, battery for RTC, screenshot of interface, pictures
 
 ### VRM
 
-[TODO]
+The VRM or 'Voltage Regulation Module' serves a simple but important task of ensuring that the CPU (or processor in question) receives a constant voltage or voltage that makes sense for it's current clock speed.
 
-external VRM, over/under volting, max power, choke count, digital vrm
+Essentially the VRM may contain multiple stages of current and voltage regulation modules. The more of these stages the more stable the voltage and the more current can be delivered. For most cases, this can be left alone, but it's incredibly important when over clocking, as to overclock a CPU or GPU it's usually necessary to increase the voltage, which is typically done from within the BIOS/UEFI or from a configuration utility inside the OS in the case of the GPU.
+
+You can typically tell how strong a particular VRM is by counting the number of 'chokes' on the board.
+
+[TODO, add pictures of chokes]
 
 ## Graphics Card (or integrated graphics)
 
@@ -1558,24 +1570,32 @@ Finally, a quick note about Western Digital Green drives: Linux eats them. Thank
 
 ### SSD
 
-Solid state drives, like HDDs, come in many capacites, speeds, and form factors; however, SSDs come in many, many more than HDDs. The primary two of note at the moment are SATA SSDs and NVMe SSDs. Sata SSDs are typically the same size and shape (though sometimes a bit thinner) as the normal 2.5" laptop hard drive; however, some other standards are used such as mSATA and m.2. Unfortunately, the m.2
+Solid state drives, like HDDs, come in many capacites, speeds, and form factors; however, SSDs come in many, many more than HDDs. The primary two of note at the moment are SATA SSDs and NVMe SSDs. Sata SSDs are typically the same size and shape (though sometimes a bit thinner) as the normal 2.5" laptop hard drive; however, some other standards are used such as mSATA and m.2. Unfortunately, the m.2 spec is slightly confusing, with some drives being SATA based and some being NVMe based, and the m.2 slot itself supporting any mix (just SATA, just NVMe, or both), so when getting a drive you need to be careful that your motherboard's m.2 slot and the drive are compatible.
+
+The main reason you'd want to use NVMe is because it's much, much faster. NVMe drives are often many times faster than their SATA equivilents, and as of the time of writing, only slightly more expensive, albeit not supported on all systems.
+
+All SSDs regradless of type consist of 3 main parts: The Controller, the NAND, and some RAM. (okay, technically not all SSDs have ram, but that's sorta misleading)
 
 [TODO]
-Optane, NVMe, Sata, technically all flash, Ram disks, different controllers
+Optane, NVMe, Sata, technically all flash, Ram disks, different controllers, MLC, TLC, etc.
 
-### Cloud Storage (Some one elses' drives)
+### Cloud Storage (Some one else's drives)
 
-[TODO]
+This is opinioned guide, so now that's about to show: Dont do it. All cloud storage is is someone else's disks. If you want to use it as a backup sure, but I don't see why- it's much less expensive to just backup the reallly important stuff to a hosted server continually and periodically (weekly, monthly, whatever) backup to some external disks that you keep somewhere else. Not to mention the privacy concerns. Like, really? You want to put allllll your family pictures under the all seeing eyes of Google or Microsoft. Nah. I'll pass.
 
 ### Portable
 
-[TODO]
+Most fixed disk enclosures suck, albeit they can be less expensive. I'd recommend getting a portable multi-drive enclosure that runs over whatever the fastest connection you have is (Thunderbolt, USB 3.1, etc.). You can even get usb->nvme adapters, albeit they have a nasty amount of bandwidth limiting.
+
+Most off-the-shelf flash drives have ass cooling and will over-heat them selves to death when you use them for things like installing operating systems regularly, so I recommend just getting a bulk pack of cheap, low capacity ones to toss when they finally kick the bucket and a few nice USB->SATA or USB->NVME adapter for  your main portable storage needs. Failing that, you can always use your phone if you've got a nice high capacity SD card in it or plenty of spare internal storage. The problem with that is MTP or 'Media Transfer Protocol' is a buggy, slow mess, and there's no other clean way to transfer things from a phone. So ¯\\_(ツ)_/¯
 
 ### The Past
 
+Floopy, Zip Disks, and Tape? Really? Yes. And yes, they're still used, so you should probably know at least a little about them.
+
 [TODO]
 
-Floppy, Zip,
+Floppy, Zip, tape
 
 ### RAID and Disk Pools
 
@@ -1595,17 +1615,19 @@ Older NICs include those used for Dial-Up connections and some obscure wireless 
 
 ### Ethernet
 
-[TODO] rj45, ethernet over infiniband,
+[TODO] rj45, ethernet over infiniband, speed bases
 
 ### WiFi
 
 [TODO]
 
+Channels 12, 13, 14. 2.4 v 5, wifi 6, weird authentication, etc
+
 ### High Bandwidth
 
 [TODO], infiniband, DMA, 10GbE+, Multigig
 
-"Nothing is faster than a truck filled with drives quote"
+At the end of the day, nothing is faster than a truck filled with drives.
 
 ### The Future
 
@@ -1621,9 +1643,15 @@ coax network, infrared, sneakernet
 
 ## Power Supply
 
-[TODO]
+The Power Supply Unit or PSU does what you think. It takes power from the wall and turns it into power for the computer. This isn't the chapter on voltage and current, so I'll spare some of the details, but effectively you want a power supply that can deliver plenty of power and that has clean power. A given power supply usually has a rating like '500w' for 500 watts, but this is usually a bad indicator, as they could be refering to multiple things- you see a desktop power supply usually outputs multiple voltages (-12, +12, +5, +3.3) and each one of those lines will have a different maximum power output. Typically, the one that's most relevant is the +12 rail, as both the GPU and CPU will likely run on that and they're what draws the most power. So, you can actually check just this rail by taking the voltage (+12V) times the max current (amperage) on that line (let's use 20A) to see the max power (so 12*20=240 watts)
 
-power efficiency cuvers, 80+ 'metal' ratings, size, voltage stability, multi-rail, -12, 3.3, 5, 12,
+Also note that the power supply itself may be of varrying quality, with the voltage 'ripple' and the efficiency being important as well. Voltage ripple occurs when the supposed-to-be 12V line instead outputs a signal that's varying a little, so let's say you measure the +12V line and it reads 12.2V now, then a minute later reads 11.8V, that's quite a bit of ripple when you expect a constant +12V. Generally you can trust the power supply is decent about this though so long as the power supply is also pretty efficient. Telling efficiency is easy too, as there's a nifty specification that most PC PSU's have called "80 plus" and it's rated by a metal-value system, so an 80+ bronze power supply is already (typically) much better than one without the rating, and an 80+ Gold is even better, going on up to Platinum.
+
+Most PC PSU's are in the ATX format, the same specification used to size motherboards, and the majority of desktops use a standard ATX power supply, though smaller systems may opt for one of the smaller standards such as SFX. Servers typically have their own power supplies which look a bit strange as they're basically the shape of an elongated brick, but they're like that so they can be easily swapped in and out. Often server power supplies are redundant so a new one could be put in while the system is still on in many cases.
+
+Main takeaway here, if some one is talking about an ATX PSU they're talking about the power supply in a desktop. Often they're (less than safely...) used in other applications as they're cheap and often easy to find used or salvaged from old systems.
+
+[TODO] add pictures
 
 ## Cooling
 
@@ -1632,6 +1660,8 @@ Blower, air flow vs static pressure, fan size liquid, heat pipes, pwm vs DC cont
 ## Peripherals
 
 ### Keyboards
+
+HID or Human Interface Device, is the standard over which most mice, keyboards, and game controllers talk to the computer. Unfortunately, it's also a pretty lame standard. You can't just input arbitrary Unicode or send fancy data back to the keyboard to control fancy RGB lights, because of this it's common to need extra drivers per device
 
 [TODO]
 
@@ -2894,6 +2924,28 @@ Programming can seem scary at first but [TODO]
 
 ## The building blocks of programming
 
+All programming is just chaining logic, for example using treatments like "if a is b, then make c hold the value of a-3" followed by "if c is negitive then say hello"
+
+Well, that's actually an easy program
+
+```python
+a = 1
+b = 1
+c = 1
+
+if a == b:
+    c = a-3
+
+if c < 0:
+    print('hello')
+```
+
+you should notice a few weird things here though, namely, on line 5 we used two equal signs to check equality. This is the case in most programming languages because a single equal sign, like is used on the first two lines, is used for assignment that is assigning the value of `a` to 1 and `b` to 1 or as on line 6 assigning the value of `( a - 3 )` to `c`, because we've already used a single equal sign for assignment, two equal signs is used for checking equality.
+
+If you follow the logic here, `a` and `b` are both 1, so line 4 checks that to be true, so line 5 does happen. Now  c which previously was equal to 1 is now equal to a-3, where a is 1, so c becomes -2. on line 8 we check if c is less than 0, and it is so we print the word 'hello'. Here, you'll notice 'hello' is in quotes. This is because if it were not, that is if it were `print(hello)` it would try to print the value of the variable 'hello' which since hello isn't defined, wouldn't work. Let's try this:
+
+Open up VSCode and [TODO] try without quotes, then define hello to be something else  
+
 [TODO]
 if, while, for (and specialized), assignment, comparison, combined ops (+=), mod, exponent, floor,
 in/not in, is/is not, data types, functions
@@ -3183,11 +3235,27 @@ Imaginary numbers, systems of equations
 
 ### 4 - Calculus
 
+3b1b: https://www.youtube.com/watch?v=WUvTyaaNkzM&t=12s
+
 ### 5 - Differential Equations
 
-### 6 - Matrix Theory
+3b1b: https://www.youtube.com/watch?v=p_di4Zn4wz4
+
+### 6 - Matrix Theory / Linear Algebra
+
+https://readhacker.news/s/4aVPz
+
+https://readhacker.news/s/4aUb6
+
+3b1b: https://www.youtube.com/watch?v=fNk_zzaMoSs&list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab
 
 ### 7 - Signals
+
+3b1b: https://www.youtube.com/watch?v=spUNpyF58BY
+
+https://ocw.mit.edu/resources/res-6-007-signals-and-systems-spring-2011/
+
+https://en.wikibooks.org/wiki/Signals_and_Systems
 
 ## Ⅱ - Physics
 
@@ -3628,6 +3696,60 @@ https://www.youtube.com/watch?v=zK3rDhJqMu0&index=8&list=PL5cGwrD7cv8hK-qxPqRB25
 
 
 # Chapter 26 - Graphical Programming
+
+Let's start in a way that's incredibly simple, and abstract away all the hard stuff at first by using a tool kit called 'Processing', which is available under that name from the community repo in arch. The default IDE that comes with it is awful to work in though, so go ahead and open up VSCode and grab the [Processing Language](https://marketplace.visualstudio.com/items?itemName=Tobiah.language-pde) add on, then in VSCode open up a new workspace folder and make a file called processing.pde, then open VSCode's command pallete (CTRL+Shift+P) and run 'Processing: create task file', after that you'll want to open the tasks.json file and change the `command:` line to have `"command": "/usr/bin/processing-java",` after that you can easily try new code just by re-building project the project with CTRL+Shift+B
+
+Alright, setup out of the way, let's code! One of my first projects in processing was to make a [Topographic Map](https://en.wikipedia.org/wiki/Topographic_map), looking generator because I just find them quite visually appealing.
+
+So, thinking about that problem, we clearly need data. probably an array of sorts with a bunch of values that have a smoothed relationship when viewing them as height map, then we'd want to look at the transition points between ranges of values.
+
+Looking up random data generation in python, and you should stumble upon it's noise generation, and see that it uses [Perlin Noise](https://en.wikipedia.org/wiki/Perlin_noise), which upon looking at it should be obvious that it generates exactly what we want. So, looking up an example for that in processing we get to this page: https://processing.org/examples/noise2d.html
+
+Well, that's already super close, so let's look at that code
+
+```java
+float increment = 0.02;
+
+void setup() {
+  size(640, 360);
+}
+
+void draw() {
+  
+  loadPixels();
+
+  float xoff = 0.0; // Start xoff at 0
+  float detail = map(mouseX, 0, width, 0.1, 0.6);
+  noiseDetail(8, detail);
+  
+  // For every x,y coordinate in a 2D space, calculate a noise value and produce a brightness value
+  for (int x = 0; x < width; x++) {
+    xoff += increment;   // Increment xoff 
+    float yoff = 0.0;   // For every xoff, start yoff at 0
+    for (int y = 0; y < height; y++) {
+      yoff += increment; // Increment yoff
+      
+      // Calculate noise and scale by 255
+      float bright = noise(xoff, yoff) * 255;
+
+      // Try using this line instead
+      //float bright = random(0,255);
+      
+      // Set each pixel onscreen to a grayscale value
+      pixels[x+y*width] = color(bright);
+    }
+  }
+  
+  updatePixels();
+}
+
+```
+
+Alright, so line by line, it seems that line 1 is just defining a constant. Reading the Processing docs you'll find setup() should contain size() which takes two arguments that are the size of the output window in pixels (x and y) and that draw() is an endlessly looping function that updates that window.
+
+Before going further let's copy and paste the code into VSCode and run it:
+
+[TODO] add picture
 
 [TODO]
 
