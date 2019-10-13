@@ -16,6 +16,28 @@ Programming can seem scary at first but [TODO]
 
 ## The building blocks of programming
 
+All programming is just chaining logic, for example using treatments like "if a is b, then make c hold the value of a-3" followed by "if c is negitive then say hello"
+
+Well, that's actually an easy program
+
+```python
+a = 1
+b = 1
+c = 1
+
+if a == b:
+    c = a-3
+
+if c < 0:
+    print('hello')
+```
+
+you should notice a few weird things here though, namely, on line 5 we used two equal signs to check equality. This is the case in most programming languages because a single equal sign, like is used on the first two lines, is used for assignment that is assigning the value of `a` to 1 and `b` to 1 or as on line 6 assigning the value of `( a - 3 )` to `c`, because we've already used a single equal sign for assignment, two equal signs is used for checking equality.
+
+If you follow the logic here, `a` and `b` are both 1, so line 4 checks that to be true, so line 5 does happen. Now  c which previously was equal to 1 is now equal to a-3, where a is 1, so c becomes -2. on line 8 we check if c is less than 0, and it is so we print the word 'hello'. Here, you'll notice 'hello' is in quotes. This is because if it were not, that is if it were `print(hello)` it would try to print the value of the variable 'hello' which since hello isn't defined, wouldn't work. Let's try this:
+
+Open up VSCode and [TODO] try without quotes, then define hello to be something else  
+
 [TODO]
 if, while, for (and specialized), assignment, comparison, combined ops (+=), mod, exponent, floor,
 in/not in, is/is not, data types, functions
