@@ -16,11 +16,27 @@ Imaginary numbers, systems of equations
 
 ### 4 - Calculus
 
+3b1b: https://www.youtube.com/watch?v=WUvTyaaNkzM&t=12s
+
 ### 5 - Differential Equations
 
-### 6 - Matrix Theory
+3b1b: https://www.youtube.com/watch?v=p_di4Zn4wz4
+
+### 6 - Matrix Theory / Linear Algebra
+
+https://readhacker.news/s/4aVPz
+
+https://readhacker.news/s/4aUb6
+
+3b1b: https://www.youtube.com/watch?v=fNk_zzaMoSs&list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab
 
 ### 7 - Signals
+
+3b1b: https://www.youtube.com/watch?v=spUNpyF58BY
+
+https://ocw.mit.edu/resources/res-6-007-signals-and-systems-spring-2011/
+
+https://en.wikibooks.org/wiki/Signals_and_Systems
 
 ## Ⅱ - Physics
 
