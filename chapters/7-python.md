@@ -50,6 +50,7 @@ As you can see Python failed to print hello because the variable was not defined
 >>> print(hello)
 Hello World!
 ```
+Anything you write to the interpreter can also be added to a file and ran that way. Try saving the examples above to a file called test.py, opening a terminal and running it with `python test.py`. 
 
 [TODO]
 if, while, for (and specialized), assignment, comparison, combined ops (+=), mod, exponent, floor,
@@ -71,8 +72,11 @@ As seen in the example above, the following will print `Hello World!`:
 `print('Hello World!')`
 Lets get some input aswell: 
 ```
-print('What's your name?') # Print the question first
-print('Hello ' + input()) # This will pause the program and wait for user input before printing Hello <input>
+print('What\'s your name?')
+# This prints the question. Notice the escape character \ is used to avoid stopping the string. 
+
+print('Hello ' + input()) 
+# This will pause the program and wait for user input before printing Hello <input>
 ```
 
 ### Even or Odd, prime,
