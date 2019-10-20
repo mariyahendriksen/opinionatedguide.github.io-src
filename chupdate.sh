@@ -32,7 +32,6 @@ echo "removed temp files"
 #sed 's/.\/imgs\//..\/imgs\//g' ./chapters/y.md > ./chapters/indev.md
 #echo "indev file generated"
 mv ./chapters/y.md ./content/opinionatedeng.md
-echo "opininionatedeng.md replaced"
+#echo "opininionatedeng.md replaced"
 
 make html
-make publish

@@ -38,14 +38,14 @@ If you follow the logic here, `a` and `b` are both 1, so line 4 checks that to b
 
 With the Python interpreter open try without quotes: 
 
-```
+```python
 >>>print(hello)
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
 NameError: name 'hello' is not defined
 ```
 As you can see Python failed to print hello because the variable was not defined. Now lets try assigning a value to the hello variable before printing:
-```
+```python
 >>> hello = "Hello World!"
 >>> print(hello)
 Hello World!
@@ -71,7 +71,7 @@ try/catch
 As seen in the example above, the following will print `Hello World!`:
 `print('Hello World!')`
 Lets get some input aswell: 
-```
+```python
 print('What\'s your name?')
 # This prints the question. Notice the escape character \ is used to avoid stopping the string. 
 
