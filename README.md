@@ -1,13 +1,13 @@
 # The Opinionated Guide to Learning Computer and Electrical Enginerring
 ### Version 0.1, Contributions welcome
 
-View the main guide [here](https://opinionatedguide.github.io/Opinionated%20Engineering.html)
+View the main guide [here](https://opinionatedguide.github.io/OpinionatedEngineering.html)
 
 This repo also contains some other guides, deemed to specific or off topic for the main guide:
 
-[Opinionated Music](https://opinionatedguide.github.io/Opinionated%20Music.html), a guide to music production hardware, software, and theory
+[Opinionated Music](https://opinionatedguide.github.io/OpinionatedMusic.html), a guide to music production hardware, software, and theory
 
-[Opinionated Design](https://opinionatedguide.github.io/Opinionated%20Design.html), a guide to design and art
+[Opinionated Design](https://opinionatedguide.github.io/OpinionatedDesign.html), a guide to design and art
 
 ---
 #### Purpose:
