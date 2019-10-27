@@ -92,7 +92,28 @@ else:
    print("{} is Odd".format(num))
 ```
 
-[TODO] prime number
+### Prime Numbers
+Prime number is a number greater than 1 whose only factors are 1 and itself. Few instances of prime numbers include 2, 3, 5, 11. Below is an example of python function which defines whether the given input number is prime or not. 
+
+```python
+def is_prime(num):
+
+    if num > 1:
+
+        # Iterate from 2 to n / 2
+        for i in range(2, num // 2):
+
+            # If num is divisible by any number between
+            # 2 and n / 2, it is not prime
+            if (num % i) == 0:
+                print("{} is not a prime number".format(num))
+                break
+        else:
+            print("{} is a prime number".format(num))
+
+    else:
+        print("{} is not a prime number".format(num))
+```
 
 ### Calculating sine and pi
 
