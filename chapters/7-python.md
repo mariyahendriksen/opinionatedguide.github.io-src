@@ -12,7 +12,7 @@ From https://wiki.xxiivv.com/#development:
 > When a program must fail, it should fail noisily and as soon as possible.
 > Write big programs only when it is clear by demonstration that nothing else will do.
 
-Programming can seem scary at first but [TODO]
+Programming can seem scary at first but the more you exercise, the easier and more exciting it gets. After all, practice makes perfect! :)
 
 ## The building blocks of programming
 
